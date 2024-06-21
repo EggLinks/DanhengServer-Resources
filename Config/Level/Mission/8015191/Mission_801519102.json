@@ -1,0 +1,216 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateNPC",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 50
+            }
+          },
+          "GroupNpcID": {
+            "fixedValue": {
+              "Value": 400002
+            }
+          },
+          "CreateList": [
+            {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 50
+                }
+              },
+              "GroupInstanceID": {
+                "fixedValue": {
+                  "Value": 400003
+                }
+              }
+            },
+            {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 50
+                }
+              },
+              "GroupInstanceID": {
+                "fixedValue": {
+                  "Value": 400004
+                }
+              }
+            },
+            {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 50
+                }
+              },
+              "GroupInstanceID": {
+                "fixedValue": {
+                  "Value": 400005
+                }
+              }
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateProp",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 50
+            }
+          },
+          "GroupPropID": {
+            "fixedValue": {
+              "Value": 300001
+            }
+          },
+          "CreateList": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 50
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300001
+                }
+              }
+            }
+          },
+          "TargetTypes": [],
+          "DestroyAfterTriggered": true,
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "PropTrigger_801510102"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "SkipFakeAvatar": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "PropTrigger_801510102"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetAudioEmotionState",
+          "StateName": "State_Joyful",
+          "SubMissionID": 801519102,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerPerformance",
+          "ValueSource": {},
+          "PerformanceType": "D",
+          "PerformanceID": 801519102,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetAudioEmotionState",
+          "ResetToFloorDefault": true,
+          "SubMissionID": 801519102,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_801519102",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "PropTrigger_801510102"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "fixedValue": {
+              "Value": 1
+            }
+          },
+          "MaxAdvencePerTick": -1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.DestroyNPC",
+          "GroupID": 50,
+          "GroupNpcID": 400002,
+          "DestroyList": [
+            {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 50
+                }
+              },
+              "GroupInstanceID": {
+                "fixedValue": {
+                  "Value": 400003
+                }
+              }
+            },
+            {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 50
+                }
+              },
+              "GroupInstanceID": {
+                "fixedValue": {
+                  "Value": 400004
+                }
+              }
+            },
+            {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 50
+                }
+              },
+              "GroupInstanceID": {
+                "fixedValue": {
+                  "Value": 400005
+                }
+              }
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

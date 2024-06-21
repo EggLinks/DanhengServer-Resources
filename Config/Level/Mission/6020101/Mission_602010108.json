@@ -1,0 +1,79 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvProp",
+            "MultiGroupFetch": [
+              {
+                "GroupID": {
+                  "fixedValue": {
+                    "Value": 78
+                  }
+                },
+                "ID": {
+                  "fixedValue": {
+                    "Value": 300001
+                  }
+                }
+              }
+            ]
+          },
+          "TargetGroupID": {},
+          "TargetID": {},
+          "TargetTypes": [],
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "Mission_602010108_PropTrigger"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "DestroyAfterGraphEnd": true,
+          "SkipFakeAvatar": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Mission_602010108_PropTrigger"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerPerformance",
+          "ValueSource": {},
+          "PerformanceType": "D",
+          "PerformanceID": 602010116,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_602010108",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Mission_602010108"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

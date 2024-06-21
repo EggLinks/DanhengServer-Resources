@@ -1,0 +1,81 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [],
+          "MainMissionIDList": [],
+          "PerformanceIDList": [],
+          "PerformanceIDDsList": [],
+          "CustomValueMainMissionIDList": [
+            1032701
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareMissionCustomValue",
+            "MainMissionID": 1032701,
+            "MissionCustomValue": {
+              "ValidValueParamList": [
+                0,
+                1,
+                2
+              ]
+            },
+            "EquationType": "Equal",
+            "TargetValue": 1,
+            "TaskEnabled": true
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.SetMissionCustomValue",
+              "SubmissionID": 103270227,
+              "MissionCustomValue": {
+                "Index": 1,
+                "ValidValueParamList": [
+                  1,
+                  2
+                ]
+              },
+              "CustomValue": 1,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.FinishPerformanceMission",
+              "Key": "Mission_103270227",
+              "MainMissionID": 1032702,
+              "TaskEnabled": true
+            }
+          ],
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.SetMissionCustomValue",
+              "SubmissionID": 103270227,
+              "MissionCustomValue": {
+                "Index": 1,
+                "ValidValueParamList": [
+                  1,
+                  2
+                ]
+              },
+              "CustomValue": 2,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.FinishPerformanceMission",
+              "Key": "Mission_103270227",
+              "MainMissionID": 1032702,
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

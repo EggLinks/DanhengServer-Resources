@@ -1,0 +1,99 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateNPC",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 31
+            }
+          },
+          "GroupNpcID": {
+            "fixedValue": {
+              "Value": 400001
+            }
+          },
+          "CreateList": [],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateProp",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 31
+            }
+          },
+          "GroupPropID": {
+            "fixedValue": {
+              "Value": 300002
+            }
+          },
+          "CreateList": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 31
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300002
+                }
+              }
+            }
+          },
+          "TargetTypes": [],
+          "DestroyAfterTriggered": true,
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "SetupTombForNatashasBro"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "SkipFakeAvatar": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "SetupTombForNatashasBro"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerPerformance",
+          "ValueSource": {},
+          "PerformanceType": "D",
+          "PerformanceID": 201140116,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_201140116",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

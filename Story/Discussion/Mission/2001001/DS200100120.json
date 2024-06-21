@@ -1,0 +1,156 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "D",
+          "AreaPrefabPath": "Story/Discussion/Mission/2001001/DS200100120.prefab",
+          "CreateCharacterList": [
+            {
+              "CharacterUniqueName": "Herta_00_C00",
+              "AvatarID": "NPC_Avatar_Girl_Herta_00",
+              "AreaName": "DS200100120.prefab",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "PlayerBoy_00_C00",
+              "AvatarID": "NPC_Avatar_Lad_PlayerBoy_00",
+              "AreaName": "DS200100120.prefab",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "PlayerGirl_00_C00",
+              "AvatarID": "NPC_Avatar_Miss_PlayerGirl_00",
+              "AreaName": "DS200100120.prefab",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "RogueEventPainting_00_08_C00",
+              "AvatarID": "NPC_Special_RogueEventPainting_00_08",
+              "AreaName": "DS200100120.prefab",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "Screwllum_00_C00",
+              "AvatarID": "NPC_Avatar_Male_Screwllum_00",
+              "AreaName": "DS200100120.prefab",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "RuanMei_00_C00",
+              "AvatarID": "NPC_Avatar_Maid_RuanMei_00",
+              "AreaName": "DS200100120.prefab",
+              "TaskEnabled": true
+            }
+          ],
+          "CaptureNPCList": [],
+          "HideNPC": true,
+          "EntityVisiableList": [],
+          "HideMunicipalCrowd": true,
+          "HideMunicipalPedestrian": true,
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "HideProp": true,
+          "PropVisiableList": [],
+          "HideLocalPlayer": true,
+          "StreamingSourcesInBlackMask": [],
+          "StreamingSourcesAfterBlackMask": [],
+          "MarkStreamingItems": [],
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PerformanceExtendEndBlack",
+          "ExtendTime": 0.5,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/2001001/DS20010012001.playable",
+          "Type": "Discussion",
+          "Parameters": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "TalkSentenceID": 200102004,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_200102005"
+            },
+            {
+              "TalkSentenceID": 200102008,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_200102009"
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_200102005"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/2001001/DS20010012002.playable",
+          "Type": "Discussion",
+          "Parameters": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_200102009"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_200102009"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/2001001/DS20010012003.playable",
+          "Type": "Discussion",
+          "Parameters": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "PerformanceD"
+}

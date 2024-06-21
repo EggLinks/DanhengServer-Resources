@@ -1,0 +1,107 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateNPC",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 20
+            }
+          },
+          "GroupNpcID": {
+            "fixedValue": {
+              "Value": 400009
+            }
+          },
+          "CreateList": [],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateProp",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 20
+            }
+          },
+          "GroupPropID": {
+            "fixedValue": {
+              "Value": 300001
+            }
+          },
+          "CreateList": [],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 20
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300001
+                }
+              }
+            }
+          },
+          "TargetGroupID": {},
+          "TargetID": {},
+          "TargetTypes": [],
+          "DestroyAfterTriggered": true,
+          "DisableAfterTriggered": true,
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "102170201_Start"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "DestroyAfterGraphEnd": true,
+          "SkipFakeAvatar": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "102170201_Start"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerPerformance",
+          "ValueSource": {},
+          "PerformanceType": "C",
+          "PerformanceID": 102170201,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_102170201",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

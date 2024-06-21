@@ -1,0 +1,262 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "D",
+          "HideMunicipalCrowd": true,
+          "HideMunicipalPedestrian": true,
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.StartDialogueEntityInteract",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+            "FetchType": "SingleNpcByNpcID",
+            "SingleNpcID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 123
+                }
+              },
+              "GroupNpcID": {
+                "fixedValue": {
+                  "Value": 400001
+                }
+              }
+            }
+          },
+          "LevelGraphPath": "Config/Level/Props/InteractMode/TriggerEvent_TriggerType_08.json",
+          "UseOverrideData": true,
+          "ValueSource": {
+            "Values": [
+              {
+                "$type": "RPG.GameCore.SharedString",
+                "Value": "Level/Common_Adventure/Dreamland.prefab",
+                "Key": "DialogueEntityInteract_AreaPath"
+              },
+              {
+                "$type": "RPG.GameCore.SharedString",
+                "Value": "Dreamland,Dreamland_Camera",
+                "Key": "DialogueEntityInteract_CameraKey"
+              },
+              {
+                "$type": "RPG.GameCore.SharedString",
+                "Value": "Dreamland",
+                "Key": "DialogueEntityInteract_AreaName"
+              },
+              {
+                "$type": "RPG.GameCore.SharedFloat",
+                "Key": "ResetEntityTransform"
+              }
+            ],
+            "SharedValues": [
+              {
+                "$type": "RPG.GameCore.SharedString",
+                "Value": "Level/Common_Adventure/Dreamland.prefab",
+                "Key": "DialogueEntityInteract_AreaPath"
+              },
+              {
+                "$type": "RPG.GameCore.SharedString",
+                "Value": "Dreamland,Dreamland_Camera",
+                "Key": "DialogueEntityInteract_CameraKey"
+              },
+              {
+                "$type": "RPG.GameCore.SharedString",
+                "Value": "Dreamland",
+                "Key": "DialogueEntityInteract_AreaName"
+              },
+              {
+                "$type": "RPG.GameCore.SharedFloat",
+                "Key": "ResetEntityTransform"
+              }
+            ]
+          },
+          "OverrideTasks": {
+            "OverrideVCamBlendConfig": true,
+            "VCamBlendConfig": {
+              "ExportToJson": true,
+              "BlendType": "Cut",
+              "FOVSmoothDampTime": -1,
+              "FrameBlendWeightStart": 1,
+              "FrameBlendDuration": 1
+            }
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 413092101,
+              "ProtectTime": 0.3
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 413092102,
+              "ProtectTime": 0.3
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 413092103,
+              "ProtectTime": 0.3
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 413092104,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "TalkSentenceID": 413092105,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_413092106"
+            },
+            {
+              "TalkSentenceID": 413092108,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_413092109"
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_413092106"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 413092106,
+              "ProtectTime": 0.3
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 413092107,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "ALL_TALK_END"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_413092109"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 413092109,
+              "ProtectTime": 0.3
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 413092110,
+              "ProtectTime": 0.3
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 413092111,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "ALL_TALK_END"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "ALL_TALK_END"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndDialogueEntityInteract",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+            "FetchType": "SingleNpcByNpcID",
+            "SingleNpcID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 123
+                }
+              },
+              "GroupNpcID": {
+                "fixedValue": {
+                  "Value": 400001
+                }
+              }
+            }
+          },
+          "LevelGraphPath": "Config/Level/Props/InteractMode/TriggerEvent_ExitTriggerType_08.json",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "D",
+          "AreaPrefabPath": "Story/Discussion/Mission/8023103/DS802310303.prefab",
+          "CreateCharacterList": [
+            {
+              "CharacterUniqueName": "PlayerGirl_00_C00",
+              "AvatarID": "NPC_Avatar_Miss_PlayerGirl_00",
+              "AreaName": "DS802310303.prefab",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "Mar_7th_00_C00",
+              "AvatarID": "NPC_Avatar_Maid_Mar_7th_00",
+              "AreaName": "DS802310303.prefab",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "Silwolf_00_C00",
+              "AvatarID": "NPC_Avatar_Girl_Silwolf_00",
+              "AreaName": "DS802310303.prefab",
+              "OverrideReplaceMaterialKey": "Silwolf_00_Phantom",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "PlayerBoy_00_C00",
+              "AvatarID": "NPC_Avatar_Lad_PlayerBoy_00",
+              "AreaName": "DS802310303.prefab",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "OrigamiBird_00_Mar_7th_C00",
+              "AvatarID": "NPC_Special_OrigamiBird_00_Mar_7th",
+              "AreaName": "DS802310303.prefab",
+              "TaskEnabled": true
+            }
+          ],
+          "CaptureNPCList": [],
+          "EntityVisiableList": [
+            {
+              "GroupID": 247,
+              "GroupNPCID": 400007
+            },
+            {
+              "GroupID": 247,
+              "GroupNPCID": 400008
+            }
+          ],
+          "HideMunicipalCrowd": true,
+          "HideMunicipalPedestrian": true,
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "HideProp": true,
+          "PropVisiableList": [],
+          "HideLocalPlayer": true,
+          "StreamingSourcesInBlackMask": [],
+          "StreamingSourcesAfterBlackMask": [],
+          "MarkStreamingItems": [],
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/8023103/DS80231030301.playable",
+          "Type": "Discussion",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "TalkSentenceID": 823103202,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_823103204"
+            },
+            {
+              "TalkSentenceID": 823103203,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_823103204"
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_823103204"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/8023103/DS80231030302.playable",
+          "Type": "Discussion",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "PerformanceD"
+}

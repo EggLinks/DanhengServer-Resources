@@ -1,0 +1,47 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Talk_103060123"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_103060123",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "fixedValue": {
+              "Value": 1
+            }
+          },
+          "MaxAdvencePerTick": -1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PPFilterStackEffect",
+          "PriorityGroup": "PerformanceGroup",
+          "StartRate": -1,
+          "Rate": 0.3,
+          "Duration": 1,
+          "RecoverDuration": 0.5,
+          "AssetPath": "EnviroSystem/PostProcessFilterAsset/DizzinessVarient.asset",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

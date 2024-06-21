@@ -1,0 +1,149 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "E",
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PerformanceTransition",
+          "SwitchInTime": 0.5,
+          "SwitchKeepTime": 0.5,
+          "SwitchOutTime": 0.5,
+          "CreateNpcList": [
+            {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 86
+                }
+              },
+              "GroupNpcID": {
+                "fixedValue": {
+                  "Value": 400001
+                }
+              },
+              "CreateList": [],
+              "TaskEnabled": true
+            },
+            {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 86
+                }
+              },
+              "GroupNpcID": {
+                "fixedValue": {
+                  "Value": 400002
+                }
+              },
+              "CreateList": [],
+              "TaskEnabled": true
+            }
+          ],
+          "CaptureNpcList": [],
+          "DestroyNpcList": [],
+          "DisactiveVCamOnGraphEnd": true,
+          "ActiveVirtualCamera": {
+            "IsActive": true,
+            "VCameraDitherMaxDistance": 1,
+            "CenterPosX": -1,
+            "CenterPosY": -1
+          },
+          "SwitchCharacterAnchor": {
+            "IsLocalPlayer": true,
+            "CharacterUniqueName": "LocalPlayer",
+            "AreaName": {
+              "Value": "LevelArea_P20123_F20123001_G86"
+            },
+            "AnchorName": {
+              "Value": "Anchor1"
+            },
+            "ResetAnimation": true,
+            "ResetCamera": true,
+            "TaskEnabled": true
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 201192003,
+              "ProtectTime": 0.3
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 201192004,
+              "ProtectTime": 0.3
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 201192005,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PerformanceTransition",
+          "SwitchInTime": 0.5,
+          "SwitchKeepTime": 0.5,
+          "SwitchOutTime": 0.5,
+          "CreateNpcList": [],
+          "CaptureNpcList": [],
+          "DestroyNpcList": [
+            {
+              "GroupID": 86,
+              "GroupNpcID": 400001,
+              "DestroyList": [],
+              "TaskEnabled": true
+            },
+            {
+              "GroupID": 86,
+              "GroupNpcID": 400002,
+              "DestroyList": [],
+              "TaskEnabled": true
+            }
+          ],
+          "DisactiveVCamOnGraphEnd": true,
+          "ActiveVirtualCamera": {
+            "IsActive": true,
+            "VCameraDitherMaxDistance": 1,
+            "CenterPosX": -1,
+            "CenterPosY": -1
+          },
+          "SwitchCharacterAnchor": {
+            "ResetAnimation": true,
+            "ResetCamera": true
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ]
+}

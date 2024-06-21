@@ -1,0 +1,376 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "D",
+          "CreateCharacterList": [],
+          "EntityVisiableList": [],
+          "HideMunicipalCrowd": true,
+          "HideMunicipalPedestrian": true,
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "PropVisiableList": [],
+          "MarkStreamingItems": [],
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PerformanceTransition",
+          "SwitchInTime": 0.5,
+          "SwitchKeepTime": 0.5,
+          "SwitchOutTime": 0.5,
+          "CreateNpcList": [
+            {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 191
+                }
+              },
+              "GroupNpcID": {
+                "fixedValue": {
+                  "Value": 400013
+                }
+              },
+              "NPCUniqueName": {
+                "Value": "Unique_201190308_pela"
+              },
+              "CreateList": [],
+              "TaskEnabled": true
+            }
+          ],
+          "CaptureNpcList": [
+            {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 191
+                }
+              },
+              "GroupNpcID": {
+                "fixedValue": {
+                  "Value": 400002
+                }
+              },
+              "CharacterUniqueName": {
+                "Value": "Unique_201190308_nigulai"
+              },
+              "ReleaseIfPerformanceEnd": true,
+              "TaskEnabled": true
+            }
+          ],
+          "DestroyNpcList": [],
+          "CreateProp": {
+            "GroupID": {},
+            "GroupPropID": {}
+          },
+          "DestroyProp": {
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+            },
+            "ID": {},
+            "GroupID": {}
+          },
+          "DisactiveVCamOnGraphEnd": true,
+          "ActiveVirtualCamera": {
+            "IsActive": true,
+            "VCameraDitherMaxDistance": 1,
+            "CenterPosX": -1,
+            "CenterPosY": -1
+          },
+          "ActiveTemplateVirtualCamera": {
+            "IsActive": true
+          },
+          "SwitchCharacterAnchor": {
+            "IsLocalPlayer": true,
+            "CharacterUniqueName": "LocalPlayer",
+            "AreaName": {
+              "Value": "LevelArea_P10101_F10101001_G191"
+            },
+            "AnchorName": {
+              "Value": "Anchor6"
+            },
+            "ResetAnimation": true,
+            "ResetCamera": true,
+            "TaskEnabled": true
+          },
+          "AdvNpcFaceToPlayer": {
+            "FromDialog": true,
+            "TryFaceToFace": true,
+            "NpcLookAtPlayer": true,
+            "PlayerLookAtNpc": true,
+            "StopLookAtOnGraphEnd": true,
+            "TurnBackOnGraphEnd": true,
+            "WaitFinishMode": "WaitFaceAngle",
+            "ForceToStandBy": true
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ActiveTemplateVirtualCamera",
+          "TemplateName": {
+            "Value": "PlayerFacetoNPC_2v1_right"
+          },
+          "CameraRotationOffset": -17.49,
+          "IsActive": true,
+          "FollowTargetGroupID": 191,
+          "FollowTargetEntityID": 6,
+          "LookAtTargetGroupID": 191,
+          "LookAtTargetEntityID": 400002,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.AdvNpcFaceToPlayer",
+          "FromDialog": true,
+          "TryFaceToFace": true,
+          "NpcLookAtPlayer": true,
+          "PlayerLookAtNpc": true,
+          "StopLookAtOnGraphEnd": true,
+          "TurnBackOnGraphEnd": true,
+          "FinishImmadiate": true,
+          "WaitFinishMode": "WaitFaceAngle",
+          "ForceToStandBy": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 201193461,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "TalkSentenceID": 201193462,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_201193463"
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+          "CharacterUniqueName": "LocalPlayer",
+          "ForceStart": true,
+          "StoryAvatarID": "NPC_Player",
+          "NormalizedTransitionDuration": 0.05,
+          "StoryMotionID": 200,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_201193463"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+          "CharacterUniqueName": "Unique_201190308_nigulai",
+          "ForceStart": true,
+          "StoryAvatarID": "NPC_Lady",
+          "NormalizedTransitionDuration": 0.05,
+          "StoryMotionID": 100020230,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 201193463,
+              "ProtectTime": 0.3
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 201193464,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+          "CharacterUniqueName": "Unique_201190308_pela",
+          "ForceStart": true,
+          "StoryAvatarID": "NPC_Avatar_Girl_Pela_00",
+          "NormalizedTransitionDuration": 0.05,
+          "StoryMotionID": 311060200,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 201193465,
+              "ProtectTime": 0.3
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 201193466,
+              "ProtectTime": 0.3
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 201193467,
+              "ProtectTime": 0.3
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 201193468,
+              "ProtectTime": 0.3
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 201193469,
+              "ProtectTime": 0.3
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 201193470,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.AdvEntityFaceTo",
+          "SourceType": {
+            "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+            "FetchType": "SingleNpcByNpcID",
+            "SingleNpcID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 191
+                }
+              },
+              "GroupNpcID": {
+                "fixedValue": {
+                  "Value": 400013
+                }
+              }
+            }
+          },
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvLocalPlayer",
+            "IncludeStoryPlayer": true
+          },
+          "EnableLookAt": true,
+          "LookAtPoint": "Head",
+          "WaitFinishMode": "WaitAnimFinish",
+          "ForceToStandBy": true,
+          "TurnBackOnGraphEnd": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 201193471,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PerformanceTransition",
+          "SwitchInTime": 0.5,
+          "SwitchKeepTime": 0.5,
+          "SwitchOutTime": 0.5,
+          "CreateNpcList": [],
+          "CaptureNpcList": [],
+          "DestroyNpcList": [
+            {
+              "GroupID": 191,
+              "GroupNpcID": 400013,
+              "DestroyList": [],
+              "TaskEnabled": true
+            }
+          ],
+          "CreateProp": {
+            "GroupID": {},
+            "GroupPropID": {}
+          },
+          "DestroyProp": {
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+            },
+            "ID": {},
+            "GroupID": {}
+          },
+          "DisactiveVCamOnGraphEnd": true,
+          "ActiveVirtualCamera": {
+            "IsActive": true,
+            "VCameraDitherMaxDistance": 1,
+            "CenterPosX": -1,
+            "CenterPosY": -1
+          },
+          "ActiveTemplateVirtualCamera": {
+            "IsActive": true
+          },
+          "SwitchCharacterAnchor": {
+            "ResetAnimation": true,
+            "ResetCamera": true
+          },
+          "AdvNpcFaceToPlayer": {
+            "FromDialog": true,
+            "TryFaceToFace": true,
+            "NpcLookAtPlayer": true,
+            "PlayerLookAtNpc": true,
+            "StopLookAtOnGraphEnd": true,
+            "TurnBackOnGraphEnd": true,
+            "WaitFinishMode": "WaitFaceAngle",
+            "ForceToStandBy": true
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ActiveTemplateVirtualCamera",
+          "TemplateName": {
+            "Value": "PlayerFacetoNPC_2v1_right"
+          },
+          "CameraRotationOffset": -17.49,
+          "FollowTargetGroupID": 191,
+          "FollowTargetEntityID": 6,
+          "LookAtTargetGroupID": 191,
+          "LookAtTargetEntityID": 400002,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ]
+}

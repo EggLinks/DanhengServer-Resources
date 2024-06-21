@@ -1,0 +1,123 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "E",
+          "CreateCharacterList": [],
+          "CaptureNPCList": [],
+          "EntityVisiableList": [],
+          "HideMonster": true,
+          "PropVisiableList": [],
+          "StreamingSourcesInBlackMask": [],
+          "StreamingSourcesAfterBlackMask": [],
+          "MarkStreamingItems": [],
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayScreenTransfer",
+          "Type": "Black",
+          "Mode": "SwitchOut",
+          "CustomTime": 0.5
+        },
+        {
+          "$type": "RPG.GameCore.ActiveVirtualCamera",
+          "AreaName": "LevelArea_P43103_F43103001_G4",
+          "AnchorName": "Camera1",
+          "IsActive": true,
+          "VCameraDitherMaxDistance": 1,
+          "CenterPosX": -1,
+          "CenterPosY": -1,
+          "DynamicParams": {},
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayScreenTransfer",
+          "Type": "Black",
+          "CustomTime": 0.3,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PropTriggerAnimState",
+          "AnimStateName": "Activing",
+          "TransitionDuration": 0.05,
+          "FixedTransitionDuration": true,
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropKey": {
+              "Custom": true,
+              "Key": "Door"
+            },
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 4
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300012
+                }
+              }
+            }
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "fixedValue": {
+              "Value": 3
+            }
+          },
+          "MaxAdvencePerTick": -1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayScreenTransfer",
+          "Type": "Black",
+          "Mode": "SwitchOut",
+          "CustomTime": 0.3,
+          "KeepDisplay": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ActiveVirtualCamera",
+          "AreaName": "LevelArea_P43103_F43103001_G4",
+          "AnchorName": "Camera1",
+          "VCameraDitherMaxDistance": 1,
+          "CenterPosX": -1,
+          "CenterPosY": -1,
+          "DynamicParams": {},
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayScreenTransfer",
+          "Type": "Black",
+          "CustomTime": 0.3
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ]
+}

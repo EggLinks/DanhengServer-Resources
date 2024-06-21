@@ -1,0 +1,258 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.ShowFuncBtn",
+          "Show": true,
+          "HideWhenGraphFinish": true,
+          "PuzzleFunc": "Identify",
+          "CDDuration": 1,
+          "ShowBtnFucHint": true,
+          "CustomString": {
+            "Value": "PhotoGraphGOGOGO"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "PhotoGraphGOGOGO"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SwitchPhotoGraphMode",
+          "PhotoGraphMode": "Identify",
+          "ExitWhenPreViewDialogFinish": true,
+          "SkipPhotoPreviewDialog": true,
+          "InitFov": -1,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "200020507_Unlock"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "200020507_Break"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_200020507",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "200020507_Unlock"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PhotoGraphAimTarget",
+          "AimTargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvNPC",
+            "MultiGroupFetch": [
+              {
+                "GroupID": 3,
+                "GroupNpcID": 200002
+              },
+              {
+                "GroupID": 26,
+                "GroupNpcID": 200002
+              }
+            ]
+          },
+          "IsAim": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PhotoGraphWaitIdentifyFinish",
+          "WaitTargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvNPC",
+            "MultiGroupFetch": [
+              {
+                "GroupID": 3,
+                "GroupNpcID": 200002
+              }
+            ]
+          },
+          "OnIdentifyFinish": [
+            {
+              "$type": "RPG.GameCore.SwitchPhotoGraphMode",
+              "ExitWhenPreViewDialogFinish": true,
+              "InitFov": -1
+            },
+            {
+              "$type": "RPG.GameCore.ToastPile",
+              "ImgPath": "SpriteOutput/UI/MobilePhone/TextPanel.png",
+              "DescTextID": {
+                "Hash": 514963252
+              }
+            },
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "200020507_Success"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "OnPreviewFinish": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PhotoGraphAimTarget",
+          "AimTargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvNPC",
+            "MultiGroupFetch": [
+              {
+                "GroupID": 3,
+                "GroupNpcID": 200002
+              },
+              {
+                "GroupID": 26,
+                "GroupNpcID": 200002
+              }
+            ]
+          },
+          "AimIdentifyType": "Manual",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "200020507_Marked"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PhotoGraphWaitIdentifyFinish",
+          "WaitTargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvNPC",
+            "MultiGroupFetch": [
+              {
+                "GroupID": 26,
+                "GroupNpcID": 200002
+              }
+            ]
+          },
+          "OnIdentifyFinish": [
+            {
+              "$type": "RPG.GameCore.SwitchPhotoGraphMode",
+              "ExitWhenPreViewDialogFinish": true,
+              "InitFov": -1
+            },
+            {
+              "$type": "RPG.GameCore.ToastPile",
+              "ImgPath": "SpriteOutput/UI/MobilePhone/TextPanel.png",
+              "DescTextID": {
+                "Hash": 514963253
+              }
+            },
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "200020503_Fail"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "OnPreviewFinish": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PhotoGraphAimTarget",
+          "AimTargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvNPC",
+            "MultiGroupFetch": [
+              {
+                "GroupID": 26,
+                "GroupNpcID": 200002
+              }
+            ]
+          },
+          "AimIdentifyType": "Manual",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "200020507_Success"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PhotoGraphShowIdentifyResult",
+          "IsIdentifySuccess": true,
+          "IsShowToast": true,
+          "ToastText": {
+            "Hash": 514963252
+          },
+          "IsShowAim": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "200020503_Fail"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PhotoGraphShowIdentifyResult",
+          "IsShowToast": true,
+          "ToastText": {
+            "Hash": 514963253
+          },
+          "IsShowAim": true,
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

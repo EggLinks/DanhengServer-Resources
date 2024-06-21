@@ -1,0 +1,198 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "E",
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.AdvEntityFaceTo",
+          "SourceType": {
+            "$type": "RPG.GameCore.TargetFetchAdvLocalPlayer",
+            "IncludeStoryPlayer": true
+          },
+          "TargetType": {
+            "$type": "RPG.GameCore.GroupFetchLocalTarget",
+            "TargetType": "Prop",
+            "Targets": [
+              300001
+            ]
+          },
+          "EnableSteer": true,
+          "EnableLookAt": true,
+          "LookAtPoint": "Head",
+          "FinishImmediately": true,
+          "WaitFinishMode": "WaitAnimFinish",
+          "TurnBackOnGraphEnd": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 200103701,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "TalkSentenceID": 200103702,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_200103703"
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_200103703"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 200103703,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 200103704,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "TalkSentenceID": 200103705,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_200103706"
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_200103706"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PerformanceTransition",
+          "SwitchInTime": 0.5,
+          "SwitchKeepTime": 0.5,
+          "SwitchOutTime": 0.5,
+          "CreateNpcList": [],
+          "CaptureNpcList": [],
+          "DestroyNpcList": [],
+          "CreateProp": {},
+          "DestroyProp": {
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+            }
+          },
+          "AdvCreateGroupEntity": {
+            "InstanceIDList": [
+              400001
+            ],
+            "TaskEnabled": true
+          },
+          "AdvDestroyGroupEntity": {
+            "InstanceIDList": []
+          },
+          "DisactiveVCamOnGraphEnd": true,
+          "ActiveVirtualCamera": {
+            "IsActive": true,
+            "VCameraDitherMaxDistance": 1,
+            "CenterPosX": -1,
+            "CenterPosY": -1
+          },
+          "ActiveTemplateVirtualCamera": {
+            "IsActive": true
+          },
+          "SwitchCharacterAnchor": {
+            "ResetAnimation": true,
+            "ResetCamera": true
+          },
+          "AdvNpcFaceToPlayer": {
+            "FromDialog": true,
+            "TryFaceToFace": true,
+            "NpcLookAtPlayer": true,
+            "PlayerLookAtNpc": true,
+            "StopLookAtOnGraphEnd": true,
+            "TurnBackOnGraphEnd": true,
+            "SteerImmediately": true,
+            "FinishImmadiate": true,
+            "WaitFinishMode": "WaitFaceAngle",
+            "ForceToStandBy": true
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 200103706,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ]
+}

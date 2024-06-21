@@ -1,0 +1,84 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "fixedValue": {
+              "Value": 6
+            }
+          },
+          "MaxAdvencePerTick": -1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayMissionTalk",
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 800211002,
+              "ProtectTime": 2
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "fixedValue": {
+              "Value": 6
+            }
+          },
+          "MaxAdvencePerTick": -1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayMissionTalk",
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 800211003,
+              "ProtectTime": 2
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPhotoGraphResult",
+          "WaitPhotoResult": [
+            "Target_800210302"
+          ],
+          "OnSuccess": [
+            {
+              "$type": "RPG.GameCore.GuessTheSilhouetteResult",
+              "SilhouetteID": 8,
+              "IsExecuting": true,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.TriggerPerformance",
+              "ValueSource": {},
+              "PerformanceType": "E",
+              "PerformanceID": 800210302,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.FinishPerformanceMission",
+              "Key": "Mission_800210302",
+              "TaskEnabled": true
+            }
+          ],
+          "IsLoop": true,
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

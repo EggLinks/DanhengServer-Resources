@@ -1,0 +1,230 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.SwitchCharacterAnchor",
+          "IsLocalPlayer": true,
+          "CharacterUniqueName": "LocalPlayer",
+          "AreaName": {
+            "Value": "LevelArea_P40211_F40211002_G85"
+          },
+          "AnchorName": {
+            "Value": "Anchor1"
+          },
+          "ResetAnimation": true,
+          "ResetCamera": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateNPC",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 85
+            }
+          },
+          "GroupNpcID": {
+            "fixedValue": {
+              "Value": 400003
+            }
+          },
+          "NPCUniqueName": {
+            "Value": "npc_Yunqijun_202030617"
+          },
+          "CreateList": [],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.SetNpcWaypath",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+            "FetchType": "SingleNpcByNpcID",
+            "SingleNpcID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 85
+                }
+              },
+              "GroupNpcID": {
+                "fixedValue": {
+                  "Value": 400003
+                }
+              }
+            }
+          },
+          "UsageType": "TaskFollow",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetNpcStatus",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+            "FetchType": "SingleNpcByNpcID",
+            "SingleNpcID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 85
+                }
+              },
+              "GroupNpcID": {
+                "fixedValue": {
+                  "Value": 400003
+                }
+              }
+            }
+          },
+          "Status": "FollowByPlayer",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CaptureNPCToCharacter",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 85
+            }
+          },
+          "GroupNpcID": {
+            "fixedValue": {
+              "Value": 400003
+            }
+          },
+          "CharacterUniqueName": {
+            "Value": "npc_Yunqijun_202030617"
+          },
+          "ReleaseIfPerformanceEnd": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "fixedValue": {
+              "Value": 2
+            }
+          },
+          "MaxAdvencePerTick": -1,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.NpcToPlayerDistanceTrigger",
+          "GroupID": 85,
+          "GroupNpcID": 400003,
+          "NearDistance": 5,
+          "NearTask": [
+            {
+              "$type": "RPG.GameCore.PlayerForceWalk",
+              "ForceWalk": true,
+              "TaskEnabled": true
+            }
+          ],
+          "FarDistance": 10,
+          "FarTask": [
+            {
+              "$type": "RPG.GameCore.PlayerForceWalk",
+              "TaskEnabled": true
+            }
+          ],
+          "AwakeWaitTime": -1,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 85
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300002
+                }
+              }
+            }
+          },
+          "TargetGroupID": {},
+          "TargetID": {},
+          "TargetTypes": [],
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.ClearNpcDistanceTrigger",
+              "GroupID": 85,
+              "GroupNpcID": 400003,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.FinishPerformanceMission",
+              "Key": "Mission_202030617",
+              "TaskEnabled": true
+            }
+          ],
+          "SkipFakeAvatar": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.ChangePropState",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropTriggerAnimState",
+          "AnimStateName": "Close",
+          "TransitionDuration": 0.05,
+          "FixedTransitionDuration": true,
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 35
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300001
+                }
+              }
+            }
+          },
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

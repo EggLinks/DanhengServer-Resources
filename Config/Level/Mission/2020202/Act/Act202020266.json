@@ -1,0 +1,205 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_202040095"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Custom": true,
+            "Key": "OnNishastagaEffectOpen"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "fixedValue": {
+              "Value": 1
+            }
+          },
+          "MaxAdvencePerTick": -1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.AdventureCameraLookAtSimple",
+          "LookAtTarget": {
+            "$type": "RPG.GameCore.TargetFetchAnchor",
+            "GroupID": 70,
+            "GroupInstanceID": 9
+          },
+          "CutIn": true,
+          "LockCameraInput": true,
+          "UnlockCameraAfterRecover": true,
+          "LookAtDuration": -1,
+          "LookAtRecoverDuration": 1.5,
+          "LookAtRecoverCurvePath": "Camera/BlendCurve/BlendCut_1305_BP_03.asset",
+          "EnableOverrideLookAtOffset": true,
+          "OverrideLookAtOffset": {
+            "y": 8,
+            "z": 4,
+            "normalized": {
+              "y": 0.8944272,
+              "z": 0.4472136,
+              "normalized": {
+                "y": 0.89442724,
+                "z": 0.44721362,
+                "magnitude": 1,
+                "sqrMagnitude": 1.00000012
+              },
+              "magnitude": 0.99999994,
+              "sqrMagnitude": 0.99999994
+            },
+            "magnitude": 8.944272,
+            "sqrMagnitude": 80
+          },
+          "FollowLookAtTarget": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.AdvEntityFaceTo",
+          "SourceType": {
+            "$type": "RPG.GameCore.TargetFetchAdvLocalPlayer",
+            "IncludeStoryPlayer": true
+          },
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAnchor",
+            "GroupID": 70,
+            "GroupInstanceID": 9
+          },
+          "EnableSteer": true,
+          "EnableLookAt": true,
+          "LookAtPoint": "Head",
+          "FinishImmediately": true,
+          "WaitFinishMode": "WaitAnimFinish",
+          "ForceToStandBy": true,
+          "TurnBackOnGraphEnd": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 202040088,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.AdventureCameraLookAtSimple",
+          "Reset": true,
+          "LookAtTarget": {
+            "$type": "RPG.GameCore.TargetFetchAnchor",
+            "GroupID": 70,
+            "GroupInstanceID": 9
+          },
+          "LockCameraInput": true,
+          "FollowLookAtTarget": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "D",
+          "CreateCharacterList": [],
+          "EntityVisiableList": [],
+          "HideMunicipalCrowd": true,
+          "HideMunicipalPedestrian": true,
+          "HideMunicipalOther": true,
+          "PropVisiableList": [],
+          "MarkStreamingItems": [],
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PropSetVisibility",
+          "SpecifiedRelativePaths": [],
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 70
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300004
+                }
+              }
+            }
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 202040086,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "TalkSentenceID": 202040087,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_202040095"
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": [
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "OnNishastagaEffectOpen"
+      }
+    ],
+    "SharedValues": [
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "OnNishastagaEffectOpen"
+      }
+    ]
+  }
+}

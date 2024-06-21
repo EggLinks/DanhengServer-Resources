@@ -1,0 +1,218 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [],
+          "MainMissionIDList": [],
+          "PerformanceIDList": [],
+          "PerformanceIDDsList": [],
+          "CustomValueMainMissionIDList": [
+            2020901
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 113
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300002
+                }
+              }
+            }
+          },
+          "TargetTypes": [],
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "EnterArea_202090116"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "SkipFakeAvatar": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "EnterArea_202090116"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayNPCBubbleTalk",
+          "BubbleTalkInfoList": [
+            {
+              "AutoSkipTime": 3,
+              "GroupID": 113,
+              "GroupNpcID": 400003,
+              "TalkSentenceID": 202025201
+            },
+            {
+              "AutoSkipTime": 3,
+              "GroupID": 113,
+              "GroupNpcID": 400001,
+              "TalkSentenceID": 202025202
+            },
+            {
+              "AutoSkipTime": 3,
+              "GroupID": 113,
+              "GroupNpcID": 400001,
+              "TalkSentenceID": 202025203
+            },
+            {
+              "AutoSkipTime": 3,
+              "GroupID": 113,
+              "GroupNpcID": 400001,
+              "TalkSentenceID": 202025204
+            },
+            {
+              "AutoSkipTime": 3,
+              "GroupID": 113,
+              "GroupNpcID": 400001,
+              "TalkSentenceID": 202025205
+            },
+            {
+              "AutoSkipTime": 3,
+              "GroupID": 113,
+              "GroupNpcID": 400001,
+              "TalkSentenceID": 202025206
+            }
+          ],
+          "BubbleTalkType": "Normal",
+          "LoopInterval": 1,
+          "InstantFinish": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 113
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300003
+                }
+              }
+            }
+          },
+          "TargetTypes": [],
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "EnterArea_202090116_2"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "SkipFakeAvatar": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "EnterArea_202090116_2"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerPerformance",
+          "ValueSource": {},
+          "PerformanceType": "D",
+          "PerformanceID": 202090122,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "Talk_202090122"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Talk_202090122"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareMissionCustomValue",
+            "MainMissionID": 2020901,
+            "MissionCustomValue": {
+              "Index": 1,
+              "isLocal": true,
+              "ValidValueParamList": [
+                1,
+                2
+              ]
+            },
+            "EquationType": "Equal",
+            "TargetValue": 2,
+            "TaskEnabled": true
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.FinishPerformanceMission",
+              "Key": "Mission_202090116",
+              "MainMissionID": 2020901,
+              "TaskEnabled": true
+            }
+          ],
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "EnterBattle_20231204"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

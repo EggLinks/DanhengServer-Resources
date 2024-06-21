@@ -1,0 +1,71 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Talk_103060127"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_103060127",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByComparePropState",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+              "FetchType": "SinglePropByPropID",
+              "SinglePropID": {
+                "GroupID": {
+                  "fixedValue": {
+                    "Value": 51
+                  }
+                },
+                "ID": {
+                  "fixedValue": {
+                    "Value": 300002
+                  }
+                }
+              }
+            },
+            "State": "CheckPointDisable",
+            "TaskEnabled": true
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.SwitchCharacterAnchorV2",
+              "SwitchCharacterAnchorConfig": {
+                "IsLocalPlayer": true,
+                "CharacterUniqueName": "LocalPlayer",
+                "AreaName": {
+                  "Value": "LevelArea_P20311_F20311001_G332"
+                },
+                "AnchorName": {
+                  "Value": "Anchor9"
+                },
+                "ResetAnimation": true,
+                "ResetCamera": true,
+                "TaskEnabled": true
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

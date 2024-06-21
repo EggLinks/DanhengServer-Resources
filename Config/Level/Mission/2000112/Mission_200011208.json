@@ -1,0 +1,113 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateNPC",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 46
+            }
+          },
+          "GroupNpcID": {
+            "fixedValue": {
+              "Value": 400002
+            }
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "Order": 1,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.TriggerPerformance",
+          "ValueSource": {},
+          "PerformanceType": "D",
+          "PerformanceID": 200011208,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CharacterNavigateTo",
+          "CharacterUniqueName": "200011208",
+          "AreaName": "LevelArea_P20001_F20001001_G46",
+          "AnchorName": "Anchor7",
+          "MotionFlag": "Walk",
+          "Duration": 5,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "fixedValue": {
+              "Value": 6
+            }
+          },
+          "MaxAdvencePerTick": -1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayerForceWalk",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_200011208",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PlayerForceWalk",
+          "ForceWalk": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateNPC",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 46
+            }
+          },
+          "GroupNpcID": {
+            "fixedValue": {
+              "Value": 400014
+            }
+          },
+          "NPCUniqueName": {
+            "Value": "200011208"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SwitchCharacterAnchor",
+          "CharacterUniqueName": "200011208",
+          "AreaName": {
+            "Value": "LevelArea_P20001_F20001001_G46"
+          },
+          "AnchorName": {
+            "Value": "Anchor9"
+          },
+          "ResetAnimation": true,
+          "ResetCamera": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayScreenTransfer",
+          "Type": "Black",
+          "Mode": "SwitchOut",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

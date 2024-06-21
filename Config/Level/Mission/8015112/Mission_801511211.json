@@ -1,0 +1,124 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateNPC",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 15
+            }
+          },
+          "GroupNpcID": {
+            "fixedValue": {
+              "Value": 400006
+            }
+          },
+          "CreateList": [],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateProp",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 15
+            }
+          },
+          "GroupPropID": {
+            "fixedValue": {
+              "Value": 300005
+            }
+          },
+          "CreateList": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PropSetupUITrigger",
+          "DestroyAfterTriggered": true,
+          "IconType": "ChatIcon",
+          "ButtonText": {
+            "Hash": -1186709398
+          },
+          "ButtonCallback": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "Mission_801511211_PropUITrigger"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "InteractAngleRange": 180,
+          "OverrideTargetTypes": [],
+          "SkipFakeAvatar": true,
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 15
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300005
+                }
+              }
+            }
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Mission_801511211_PropUITrigger"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerPerformance",
+          "ValueSource": {},
+          "PerformanceType": "D",
+          "PerformanceID": 801511211,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_801511211",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateNPC",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 15
+            }
+          },
+          "GroupNpcID": {
+            "fixedValue": {
+              "Value": 400007
+            }
+          },
+          "CreateList": [],
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

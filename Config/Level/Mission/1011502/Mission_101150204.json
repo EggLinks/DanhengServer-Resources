@@ -1,0 +1,99 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvProp",
+            "MultiGroupFetch": [
+              {
+                "GroupID": {
+                  "fixedValue": {
+                    "Value": 12
+                  }
+                },
+                "ID": {
+                  "fixedValue": {
+                    "Value": 300004
+                  }
+                }
+              }
+            ]
+          },
+          "TargetGroupID": {},
+          "TargetID": {},
+          "TargetTypes": [],
+          "DestroyAfterTriggered": true,
+          "DisableAfterTriggered": true,
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "Mission_101150204_PropTrigger"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "SkipFakeAvatar": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Mission_101150204_PropTrigger"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerPerformance",
+          "ValueSource": {},
+          "PerformanceType": "C",
+          "PerformanceID": 101150204,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_101150204",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.DestroyNPC",
+          "GroupID": 12,
+          "GroupNpcID": 400007,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.DestroyNPC",
+          "GroupID": 12,
+          "GroupNpcID": 400005,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CreateNPC",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 12
+            }
+          },
+          "GroupNpcID": {
+            "fixedValue": {
+              "Value": 400001
+            }
+          },
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

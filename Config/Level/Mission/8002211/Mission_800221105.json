@@ -1,0 +1,104 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [],
+          "MainMissionIDList": [],
+          "PerformanceIDList": [],
+          "PerformanceIDDsList": [],
+          "CustomValueMainMissionIDList": [
+            8002211
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PropSetupUITrigger",
+          "IconType": "CheckIcon",
+          "ButtonText": {
+            "Hash": 278713937
+          },
+          "ButtonCallback": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "ButtonClick_800221105"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "InteractAngleRange": 180,
+          "OverrideTargetTypes": [],
+          "SkipFakeAvatar": true,
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 126
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300002
+                }
+              }
+            }
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "ButtonClick_800221105"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerPerformance",
+          "ValueSource": {},
+          "PerformanceType": "E",
+          "PerformanceID": 800221111,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareMissionCustomValue",
+            "MainMissionID": 8002211,
+            "MissionCustomValue": {
+              "Index": 1,
+              "isLocal": true,
+              "ValidValueParamList": [
+                1
+              ]
+            },
+            "EquationType": "Equal",
+            "TargetValue": 1,
+            "TaskEnabled": true
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "RaidStart_3"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "FailedTaskList": [],
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

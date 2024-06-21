@@ -1,0 +1,180 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "D",
+          "CreateCharacterList": [],
+          "EntityVisiableList": [],
+          "HideMunicipalCrowd": true,
+          "HideMunicipalPedestrian": true,
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "MarkStreamingItems": [],
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CreateNPC",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 5
+            }
+          },
+          "GroupNpcID": {
+            "fixedValue": {
+              "Value": 400005
+            }
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CaptureNPCToCharacter",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 5
+            }
+          },
+          "GroupNpcID": {
+            "fixedValue": {
+              "Value": 400005
+            }
+          },
+          "CharacterUniqueName": {
+            "Value": "NPC_Avatar_Girl_Klara_00"
+          },
+          "ReleaseIfPerformanceEnd": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CharacterNavigateTo",
+          "CharacterUniqueName": "NPC_Avatar_Girl_Klara_00",
+          "AreaName": "LevelArea_P20123_F20123001_G5",
+          "AnchorName": "Anchor7",
+          "MotionFlag": "Run",
+          "Duration": -1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ActiveVirtualCamera",
+          "AreaName": "1010902_temp",
+          "AnchorName": "Camera_101090222_01",
+          "IsActive": true,
+          "BlendConfig": {
+            "ExportToJson": true,
+            "BlendType": "Cut",
+            "BlendTime": 1,
+            "FOVSmoothDampTime": -1,
+            "FrameBlendWeightStart": 1,
+            "FrameBlendDuration": 1
+          },
+          "VCameraDitherMaxDistance": 1,
+          "CenterPosX": -1,
+          "CenterPosY": -1,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "fixedValue": {
+              "Value": 1
+            }
+          },
+          "MaxAdvencePerTick": -1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 201232502,
+              "ProtectTime": 1
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ActiveVirtualCamera",
+          "AreaName": "1010902_temp",
+          "AnchorName": "Camera_101090216_01",
+          "BlendConfig": {
+            "ExportToJson": true,
+            "BlendType": "Cut",
+            "UseDefaultBlendCurve": true,
+            "BlendTime": 1,
+            "FOVSmoothDampTime": -1,
+            "FrameBlendWeightStart": 1,
+            "FrameBlendDuration": 1
+          },
+          "VCameraDitherMaxDistance": 1,
+          "CenterPosX": -1,
+          "CenterPosY": -1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.DestroyNPC",
+          "GroupID": 5,
+          "GroupNpcID": 400005,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "fixedValue": {
+              "Value": 0
+            }
+          },
+          "MaxAdvencePerTick": -1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ActiveVirtualCamera",
+          "AreaName": "1010902_temp",
+          "AnchorName": "Camera_101090216_01",
+          "IsActive": true,
+          "BlendConfig": {
+            "ExportToJson": true,
+            "BlendType": "EaseIn",
+            "BlendTime": 0.6,
+            "FOVSmoothDampTime": -1,
+            "FrameBlendWeightStart": 1,
+            "FrameBlendDuration": 1
+          },
+          "VCameraDitherMaxDistance": 1,
+          "CenterPosX": -1,
+          "CenterPosY": -1,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "802212517_End"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.UpdateTreasureChallengeProgress",
+          "RaidTargetID": 443050043,
+          "IsIncrease": true,
+          "DeltaValue": 1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareFloorSavedValue",
+            "Name": "Ending",
+            "CompareType": "Equal",
+            "TaskEnabled": true
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.SetAdvAchievement",
+              "QuestID": 4053210,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.SetMissionCustomValue",
+              "SubmissionID": 802212517,
+              "MissionCustomValue": {
+                "Index": 5,
+                "ValidValueParamList": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              "CustomValue": 1,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.FinishPerformanceMission",
+              "Key": "Mission_802212517",
+              "MainMissionID": 8022125,
+              "TaskEnabled": true
+            }
+          ],
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.SetMissionCustomValue",
+              "SubmissionID": 802212517,
+              "MissionCustomValue": {
+                "Index": 5,
+                "ValidValueParamList": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              "CustomValue": 2,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.FinishPerformanceMission",
+              "Key": "Mission_802212517",
+              "MainMissionID": 8022125,
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Talk_802212518"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "802212517_End"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

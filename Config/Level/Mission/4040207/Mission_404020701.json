@@ -1,0 +1,86 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateNPC",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 94
+            }
+          },
+          "GroupNpcID": {
+            "fixedValue": {
+              "Value": 400001
+            }
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvProp",
+            "MultiGroupFetch": [
+              {
+                "GroupID": {
+                  "fixedValue": {
+                    "Value": 94
+                  }
+                },
+                "ID": {
+                  "fixedValue": {
+                    "Value": 300001
+                  }
+                }
+              }
+            ]
+          },
+          "TargetGroupID": {},
+          "TargetID": {},
+          "TargetTypes": [],
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.PlayNPCBubbleTalk",
+              "BubbleTalkInfoList": [
+                {
+                  "AutoSkipTime": 5,
+                  "GroupID": 92,
+                  "GroupNpcID": 400001,
+                  "TalkSentenceID": 404020701
+                }
+              ],
+              "BubbleTalkType": "Normal",
+              "LoopInterval": 1,
+              "InstantFinish": true,
+              "TaskEnabled": true
+            }
+          ],
+          "SkipFakeAvatar": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "404020701_Finish"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_404020701",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

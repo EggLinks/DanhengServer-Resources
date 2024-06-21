@@ -1,0 +1,70 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PlayFullScreenTransfer",
+          "Type": "Black",
+          "PrevDuration": 0.5,
+          "KeepDuration": 0.5,
+          "PostDuration": -1,
+          "Action": [
+            {
+              "$type": "RPG.GameCore.ScrTrfActTaskList",
+              "TaskList": [
+                {
+                  "$type": "RPG.GameCore.TeleportToRotatableRegion",
+                  "TargetRegionIndex": {
+                    "fixedValue": {
+                      "Value": -1
+                    }
+                  },
+                  "TargetAnchorGroupID": {
+                    "fixedValue": {
+                      "Value": 140
+                    }
+                  },
+                  "TargetAnchorInstanceID": {
+                    "fixedValue": {
+                      "Value": 2
+                    }
+                  },
+                  "TaskEnabled": true
+                }
+              ]
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Talk_103070112"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_103070112",
+          "KeepScreenTransferUntilGroupRefresh": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PlayMazeButtonEffect",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

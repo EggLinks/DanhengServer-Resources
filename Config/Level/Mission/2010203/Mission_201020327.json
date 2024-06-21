@@ -1,0 +1,116 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 6
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300001
+                }
+              }
+            }
+          },
+          "TargetGroupID": {
+            "fixedValue": {
+              "Value": 20122205
+            }
+          },
+          "TargetID": {
+            "fixedValue": {
+              "Value": 20122205
+            }
+          },
+          "TargetTypes": [],
+          "DestroyAfterTriggered": true,
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "Mission_201020327_PropTrigger"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "SkipFakeAvatar": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Mission_201020327_PropTrigger"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetAudioEmotionState",
+          "StateName": "State_Esilence",
+          "SubMissionID": 201020327,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerPerformance",
+          "ValueSource": {},
+          "PerformanceType": "PlayVideo",
+          "PerformanceID": 201020327,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetAudioEmotionState",
+          "StateName": "State_Relaxing",
+          "SubMissionID": 201020327,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.LevelAudioState",
+          "GroupName": "StateGroup_Maze_Belobog_M3_4",
+          "StateName": {
+            "Value": "State_PillarsofCreation_Wide"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerPerformance",
+          "ValueSource": {},
+          "PerformanceType": "C",
+          "PerformanceID": 201020355,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SwitchCharacterAnchor",
+          "IsLocalPlayer": true,
+          "CharacterUniqueName": "LocalPlayer",
+          "AreaName": {
+            "Value": "LevelArea_P20135_F20135001_G6"
+          },
+          "AnchorName": {
+            "Value": "Anchor1"
+          },
+          "ResetAnimation": true,
+          "ResetCamera": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_201020327",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

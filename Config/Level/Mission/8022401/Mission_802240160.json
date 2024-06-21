@@ -1,0 +1,199 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [],
+          "MainMissionIDList": [],
+          "PerformanceIDList": [],
+          "PerformanceIDDsList": [],
+          "CustomValueMainMissionIDList": [
+            8022401
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitFloorCustomValueChange",
+          "Name": "PlanetInteractiveIndex",
+          "OnChange": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCompareMissionCustomValue",
+                "MainMissionID": 8022401,
+                "MissionCustomValue": {
+                  "ValidValueParamList": [
+                    1,
+                    2,
+                    0
+                  ]
+                },
+                "EquationType": "Equal",
+                "TargetValue": 1,
+                "TaskEnabled": true
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCompareFloorCustomString",
+                    "Name": "PlanetInteractiveIndex",
+                    "CompareType": "Equal",
+                    "CompareValue": {
+                      "Value": "2"
+                    },
+                    "TaskEnabled": true
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.SetWaypointIgnoreLock",
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.SetAllMissionWaypointsVisiable",
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.ShowWaypointByProp",
+                      "GroupID": {
+                        "fixedValue": {
+                          "Value": 100
+                        }
+                      },
+                      "InstanceID": {
+                        "fixedValue": {
+                          "Value": 300003
+                        }
+                      },
+                      "IconPath": "SpriteOutput/MapPics/Billboard/IconBillboardSubStoryMission02.png",
+                      "OnNameBoard": true,
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.SetWaypointSafeZone",
+                      "TaskEnabled": true
+                    }
+                  ],
+                  "FailedTaskList": [
+                    {
+                      "$type": "RPG.GameCore.SetWaypointIgnoreLock",
+                      "Reset": true,
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.SetAllMissionWaypointsVisiable",
+                      "IsVisiable": true,
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.HideWaypointByProp",
+                      "GroupID": {
+                        "fixedValue": {
+                          "Value": 100
+                        }
+                      },
+                      "InstanceID": {
+                        "fixedValue": {
+                          "Value": 300003
+                        }
+                      },
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.SetWaypointSafeZone",
+                      "IsReset": true,
+                      "TaskEnabled": true
+                    }
+                  ],
+                  "TaskEnabled": true
+                }
+              ],
+              "FailedTaskList": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCompareFloorCustomString",
+                    "Name": "PlanetInteractiveIndex",
+                    "CompareType": "Equal",
+                    "CompareValue": {
+                      "Value": "2"
+                    },
+                    "TaskEnabled": true
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.SetWaypointIgnoreLock",
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.SetAllMissionWaypointsVisiable",
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.ShowWaypointByProp",
+                      "GroupID": {
+                        "fixedValue": {
+                          "Value": 100
+                        }
+                      },
+                      "InstanceID": {
+                        "fixedValue": {
+                          "Value": 300003
+                        }
+                      },
+                      "IconPath": "SpriteOutput/MapPics/Billboard/IconBillboardSubStoryMission02.png",
+                      "OnNameBoard": true,
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.SetWaypointSafeZone",
+                      "TaskEnabled": true
+                    }
+                  ],
+                  "FailedTaskList": [
+                    {
+                      "$type": "RPG.GameCore.SetWaypointIgnoreLock",
+                      "Reset": true,
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.SetAllMissionWaypointsVisiable",
+                      "IsVisiable": true,
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.HideWaypointByProp",
+                      "GroupID": {
+                        "fixedValue": {
+                          "Value": 100
+                        }
+                      },
+                      "InstanceID": {
+                        "fixedValue": {
+                          "Value": 300003
+                        }
+                      },
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.SetWaypointSafeZone",
+                      "IsReset": true,
+                      "TaskEnabled": true
+                    }
+                  ],
+                  "TaskEnabled": true
+                }
+              ],
+              "TaskEnabled": true
+            }
+          ],
+          "IsLoop": true,
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

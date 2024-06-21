@@ -1,0 +1,197 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "E",
+          "CreateCharacterList": [],
+          "CaptureNPCList": [],
+          "EntityVisiableList": [],
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "PropVisiableList": [],
+          "StreamingSourcesInBlackMask": [],
+          "StreamingSourcesAfterBlackMask": [],
+          "MarkStreamingItems": [],
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.AdvNpcFaceToPlayer",
+          "FromDialog": true,
+          "GroupID": 251,
+          "GroupNpcID": 400001,
+          "TryFaceToFace": true,
+          "NpcLookAtPlayer": true,
+          "PlayerLookAtNpc": true,
+          "StopLookAtOnGraphEnd": true,
+          "TurnBackOnGraphEnd": true,
+          "WaitFinishMode": "WaitFaceAngle",
+          "ForceToStandBy": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+          "TargetAlias": {
+            "$type": "RPG.GameCore.GroupFetchLocalTarget",
+            "Targets": [
+              400001
+            ]
+          },
+          "StoryAvatarID": "NPC_Avatar_Male_Screwllum_00",
+          "NormalizedTransitionDuration": 0.05,
+          "StoryMotionID": 310070200,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 802341302
+            },
+            {
+              "TalkSentenceID": 802341303
+            },
+            {
+              "TalkSentenceID": 802341304
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "TalkSentenceID": 802341305,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_802341307"
+            },
+            {
+              "TalkSentenceID": 802341306,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_802341307"
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_802341307"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 802341307
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "TalkSentenceID": 802341308,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_802341311"
+            },
+            {
+              "TalkSentenceID": 802341309,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_802341311"
+            },
+            {
+              "TalkSentenceID": 802341310,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_802341311"
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_802341311"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+          "TargetAlias": {
+            "$type": "RPG.GameCore.GroupFetchLocalTarget",
+            "Targets": [
+              400001
+            ]
+          },
+          "StoryAvatarID": "NPC_Avatar_Male_Screwllum_00",
+          "NormalizedTransitionDuration": 0.05,
+          "StoryMotionID": 310070261,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 802341311
+            },
+            {
+              "TalkSentenceID": 802341312
+            },
+            {
+              "TalkSentenceID": 802341313
+            },
+            {
+              "TalkSentenceID": 802341314
+            },
+            {
+              "TalkSentenceID": 802341315
+            },
+            {
+              "TalkSentenceID": 802341316
+            },
+            {
+              "TalkSentenceID": 802341317
+            },
+            {
+              "TalkSentenceID": 802341318
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ]
+}

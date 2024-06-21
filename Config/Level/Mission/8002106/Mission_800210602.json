@@ -1,0 +1,90 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.HideEntity",
+          "Target": {
+            "$type": "RPG.GameCore.TargetConcat",
+            "Targets": [
+              {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                "FetchType": "SinglePropByPropID",
+                "SinglePropID": {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": 96
+                    }
+                  },
+                  "ID": {
+                    "fixedValue": {
+                      "Value": 300001
+                    }
+                  }
+                }
+              },
+              {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                "FetchType": "SinglePropByPropID",
+                "SinglePropID": {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": 91
+                    }
+                  },
+                  "ID": {
+                    "fixedValue": {
+                      "Value": 300001
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": []
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPhotoGraphResult",
+          "WaitPhotoResult": [
+            "Target_800210602"
+          ],
+          "OnSuccess": [
+            {
+              "$type": "RPG.GameCore.GuessTheSilhouetteResult",
+              "SilhouetteID": 6,
+              "IsExecuting": true,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.TriggerPerformance",
+              "ValueSource": {},
+              "PerformanceType": "E",
+              "PerformanceID": 800210602,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.SaveMessage",
+              "MessageSectionID": 1214701,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.FinishPerformanceMission",
+              "Key": "Mission_800210602",
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

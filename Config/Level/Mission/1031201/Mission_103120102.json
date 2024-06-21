@@ -1,0 +1,60 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.TriggerPerformance",
+          "ValueSource": {},
+          "PerformanceType": "D",
+          "PerformanceID": 103120102,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PerformanceEndSeq",
+          "Cases": [
+            {
+              "OnSuccess": [
+                {
+                  "$type": "RPG.GameCore.SwitchCharacterAnchorV2",
+                  "SwitchCharacterAnchorConfig": {
+                    "IsLocalPlayer": true,
+                    "CharacterUniqueName": "LocalPlayer",
+                    "AreaName": {
+                      "Value": "LevelArea_P10305_F10305001_G57"
+                    },
+                    "AnchorName": {
+                      "Value": "Anchor1"
+                    },
+                    "ResetAnimation": true,
+                    "ResetCamera": true,
+                    "TaskEnabled": true
+                  },
+                  "TaskEnabled": true
+                }
+              ]
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_103120102",
+          "KeepScreenTransferUntilGroupRefresh": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.SetTrackingMission",
+          "MainMissionID": 1031201,
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

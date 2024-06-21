@@ -1,0 +1,101 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "E",
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.AdvEntityFaceTo",
+          "SourceType": {
+            "$type": "RPG.GameCore.TargetFetchAdvLocalPlayer",
+            "IncludeStoryPlayer": true
+          },
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 5
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300022
+                }
+              }
+            }
+          },
+          "EnableSteer": true,
+          "EnableLookAt": true,
+          "LookAtPoint": "Head",
+          "WaitFinishMode": "WaitAnimFinish",
+          "TurnBackOnGraphEnd": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ClearTalkUI",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ShowReading",
+          "BookID": {
+            "fixedValue": {
+              "Value": 190428
+            }
+          },
+          "WaitForExit": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ShowTalkUI",
+          "Show": true,
+          "ShowDialogControlUI": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.DestroyProp",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          },
+          "ID": {
+            "fixedValue": {
+              "Value": 300022
+            }
+          },
+          "GroupID": {
+            "fixedValue": {
+              "Value": 5
+            }
+          },
+          "DestroyList": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ]
+}

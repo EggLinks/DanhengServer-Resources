@@ -1,0 +1,76 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateNPC",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 52
+            }
+          },
+          "GroupNpcID": {
+            "fixedValue": {
+              "Value": 400002
+            }
+          },
+          "CreateList": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CreatePhoneOnCharacter",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+            "FetchType": "SingleNpcByNpcID",
+            "SingleNpcID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 52
+                }
+              },
+              "GroupNpcID": {
+                "fixedValue": {
+                  "Value": 400002
+                }
+              }
+            }
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Talk_801510351"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ShowTransitionLoadingUI",
+          "Name": "Ui.Heliobus.Transition.HeliobusTransitionDialog",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ShowUI",
+          "Name": "Ui.Heliobus.SNS.SNSMain.SNSDetail.HeliobusSNSDetailDialog",
+          "Param": {
+            "Value": "103"
+          },
+          "OnUIEnter": [
+            {
+              "$type": "RPG.GameCore.ExitTransitionLoadingUI",
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

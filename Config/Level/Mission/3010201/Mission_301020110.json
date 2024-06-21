@@ -1,0 +1,209 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateProp",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 154
+            }
+          },
+          "GroupPropID": {
+            "fixedValue": {
+              "Value": 300001
+            }
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.TutorialTaskUnlock",
+          "TriggerParam": {
+            "Value": "6015"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PhotoGraphAimTarget",
+          "AimTargetType": {
+            "$type": "RPG.GameCore.TargetConcat",
+            "Targets": [
+              {
+                "$type": "RPG.GameCore.TargetFetchAdvNPC",
+                "MultiGroupFetch": [
+                  {
+                    "GroupID": 15,
+                    "GroupNpcID": 400005
+                  }
+                ]
+              },
+              {
+                "$type": "RPG.GameCore.TargetFetchAdvProp",
+                "MultiGroupFetch": [
+                  {
+                    "GroupID": {
+                      "fixedValue": {
+                        "Value": 154
+                      }
+                    },
+                    "ID": {
+                      "fixedValue": {
+                        "Value": 300001
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "IsAim": true,
+          "AimIdentifyType": "Manual",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PhotoGraphWaitIdentifyFinish",
+          "WaitTargetType": {
+            "$type": "RPG.GameCore.TargetConcat",
+            "Targets": [
+              {
+                "$type": "RPG.GameCore.TargetFetchAdvNPC",
+                "MultiGroupFetch": [
+                  {
+                    "GroupID": 15,
+                    "GroupNpcID": 400005
+                  }
+                ]
+              },
+              {
+                "$type": "RPG.GameCore.TargetFetchAdvProp",
+                "MultiGroupFetch": [
+                  {
+                    "GroupID": {
+                      "fixedValue": {
+                        "Value": 154
+                      }
+                    },
+                    "ID": {
+                      "fixedValue": {
+                        "Value": 300001
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "WaitAll": true,
+          "OnIdentifyFailed": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "301020110_fail"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "OnPreviewFinish": [
+            {
+              "$type": "RPG.GameCore.PhotoGraphAimTarget",
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetConcat",
+                "Targets": [
+                  {
+                    "$type": "RPG.GameCore.TargetFetchAdvNPC",
+                    "MultiGroupFetch": [
+                      {
+                        "GroupID": 15,
+                        "GroupNpcID": 400005
+                      }
+                    ]
+                  },
+                  {
+                    "$type": "RPG.GameCore.TargetFetchAdvProp",
+                    "MultiGroupFetch": [
+                      {
+                        "GroupID": {
+                          "fixedValue": {
+                            "Value": 154
+                          }
+                        },
+                        "ID": {
+                          "fixedValue": {
+                            "Value": 300001
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.SwitchPhotoGraphMode",
+              "ExitWhenPreViewDialogFinish": true,
+              "IdentifyRadiusOverride": {},
+              "InitFov": -1,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "Mission_301020110"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "Order": 1,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "301020110_fail"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ToastPile",
+          "ImgPath": "SpriteOutput/UI/MobilePhone/TextPanel.png",
+          "DescTextID": {
+            "Hash": 1553609823
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Mission_301020110"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_301020110",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

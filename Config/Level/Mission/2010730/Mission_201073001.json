@@ -1,0 +1,207 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [
+            801520201,
+            201072010
+          ],
+          "MainMissionIDList": [],
+          "PerformanceIDList": [],
+          "PerformanceIDDsList": [],
+          "CustomValueMainMissionIDList": [],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateProp",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 24
+            }
+          },
+          "GroupPropID": {
+            "fixedValue": {
+              "Value": 300001
+            }
+          },
+          "CreateList": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "201073001prop"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "201073001prop"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 24
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300001
+                }
+              }
+            }
+          },
+          "TargetTypes": [],
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCompareSubMissionState",
+                "SubMissionID": 201072010,
+                "SubMissionState": "Finish",
+                "TaskEnabled": true
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCompareSubMissionState",
+                    "SubMissionID": 801520201,
+                    "SubMissionState": "Finish",
+                    "TaskEnabled": true
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.TriggerPerformance",
+                      "ValueSource": {},
+                      "PerformanceType": "E",
+                      "PerformanceID": 801520203,
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.FinishPerformanceMission",
+                      "Key": "Mission_201073001",
+                      "TaskEnabled": true
+                    }
+                  ],
+                  "FailedTaskList": [
+                    {
+                      "$type": "RPG.GameCore.TriggerPerformance",
+                      "ValueSource": {},
+                      "PerformanceType": "D",
+                      "PerformanceID": 201073001,
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.FinishPerformanceMission",
+                      "Key": "Mission_201073001",
+                      "TaskEnabled": true
+                    }
+                  ],
+                  "TaskEnabled": true
+                }
+              ],
+              "FailedTaskList": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCompareSubMissionState",
+                    "SubMissionID": 801520201,
+                    "SubMissionState": "Finish",
+                    "TaskEnabled": true
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.WaitCustomString",
+                      "CustomString": {
+                        "Value": "Performance_201073001"
+                      },
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.WaitSecond",
+                      "WaitTime": {
+                        "fixedValue": {
+                          "Value": 1
+                        }
+                      },
+                      "MaxAdvencePerTick": -1,
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.TriggerPerformance",
+                      "ValueSource": {},
+                      "PerformanceType": "E",
+                      "PerformanceID": 801520203,
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.FinishPerformanceMission",
+                      "Key": "Mission_201073001",
+                      "TaskEnabled": true
+                    }
+                  ],
+                  "FailedTaskList": [
+                    {
+                      "$type": "RPG.GameCore.WaitCustomString",
+                      "CustomString": {
+                        "Value": "Performance_201073001"
+                      },
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.WaitSecond",
+                      "WaitTime": {
+                        "fixedValue": {
+                          "Value": 1
+                        }
+                      },
+                      "MaxAdvencePerTick": -1,
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.TriggerPerformance",
+                      "ValueSource": {},
+                      "PerformanceType": "D",
+                      "PerformanceID": 201073001,
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.FinishPerformanceMission",
+                      "Key": "Mission_201073001",
+                      "TaskEnabled": true
+                    }
+                  ],
+                  "TaskEnabled": true
+                }
+              ],
+              "TaskEnabled": true
+            }
+          ],
+          "SkipFakeAvatar": true,
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

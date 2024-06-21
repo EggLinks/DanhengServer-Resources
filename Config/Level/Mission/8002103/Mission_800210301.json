@@ -1,0 +1,97 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPhotoGraphResult",
+          "WaitPhotoResult": [
+            "Target_800210301"
+          ],
+          "OnSuccess": [
+            {
+              "$type": "RPG.GameCore.TriggerPerformance",
+              "ValueSource": {},
+              "PerformanceType": "D",
+              "PerformanceID": 800210301,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.HideEntity",
+              "Target": {
+                "$type": "RPG.GameCore.TargetConcat",
+                "Targets": [
+                  {
+                    "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                    "FetchType": "SingleNpcByNpcID",
+                    "SingleNpcID": {
+                      "GroupID": {
+                        "fixedValue": {
+                          "Value": 234
+                        }
+                      },
+                      "GroupNpcID": {
+                        "fixedValue": {
+                          "Value": 400002
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                    "FetchType": "SingleNpcByNpcID",
+                    "SingleNpcID": {
+                      "GroupID": {
+                        "fixedValue": {
+                          "Value": 234
+                        }
+                      },
+                      "GroupNpcID": {
+                        "fixedValue": {
+                          "Value": 400003
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                    "FetchType": "SingleNpcByNpcID",
+                    "SingleNpcID": {
+                      "GroupID": {
+                        "fixedValue": {
+                          "Value": 234
+                        }
+                      },
+                      "GroupNpcID": {
+                        "fixedValue": {
+                          "Value": 400001
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "IsHide": true,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.GuessTheSilhouetteResult",
+              "SilhouetteID": 7,
+              "IsExecuting": true,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.FinishPerformanceMission",
+              "Key": "Mission_800210301",
+              "MainMissionID": 8002103,
+              "TaskEnabled": true
+            }
+          ],
+          "IsLoop": true,
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

@@ -1,0 +1,88 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 134
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300001
+                }
+              }
+            }
+          },
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.PlayNPCBubbleTalk",
+              "BubbleTalkInfoList": [
+                {
+                  "AutoSkipTime": 6,
+                  "GroupID": 134,
+                  "GroupNpcID": 400001,
+                  "TalkSentenceID": 800326002
+                },
+                {
+                  "AutoSkipTime": 6,
+                  "GroupID": 134,
+                  "GroupNpcID": 400002,
+                  "TalkSentenceID": 800326003
+                }
+              ],
+              "BubbleTalkType": "Normal",
+              "IsLoop": true,
+              "LoopInterval": 2,
+              "InstantFinish": true,
+              "UniqueID": 1,
+              "TaskEnabled": true
+            }
+          ],
+          "SkipFakeAvatar": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Talk_800326002"
+          },
+          "GoNextImmediately": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerBattle",
+          "EventID": {
+            "fixedValue": {
+              "Value": 20220205
+            }
+          },
+          "GroupID": {
+            "fixedValue": {
+              "Value": 1
+            }
+          },
+          "BattleAreaID": {
+            "fixedValue": {
+              "Value": 1
+            }
+          },
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

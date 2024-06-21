@@ -1,0 +1,469 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "E",
+          "CreateCharacterList": [],
+          "EntityVisiableList": [],
+          "PropVisiableList": [],
+          "MarkStreamingItems": [],
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.AdvEnablePropDialogMode",
+          "Enable": true,
+          "PlayerFaceToProp": true,
+          "RotateSpeed": 600,
+          "IsImmediatelySucc": true,
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 137
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300001
+                }
+              }
+            }
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 401510138,
+              "ProtectTime": 0.3
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 401510139,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "Wait_Check_PuzzleComplete"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Wait_Check_PuzzleComplete"
+          },
+          "WaitOwnerOnly": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SelectorConfig",
+          "TaskList": [
+            {
+              "$type": "RPG.GameCore.PropStateExecute",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                "FetchType": "SinglePropByPropID",
+                "SinglePropID": {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": -34706
+                    }
+                  },
+                  "ID": {
+                    "fixedValue": {
+                      "Value": -34706
+                    }
+                  }
+                }
+              },
+              "Execute": [
+                {
+                  "$type": "RPG.GameCore.TriggerCustomString",
+                  "CustomString": {
+                    "Value": "Wait_Option_4015101_2"
+                  },
+                  "TaskEnabled": true
+                }
+              ],
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.PropStateExecute",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                "FetchType": "SinglePropByPropID",
+                "SinglePropID": {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": -34706
+                    }
+                  },
+                  "ID": {
+                    "fixedValue": {
+                      "Value": -34706
+                    }
+                  }
+                }
+              },
+              "State": "Open",
+              "Execute": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByComparePropState",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                      "FetchType": "SinglePropByPropID",
+                      "SinglePropID": {
+                        "GroupID": {
+                          "fixedValue": {
+                            "Value": -34706
+                          }
+                        },
+                        "ID": {
+                          "fixedValue": {
+                            "Value": -34706
+                          }
+                        }
+                      }
+                    },
+                    "State": "ChestUsed",
+                    "TaskEnabled": true
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.TriggerCustomString",
+                      "CustomString": {
+                        "Value": "Wait_Option_4015101_3"
+                      },
+                      "TaskEnabled": true
+                    }
+                  ],
+                  "FailedTaskList": [
+                    {
+                      "$type": "RPG.GameCore.TriggerCustomString",
+                      "CustomString": {
+                        "Value": "Wait_Option_4015101_2"
+                      },
+                      "TaskEnabled": true
+                    }
+                  ],
+                  "TaskEnabled": true
+                }
+              ],
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Wait_Option_4015101_2"
+          },
+          "WaitOwnerOnly": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "TalkSentenceID": 401510140,
+              "OptionIconType": "ChatLoopIcon",
+              "TriggerCustomString": "TalkSentence_401510141"
+            },
+            {
+              "TalkSentenceID": 401510143,
+              "OptionIconType": "ChatOutIcon",
+              "TriggerCustomString": "ALL_TALK_END"
+            }
+          ],
+          "HideSelected": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Wait_Option_4015101_3"
+          },
+          "WaitOwnerOnly": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "TalkSentenceID": 401510140,
+              "OptionIconType": "ChatLoopIcon",
+              "TriggerCustomString": "TalkSentence_401510141"
+            },
+            {
+              "TalkSentenceID": 401510141,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_401510155"
+            },
+            {
+              "TalkSentenceID": 401510143,
+              "OptionIconType": "ChatOutIcon",
+              "TriggerCustomString": "ALL_TALK_END"
+            }
+          ],
+          "HideSelected": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_401510141"
+          },
+          "WaitOwnerOnly": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SelectorConfig",
+          "TaskList": [
+            {
+              "$type": "RPG.GameCore.PropStateExecute",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                "FetchType": "SinglePropByPropID",
+                "SinglePropID": {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": -34706
+                    }
+                  },
+                  "ID": {
+                    "fixedValue": {
+                      "Value": -34706
+                    }
+                  }
+                }
+              },
+              "Execute": [
+                {
+                  "$type": "RPG.GameCore.SetTextJoinValue",
+                  "TextJoinID": 29,
+                  "Value": "5",
+                  "TaskEnabled": true
+                },
+                {
+                  "$type": "RPG.GameCore.ShowReading",
+                  "BookID": {
+                    "fixedValue": {
+                      "Value": 190419
+                    }
+                  },
+                  "WaitForExit": true,
+                  "ShouldPauseGame": true,
+                  "TaskEnabled": true
+                },
+                {
+                  "$type": "RPG.GameCore.TriggerCustomString",
+                  "CustomString": {
+                    "Value": "Wait_Check_PuzzleComplete"
+                  },
+                  "TaskEnabled": true
+                }
+              ],
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.PropStateExecute",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                "FetchType": "SinglePropByPropID",
+                "SinglePropID": {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": -34706
+                    }
+                  },
+                  "ID": {
+                    "fixedValue": {
+                      "Value": -34706
+                    }
+                  }
+                }
+              },
+              "State": "Open",
+              "Execute": [
+                {
+                  "$type": "RPG.GameCore.SetTextJoinValue",
+                  "TextJoinID": 29,
+                  "Value": "4",
+                  "OnCancel": [],
+                  "TaskEnabled": true
+                },
+                {
+                  "$type": "RPG.GameCore.ShowReading",
+                  "BookID": {
+                    "fixedValue": {
+                      "Value": 190419
+                    }
+                  },
+                  "WaitForExit": true,
+                  "ShouldPauseGame": true,
+                  "TaskEnabled": true
+                },
+                {
+                  "$type": "RPG.GameCore.TriggerCustomString",
+                  "CustomString": {
+                    "Value": "Wait_Check_PuzzleComplete"
+                  },
+                  "TaskEnabled": true
+                }
+              ],
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_401510155"
+          },
+          "WaitOwnerOnly": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 401510142,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "PuzzleCompass_TriggerLoadNextShip"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "ALL_TALK_END"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "ALL_TALK_END"
+          },
+          "WaitOwnerOnly": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": [
+      {
+        "$type": "RPG.GameCore.SharedInt",
+        "Key": "PuzzleCompass_GroupID"
+      },
+      {
+        "$type": "RPG.GameCore.SharedInt",
+        "Value": 300001,
+        "Key": "PuzzleCompass_PropID"
+      },
+      {
+        "$type": "RPG.GameCore.SharedInt",
+        "Key": "Chest_GroupID"
+      },
+      {
+        "$type": "RPG.GameCore.SharedInt",
+        "Value": 300004,
+        "Key": "Chest_PropID"
+      }
+    ],
+    "SharedValues": [
+      {
+        "$type": "RPG.GameCore.SharedInt",
+        "Key": "PuzzleCompass_GroupID"
+      },
+      {
+        "$type": "RPG.GameCore.SharedInt",
+        "Value": 300001,
+        "Key": "PuzzleCompass_PropID"
+      },
+      {
+        "$type": "RPG.GameCore.SharedInt",
+        "Key": "Chest_GroupID"
+      },
+      {
+        "$type": "RPG.GameCore.SharedInt",
+        "Value": 300004,
+        "Key": "Chest_PropID"
+      }
+    ]
+  }
+}

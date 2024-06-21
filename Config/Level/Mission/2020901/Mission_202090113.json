@@ -1,0 +1,161 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 147
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300001
+                }
+              }
+            }
+          },
+          "TargetGroupID": {
+            "fixedValue": {
+              "Value": 300001
+            }
+          },
+          "TargetID": {
+            "fixedValue": {
+              "Value": 300001
+            }
+          },
+          "TargetTypes": [],
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "Mission_202090113_PropTrigger"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "SkipFakeAvatar": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Mission_202090113_PropTrigger"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayNPCBubbleTalk",
+          "BubbleTalkInfoList": [
+            {
+              "AutoSkipTime": 3,
+              "GroupID": 147,
+              "GroupNpcID": 400001,
+              "TalkSentenceID": 202023101
+            },
+            {
+              "AutoSkipTime": 3,
+              "GroupID": 147,
+              "GroupNpcID": 400002,
+              "TalkSentenceID": 202023102
+            }
+          ],
+          "BubbleTalkType": "Normal",
+          "LoopInterval": 1,
+          "InstantFinish": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PhotoGraphAimTarget",
+          "AimTargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvNPC",
+            "MultiGroupFetch": [
+              {
+                "GroupID": 147,
+                "GroupNpcID": 400001
+              }
+            ]
+          },
+          "IsAim": true,
+          "AimIdentifyType": "Manual",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PhotoGraphWaitIdentifyFinish",
+          "WaitTargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvNPC",
+            "MultiGroupFetch": [
+              {
+                "GroupID": 147,
+                "GroupNpcID": 400001
+              }
+            ]
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PhotoGraphAimTarget",
+          "AimTargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvNPC",
+            "MultiGroupFetch": [
+              {
+                "GroupID": 147,
+                "GroupNpcID": 400001
+              }
+            ]
+          },
+          "AimIdentifyType": "Manual",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "Photograph202090113_End"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Photograph202090113_End"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerPerformance",
+          "ValueSource": {},
+          "PerformanceType": "D",
+          "PerformanceID": 202090120,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_202090113",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

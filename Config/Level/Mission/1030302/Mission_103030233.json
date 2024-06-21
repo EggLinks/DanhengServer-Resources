@@ -1,0 +1,64 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.SceneGachaListener",
+          "GrandRewardCallback": [],
+          "SmallRewardCallback": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "Reward_103030233"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Reward_103030233"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "fixedValue": {
+              "Value": 10
+            }
+          },
+          "MaxAdvencePerTick": -1,
+          "IsRealtime": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitUIControllerClose",
+          "UIControllerName": "Ui.RollShop.MazeGachaBoxRewardHintDialog",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayVoice",
+          "VoiceIDs": [
+            103032028
+          ],
+          "IntervalTime": 0.5,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_103030233",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

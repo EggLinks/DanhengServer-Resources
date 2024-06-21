@@ -1,0 +1,294 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "D",
+          "AreaPrefabPath": "Story/Discussion/Mission/2000901/DS200090118.prefab",
+          "CreateCharacterList": [
+            {
+              "CharacterUniqueName": "Dr_Ratio_00_C00",
+              "AvatarID": "NPC_Avatar_Male_Dr_Ratio_00",
+              "AreaName": "DS200090118.prefab",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "PlayerGirl_00_C00",
+              "AvatarID": "NPC_Avatar_Miss_PlayerGirl_00",
+              "AreaName": "DS200090118.prefab",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "PlayerBoy_00_C00",
+              "AvatarID": "NPC_Avatar_Lad_PlayerBoy_00",
+              "AreaName": "DS200090118.prefab",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "Screwllum_00_C00",
+              "AvatarID": "NPC_Avatar_Male_Screwllum_00",
+              "AreaName": "DS200090118.prefab",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "Asta_00_C00",
+              "AvatarID": "NPC_Avatar_Maid_Asta_00",
+              "AreaName": "DS200090118.prefab",
+              "TaskEnabled": true
+            }
+          ],
+          "CaptureNPCList": [],
+          "HideNPC": true,
+          "EntityVisiableList": [],
+          "HideMunicipalCrowd": true,
+          "HideMunicipalPedestrian": true,
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "PropVisiableList": [],
+          "HideLocalPlayer": true,
+          "StreamingSourcesInBlackMask": [],
+          "StreamingSourcesAfterBlackMask": [],
+          "MarkStreamingItems": [],
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.DebateInitialize",
+          "TestimonyTimelinePath": "Story/Discussion/Mission/2000901/DS20009011801.playable",
+          "FailChangce": 5,
+          "TestimonySettingList": [
+            {
+              "TimelineClipName": "0",
+              "CanAsk": true,
+              "AskCustomString": "Ask0",
+              "CanSubmitItem": true,
+              "ItemIDList": [
+                140326,
+                140329,
+                140328
+              ],
+              "SpecialItemList": [
+                {}
+              ],
+              "ItemDefaultCustomString": "ShowFail"
+            },
+            {
+              "Index": 1,
+              "TimelineClipName": "1",
+              "CanAsk": true,
+              "AskCustomString": "Ask1",
+              "CanSubmitItem": true,
+              "ItemIDList": [
+                140326,
+                140329,
+                140328
+              ],
+              "SpecialItemList": [],
+              "ItemDefaultCustomString": "ShowFail"
+            },
+            {
+              "Index": 2,
+              "TimelineClipName": "2",
+              "CanAsk": true,
+              "AskCustomString": "Ask2",
+              "CanSubmitItem": true,
+              "ItemIDList": [
+                140326,
+                140329,
+                140328
+              ],
+              "SpecialItemList": [
+                {
+                  "ItemID": 140328,
+                  "TriggerCustomString": "Show_2"
+                }
+              ],
+              "ItemDefaultCustomString": "ShowFail"
+            },
+            {
+              "Index": 3,
+              "TestimonyType": "LastStatement",
+              "TimelineClipName": "3",
+              "LastToBeginTalkSentenceID": 800325736
+            }
+          ],
+          "UIType": "Explain",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Ask0"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/2000901/DS20009011802.playable",
+          "Type": "Discussion",
+          "Parameters": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.DebateReturnTestimony",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Ask1"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/2000901/DS20009011803.playable",
+          "Type": "Discussion",
+          "Parameters": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.DebateReturnTestimony",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Ask2"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/2000901/DS20009011804.playable",
+          "Type": "Discussion",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.DebateReturnTestimony",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Show_2"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/2000901/DS20009011805.playable",
+          "Type": "Discussion",
+          "Parameters": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "Succ"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "ShowFail"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/2000901/DS20009011806.playable",
+          "Type": "Discussion",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.DebateReturnTestimony",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Succ"
+          },
+          "WaitOwnerOnly": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.DebateShowToast",
+          "ToastType": "Success",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Fail"
+          },
+          "WaitOwnerOnly": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.DebateShowToast",
+          "ToastType": "Failure",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "PerformanceD"
+}

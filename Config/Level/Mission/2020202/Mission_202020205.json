@@ -1,0 +1,145 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateProp",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 69
+            }
+          },
+          "GroupPropID": {
+            "fixedValue": {
+              "Value": 300003
+            }
+          },
+          "CreateList": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CreateProp",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 69
+            }
+          },
+          "GroupPropID": {
+            "fixedValue": {
+              "Value": 300016
+            }
+          },
+          "CreateList": [],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 69
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300016
+                }
+              }
+            }
+          },
+          "TargetTypes": [],
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.PlayMissionTalk",
+              "SimpleTalkList": [
+                {
+                  "TextSpeed": 20,
+                  "TalkSentenceID": 202040216,
+                  "ProtectTime": 2
+                }
+              ],
+              "TaskEnabled": true
+            }
+          ],
+          "SkipFakeAvatar": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPhotoGraphResult",
+          "WaitPhotoResult": [
+            "202020205_A"
+          ],
+          "OnSuccess": [
+            {
+              "$type": "RPG.GameCore.PlayMissionTalk",
+              "SimpleTalkList": [
+                {
+                  "TextSpeed": 20,
+                  "TalkSentenceID": 202040213,
+                  "ProtectTime": 2
+                }
+              ],
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.DestroyProp",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300003
+                }
+              },
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 69
+                }
+              },
+              "DestroyList": [],
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.DestroyProp",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300016
+                }
+              },
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 69
+                }
+              },
+              "DestroyList": [],
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.FinishPerformanceMission",
+              "Key": "Mission_202020205",
+              "TaskEnabled": true
+            }
+          ],
+          "IsLoop": true,
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

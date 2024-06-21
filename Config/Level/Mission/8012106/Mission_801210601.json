@@ -1,0 +1,145 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.SetBillboardInfo",
+          "TargetEntityType": "NPC",
+          "ID": 400001,
+          "GroupID": 118,
+          "MapIconType": 123,
+          "MinHeight": -0.15,
+          "MaxHeight": 0.3,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Wait_Mission_End_8012106"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_801210601",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "OpenUI_TreasureDungeon"
+          },
+          "GoNextImmediately": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "fixedValue": {
+              "Value": 1
+            }
+          },
+          "MaxAdvencePerTick": -1
+        },
+        {
+          "$type": "RPG.GameCore.ShowUI",
+          "Name": "Ui.Activity.TreasureDungeon.TreasureDungeonEntrancePage",
+          "WaitForExit": true,
+          "OnUIExitImmediately": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "CloseUI_TreasureDungeon"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "OpenUI_TreasureDungeon_Mission"
+          },
+          "GoNextImmediately": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "fixedValue": {
+              "Value": 0
+            }
+          },
+          "MaxAdvencePerTick": -1
+        },
+        {
+          "$type": "RPG.GameCore.ShowUI",
+          "Name": "Ui.Activity.TreasureDungeon.TreasureDungeonEntrancePage",
+          "WaitForExit": true,
+          "OnUIExitImmediately": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "CloseUI_TreasureDungeon"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "OpenUI_TreasureDungeon_Tutorial"
+          },
+          "GoNextImmediately": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "fixedValue": {
+              "Value": 1
+            }
+          },
+          "MaxAdvencePerTick": 0.1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ShowUI",
+          "Name": "Ui.Activity.TreasureDungeon.TreasureDungeonEntrancePage",
+          "WaitForExit": true,
+          "OnUIExitImmediately": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "CloseUI_TreasureDungeon"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

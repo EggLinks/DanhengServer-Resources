@@ -1,0 +1,87 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Talk_802110001"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TutorialTaskUnlock",
+          "TriggerParam": {
+            "Value": "5150"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerDrinkMakerBartendInMission",
+          "RequestID": 1000,
+          "OnBartendSuccess": [
+            {
+              "$type": "RPG.GameCore.TriggerPerformance",
+              "ValueSource": {},
+              "PerformanceType": "D",
+              "PerformanceID": 802110002,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.ShowUI",
+              "Name": "Ui.DrinkMaker.WorkBook.DrinkMakerWorkBookPage",
+              "WaitForExit": true,
+              "OnUIEnter": [],
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.TriggerPerformance",
+              "ValueSource": {},
+              "PerformanceType": "D",
+              "PerformanceID": 802110003,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.FinishPerformanceMission",
+              "Key": "Mission_802110001",
+              "KeepScreenTransferUntilGroupRefresh": true,
+              "TaskEnabled": true
+            }
+          ],
+          "OnBartendFail": [
+            {
+              "$type": "RPG.GameCore.TriggerPerformance",
+              "ValueSource": {},
+              "PerformanceType": "D",
+              "PerformanceID": 802110002,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.ShowUI",
+              "Name": "Ui.DrinkMaker.WorkBook.DrinkMakerWorkBookPage",
+              "WaitForExit": true,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.TriggerPerformance",
+              "ValueSource": {},
+              "PerformanceType": "D",
+              "PerformanceID": 802110003,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.FinishPerformanceMission",
+              "Key": "Mission_802110001",
+              "KeepScreenTransferUntilGroupRefresh": true,
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

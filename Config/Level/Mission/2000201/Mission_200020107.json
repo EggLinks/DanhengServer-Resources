@@ -1,0 +1,231 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "fixedValue": {
+              "Value": 3
+            }
+          },
+          "MaxAdvencePerTick": -1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "200020107_Act"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateNPC",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 39
+            }
+          },
+          "GroupNpcID": {
+            "fixedValue": {
+              "Value": 400007
+            }
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PhotoGraphAimTarget",
+          "AimTargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvNPC",
+            "MultiGroupFetch": [
+              {
+                "GroupID": 39,
+                "GroupNpcID": 400007
+              }
+            ]
+          },
+          "IsAim": true,
+          "AimIdentifyType": "Manual",
+          "AimTagExtraOffset": 0.37,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PhotoGraphWaitIdentifyFinish",
+          "WaitTargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvNPC",
+            "MultiGroupFetch": [
+              {
+                "GroupID": 39,
+                "GroupNpcID": 400007
+              }
+            ]
+          },
+          "OnIdentifyFinish": [],
+          "OnIdentifyFailed": [],
+          "OnPreviewFinish": [
+            {
+              "$type": "RPG.GameCore.PhotoGraphAimTarget",
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNPC",
+                "MultiGroupFetch": [
+                  {
+                    "GroupID": 39,
+                    "GroupNpcID": 400007
+                  }
+                ]
+              },
+              "AimIdentifyType": "Manual",
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.SwitchPhotoGraphMode",
+              "ExitWhenPreViewDialogFinish": true,
+              "IdentifyRadiusOverride": {},
+              "InitFov": -1,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "200020107_Finish"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "200020107_Finish"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_200020107",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "200020107_Act"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CaptureNPCToCharacter",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 39
+            }
+          },
+          "GroupNpcID": {
+            "fixedValue": {
+              "Value": 400007
+            }
+          },
+          "CharacterUniqueName": {
+            "Value": "200020107_Jz"
+          },
+          "ReleaseIfPerformanceEnd": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "fixedValue": {
+              "Value": 6
+            }
+          },
+          "MaxAdvencePerTick": -1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+          "CharacterUniqueName": "200020107_Jz",
+          "ForceStart": true,
+          "StoryAvatarID": "NPC_Avatar_Lady_Himeko_00",
+          "NormalizedTransitionDuration": 0.05,
+          "StoryMotionID": 310030230,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "fixedValue": {
+              "Value": 5
+            }
+          },
+          "MaxAdvencePerTick": -1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+          "CharacterUniqueName": "200020107_Jz",
+          "ForceStart": true,
+          "StoryAvatarID": "NPC_Avatar_Lady_Himeko_00",
+          "NormalizedTransitionDuration": 0.05,
+          "StoryMotionID": 310030232,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "fixedValue": {
+              "Value": 3
+            }
+          },
+          "MaxAdvencePerTick": -1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+          "CharacterUniqueName": "200020107_Jz",
+          "ForceStart": true,
+          "StoryAvatarID": "NPC_Avatar_Lady_Himeko_00",
+          "NormalizedTransitionDuration": 0.05,
+          "StoryMotionID": 310030248,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "fixedValue": {
+              "Value": 3
+            }
+          },
+          "MaxAdvencePerTick": -1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+          "CharacterUniqueName": "200020107_Jz",
+          "ForceStart": true,
+          "StoryAvatarID": "NPC_Avatar_Lady_Himeko_00",
+          "NormalizedTransitionDuration": 0.05,
+          "StoryMotionID": 310030221,
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

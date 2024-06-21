@@ -1,0 +1,63 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [],
+          "MainMissionIDList": [
+            4040117
+          ],
+          "PerformanceIDList": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareMainMissionState",
+            "MainMissionID": 4040117,
+            "MainMissionState": "Finish",
+            "TaskEnabled": true
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCompareItemNumber",
+                "ItemID": {
+                  "fixedValue": {
+                    "Value": 140179
+                  }
+                },
+                "Number": {
+                  "fixedValue": {
+                    "Value": 1
+                  }
+                },
+                "CompareType": "Equal",
+                "TaskEnabled": true
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.ConsumeMissionItem",
+                  "SubMissionID": 404019001,
+                  "IsAutoConsume": true,
+                  "SimpleTalk": {
+                    "TextSpeed": 20,
+                    "ProtectTime": 0.8
+                  },
+                  "TaskEnabled": true
+                }
+              ],
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

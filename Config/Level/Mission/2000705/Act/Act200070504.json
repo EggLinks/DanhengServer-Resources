@@ -1,0 +1,196 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "E",
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 200073801,
+              "ProtectTime": 0.3
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 200073802,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "TalkSentenceID": 200073803,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_200073804"
+            },
+            {
+              "TalkSentenceID": 200073805,
+              "OptionIconType": "ChatOutIcon",
+              "TriggerCustomString": "TalkSentence_200073806"
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_200073804"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 200073804,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.StartDialogueEntityInteract",
+          "LevelGraphPath": "Config/Level/Props/InteractMode/TriggerEvent_TriggerType_07.json",
+          "UseOverrideData": true,
+          "ValueSource": {
+            "Values": [
+              {
+                "$type": "RPG.GameCore.SharedString",
+                "Value": "Level/Common_Adventure/UseInteractNPC.prefab",
+                "Key": "DialogueEntityInteract_AreaPath"
+              },
+              {
+                "$type": "RPG.GameCore.SharedString",
+                "Value": "UseInteractNPC,UseInteractNPC_Camera",
+                "Key": "DialogueEntityInteract_CameraKey"
+              },
+              {
+                "$type": "RPG.GameCore.SharedString",
+                "Value": "UseInteractNPC",
+                "Key": "DialogueEntityInteract_AreaName"
+              }
+            ],
+            "SharedValues": [
+              {
+                "$type": "RPG.GameCore.SharedString",
+                "Value": "Level/Common_Adventure/UseInteractNPC.prefab",
+                "Key": "DialogueEntityInteract_AreaPath"
+              },
+              {
+                "$type": "RPG.GameCore.SharedString",
+                "Value": "UseInteractNPC,UseInteractNPC_Camera",
+                "Key": "DialogueEntityInteract_CameraKey"
+              },
+              {
+                "$type": "RPG.GameCore.SharedString",
+                "Value": "UseInteractNPC",
+                "Key": "DialogueEntityInteract_AreaName"
+              }
+            ]
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetLocalPlayerDitherAlpha",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.OpenTreasureChallenge",
+          "RaidID": 4000211,
+          "OnCancel": [
+            {
+              "$type": "RPG.GameCore.EndDialogueEntityInteract",
+              "LevelGraphPath": "Config/Level/Props/InteractMode/TriggerEvent_ExitTriggerType_07.json",
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "ALL_TALK_END"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_200073806"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 200073806,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "ALL_TALK_END"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "ALL_TALK_END"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ]
+}

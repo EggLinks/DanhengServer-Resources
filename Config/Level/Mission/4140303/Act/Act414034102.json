@@ -1,0 +1,1712 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "E",
+          "CreateCharacterList": [],
+          "CaptureNPCList": [],
+          "EntityVisiableList": [],
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "PropVisiableList": [],
+          "StreamingSourcesInBlackMask": [],
+          "StreamingSourcesAfterBlackMask": [],
+          "MarkStreamingItems": [],
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.AdvNpcFaceToPlayer",
+          "FromDialog": true,
+          "TryFaceToFace": true,
+          "NpcLookAtPlayer": true,
+          "PlayerLookAtNpc": true,
+          "StopLookAtOnGraphEnd": true,
+          "TurnBackOnGraphEnd": true,
+          "WaitFinishMode": "WaitFaceAngle",
+          "ForceToStandBy": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareQuestProgress",
+            "QuestID": {
+              "fixedValue": {
+                "Value": 2200112
+              }
+            },
+            "Progress": {
+              "fixedValue": {
+                "Value": 20
+              }
+            },
+            "EquationType": "GreaterEqual",
+            "TaskEnabled": true
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByAnd",
+                "PredicateList": [
+                  {
+                    "$type": "RPG.GameCore.ByCompareQuestGetReward",
+                    "QuestID": {
+                      "fixedValue": {
+                        "Value": 2200112
+                      }
+                    },
+                    "Inverse": true,
+                    "TaskEnabled": true
+                  },
+                  {
+                    "$type": "RPG.GameCore.ByCompareQuestGetReward",
+                    "QuestID": {
+                      "fixedValue": {
+                        "Value": 2200111
+                      }
+                    },
+                    "Inverse": true,
+                    "TaskEnabled": true
+                  }
+                ],
+                "TaskEnabled": true
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.TriggerSound",
+                  "SoundName": {
+                    "Value": "Ev_vo_origamibirds_appear"
+                  },
+                  "EmitterType": "TargetEvaluator",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                    "FetchType": "SingleNpcByOwnerGroupAndID",
+                    "SingleNpcKey": {
+                      "Custom": true,
+                      "Key": "TargetNPC"
+                    },
+                    "SingleNpcID": {
+                      "GroupNpcID": {
+                        "fixedValue": {
+                          "Value": 400001
+                        }
+                      }
+                    },
+                    "SingleUniqueName": {
+                      "Value": "InteractTarget_OrigamiBird01"
+                    },
+                    "NpcIDInOwnerGroup": {
+                      "fixedValue": {
+                        "Value": 400001
+                      }
+                    }
+                  },
+                  "TaskEnabled": true
+                },
+                {
+                  "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+                  "KeepDisplay": true,
+                  "SimpleTalkList": [
+                    {
+                      "TextSpeed": 20,
+                      "TalkSentenceID": 414034146,
+                      "ProtectTime": 0.3
+                    },
+                    {
+                      "TextSpeed": 20,
+                      "TalkSentenceID": 414034147,
+                      "ProtectTime": 0.3
+                    }
+                  ],
+                  "TaskEnabled": true
+                },
+                {
+                  "$type": "RPG.GameCore.QuestGetReward",
+                  "QuestIDList": [
+                    {
+                      "fixedValue": {
+                        "Value": 2200111
+                      }
+                    },
+                    {
+                      "fixedValue": {
+                        "Value": 2200112
+                      }
+                    }
+                  ],
+                  "TaskEnabled": true
+                },
+                {
+                  "$type": "RPG.GameCore.EndPerformance",
+                  "TaskEnabled": true
+                }
+              ],
+              "FailedTaskList": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByAnd",
+                    "PredicateList": [
+                      {
+                        "$type": "RPG.GameCore.ByCompareQuestGetReward",
+                        "QuestID": {
+                          "fixedValue": {
+                            "Value": 2200111
+                          }
+                        },
+                        "TaskEnabled": true
+                      },
+                      {
+                        "$type": "RPG.GameCore.ByCompareQuestGetReward",
+                        "QuestID": {
+                          "fixedValue": {
+                            "Value": 2200112
+                          }
+                        },
+                        "Inverse": true,
+                        "TaskEnabled": true
+                      }
+                    ],
+                    "TaskEnabled": true
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.TriggerSound",
+                      "SoundName": {
+                        "Value": "Ev_vo_origamibirds_appear"
+                      },
+                      "EmitterType": "TargetEvaluator",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                        "FetchType": "SingleNpcByOwnerGroupAndID",
+                        "SingleNpcKey": {
+                          "Custom": true,
+                          "Key": "TargetNPC"
+                        },
+                        "SingleNpcID": {
+                          "GroupNpcID": {
+                            "fixedValue": {
+                              "Value": 400001
+                            }
+                          }
+                        },
+                        "SingleUniqueName": {
+                          "Value": "InteractTarget_OrigamiBird01"
+                        },
+                        "NpcIDInOwnerGroup": {
+                          "fixedValue": {
+                            "Value": 400001
+                          }
+                        }
+                      },
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+                      "KeepDisplay": true,
+                      "SimpleTalkList": [
+                        {
+                          "TextSpeed": 20,
+                          "TalkSentenceID": 414034144,
+                          "ProtectTime": 0.3
+                        },
+                        {
+                          "TextSpeed": 20,
+                          "TalkSentenceID": 414034145,
+                          "ProtectTime": 0.3
+                        }
+                      ],
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.QuestGetReward",
+                      "QuestIDList": [
+                        {
+                          "fixedValue": {
+                            "Value": 2200112
+                          }
+                        }
+                      ],
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.EndPerformance",
+                      "TaskEnabled": true
+                    }
+                  ],
+                  "FailedTaskList": [
+                    {
+                      "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+                      "KeepDisplay": true,
+                      "SimpleTalkList": [
+                        {
+                          "TextSpeed": 20,
+                          "TalkSentenceID": 414034148,
+                          "ProtectTime": 0.3
+                        }
+                      ],
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.TriggerCustomString",
+                      "CustomString": {
+                        "Value": "TalkSentence_414030958"
+                      },
+                      "TaskEnabled": true
+                    }
+                  ],
+                  "TaskEnabled": true
+                }
+              ],
+              "TaskEnabled": true
+            }
+          ],
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByAnd",
+                "PredicateList": [
+                  {
+                    "$type": "RPG.GameCore.ByCompareQuestProgress",
+                    "QuestID": {
+                      "fixedValue": {
+                        "Value": 2200112
+                      }
+                    },
+                    "Progress": {
+                      "fixedValue": {
+                        "Value": 10
+                      }
+                    },
+                    "EquationType": "GreaterEqual",
+                    "TaskEnabled": true
+                  },
+                  {
+                    "$type": "RPG.GameCore.ByCompareQuestGetReward",
+                    "QuestID": {
+                      "fixedValue": {
+                        "Value": 2200111
+                      }
+                    },
+                    "Inverse": true,
+                    "TaskEnabled": true
+                  }
+                ],
+                "TaskEnabled": true
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.TriggerSound",
+                  "SoundName": {
+                    "Value": "Ev_vo_origamibirds_appear"
+                  },
+                  "EmitterType": "TargetEvaluator",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                    "FetchType": "SingleNpcByOwnerGroupAndID",
+                    "SingleNpcKey": {
+                      "Custom": true,
+                      "Key": "TargetNPC"
+                    },
+                    "SingleNpcID": {
+                      "GroupNpcID": {
+                        "fixedValue": {
+                          "Value": 400001
+                        }
+                      }
+                    },
+                    "SingleUniqueName": {
+                      "Value": "InteractTarget_OrigamiBird01"
+                    },
+                    "NpcIDInOwnerGroup": {
+                      "fixedValue": {
+                        "Value": 400001
+                      }
+                    }
+                  },
+                  "TaskEnabled": true
+                },
+                {
+                  "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+                  "KeepDisplay": true,
+                  "SimpleTalkList": [
+                    {
+                      "TextSpeed": 20,
+                      "TalkSentenceID": 414034142,
+                      "ProtectTime": 0.3
+                    },
+                    {
+                      "TextSpeed": 20,
+                      "TalkSentenceID": 414034143,
+                      "ProtectTime": 0.3
+                    }
+                  ],
+                  "TaskEnabled": true
+                },
+                {
+                  "$type": "RPG.GameCore.QuestGetReward",
+                  "QuestIDList": [
+                    {
+                      "fixedValue": {
+                        "Value": 2200111
+                      }
+                    }
+                  ],
+                  "TaskEnabled": true
+                },
+                {
+                  "$type": "RPG.GameCore.EndPerformance",
+                  "TaskEnabled": true
+                }
+              ],
+              "FailedTaskList": [
+                {
+                  "$type": "RPG.GameCore.TriggerSound",
+                  "SoundName": {
+                    "Value": "Ev_vo_origamibirds_appear"
+                  },
+                  "EmitterType": "TargetEvaluator",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                    "FetchType": "SingleNpcByOwnerGroupAndID",
+                    "SingleNpcKey": {
+                      "Custom": true,
+                      "Key": "TargetNPC"
+                    },
+                    "SingleNpcID": {
+                      "GroupNpcID": {
+                        "fixedValue": {
+                          "Value": 400001
+                        }
+                      }
+                    },
+                    "SingleUniqueName": {
+                      "Value": "InteractTarget_OrigamiBird01"
+                    },
+                    "NpcIDInOwnerGroup": {
+                      "fixedValue": {
+                        "Value": 400001
+                      }
+                    }
+                  },
+                  "TaskEnabled": true
+                },
+                {
+                  "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+                  "KeepDisplay": true,
+                  "SimpleTalkList": [
+                    {
+                      "TextSpeed": 20,
+                      "TalkSentenceID": 414034141,
+                      "ProtectTime": 0.3
+                    }
+                  ],
+                  "TaskEnabled": true
+                },
+                {
+                  "$type": "RPG.GameCore.TriggerCustomString",
+                  "CustomString": {
+                    "Value": "TalkSentence_414030958"
+                  },
+                  "TaskEnabled": true
+                }
+              ],
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_414030958"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "TalkSentenceID": 414034149,
+              "OptionIconType": "ChatIcon",
+              "TriggerCustomString": "TalkSentence_414034150"
+            },
+            {
+              "TalkSentenceID": 414034152,
+              "OptionIconType": "ChatIcon",
+              "TriggerCustomString": "TalkSentence_414034153",
+              "VisibleFilter": {
+                "$type": "RPG.GameCore.ByCompareQuestProgress",
+                "QuestID": {
+                  "fixedValue": {
+                    "Value": 2200112
+                  }
+                },
+                "Progress": {
+                  "fixedValue": {
+                    "Value": 6
+                  }
+                },
+                "EquationType": "GreaterEqual",
+                "TaskEnabled": true
+              }
+            },
+            {
+              "TalkSentenceID": 414034164,
+              "OptionIconType": "ChatIcon",
+              "TriggerCustomString": "TalkSentence_414034165",
+              "VisibleFilter": {
+                "$type": "RPG.GameCore.ByCompareQuestProgress",
+                "QuestID": {
+                  "fixedValue": {
+                    "Value": 2200112
+                  }
+                },
+                "Progress": {
+                  "fixedValue": {
+                    "Value": 20
+                  }
+                },
+                "EquationType": "NotEqual",
+                "TaskEnabled": true
+              }
+            },
+            {
+              "TalkSentenceID": 414034197,
+              "OptionIconType": "ChatOutIcon",
+              "TriggerCustomString": "TalkSentence_414034198"
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_414034150"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+          "TargetAlias": {
+            "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+            "FetchType": "SingleNpcByOwnerGroupAndID",
+            "SingleNpcKey": {
+              "Custom": true,
+              "Key": "TargetNPC"
+            },
+            "SingleNpcID": {
+              "GroupNpcID": {
+                "fixedValue": {
+                  "Value": 400001
+                }
+              }
+            },
+            "SingleUniqueName": {
+              "Value": "InteractTarget_OrigamiBird01"
+            },
+            "NpcIDInOwnerGroup": {
+              "fixedValue": {
+                "Value": 400001
+              }
+            }
+          },
+          "ForceStart": true,
+          "StoryAvatarID": "NPC_Special_OrigamiBird_00",
+          "NormalizedTransitionDuration": 0.05,
+          "StoryMotionID": 900090200,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 414034150,
+              "ProtectTime": 0.3
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 414034151,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "ALL_TALK_END"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_414034153"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+          "TargetAlias": {
+            "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+            "FetchType": "SingleNpcByOwnerGroupAndID",
+            "SingleNpcKey": {
+              "Custom": true,
+              "Key": "TargetNPC"
+            },
+            "SingleNpcID": {
+              "GroupNpcID": {
+                "fixedValue": {
+                  "Value": 400001
+                }
+              }
+            },
+            "SingleUniqueName": {
+              "Value": "InteractTarget_OrigamiBird01"
+            },
+            "NpcIDInOwnerGroup": {
+              "fixedValue": {
+                "Value": 400001
+              }
+            }
+          },
+          "ForceStart": true,
+          "StoryAvatarID": "NPC_Special_OrigamiBird_00",
+          "NormalizedTransitionDuration": 0.05,
+          "StoryMotionID": 900090200,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 414034153,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "TalkSentenceID": 414034154,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_414034155"
+            },
+            {
+              "TalkSentenceID": 414034157,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_414034158",
+              "VisibleFilter": {
+                "$type": "RPG.GameCore.ByCompareQuestProgress",
+                "QuestID": {
+                  "fixedValue": {
+                    "Value": 2200112
+                  }
+                },
+                "Progress": {
+                  "fixedValue": {
+                    "Value": 10
+                  }
+                },
+                "EquationType": "GreaterEqual",
+                "TaskEnabled": true
+              }
+            },
+            {
+              "TalkSentenceID": 414034160,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_414034161",
+              "VisibleFilter": {
+                "$type": "RPG.GameCore.ByCompareQuestProgress",
+                "QuestID": {
+                  "fixedValue": {
+                    "Value": 2200112
+                  }
+                },
+                "Progress": {
+                  "fixedValue": {
+                    "Value": 14
+                  }
+                },
+                "EquationType": "GreaterEqual",
+                "TaskEnabled": true
+              }
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_414034155"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 414034155,
+              "ProtectTime": 0.3
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 414034156,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_414030958"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_414034158"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 414034158,
+              "ProtectTime": 0.3
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 414034159,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_414030958"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_414034161"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 414034161,
+              "ProtectTime": 0.3
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 414034162,
+              "ProtectTime": 0.3
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 414034163,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_414030958"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_414034165"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCheckColonyTrace",
+            "ColonyID": {
+              "fixedValue": {
+                "Value": 6
+              }
+            },
+            "Inverse": true,
+            "TaskEnabled": true
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+              "KeepDisplay": true,
+              "SimpleTalkList": [
+                {
+                  "TextSpeed": 20,
+                  "TalkSentenceID": 414034165,
+                  "ProtectTime": 0.3
+                },
+                {
+                  "TextSpeed": 20,
+                  "TalkSentenceID": 414034166,
+                  "ProtectTime": 0.3
+                }
+              ],
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.PlayOptionTalk",
+              "OptionList": [
+                {
+                  "TalkSentenceID": 414034169,
+                  "OptionIconType": "ChatContinueIcon",
+                  "TriggerCustomString": "TalkSentence_414034170"
+                },
+                {
+                  "TalkSentenceID": 414034193,
+                  "OptionIconType": "ChatOutIcon",
+                  "TriggerCustomString": "TalkSentence_414034194"
+                }
+              ],
+              "TaskEnabled": true
+            }
+          ],
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+              "KeepDisplay": true,
+              "SimpleTalkList": [
+                {
+                  "TextSpeed": 20,
+                  "TalkSentenceID": 414034195,
+                  "ProtectTime": 0.3
+                }
+              ],
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+              "TargetAlias": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByOwnerGroupAndID",
+                "SingleNpcKey": {
+                  "Custom": true,
+                  "Key": "TargetNPC"
+                },
+                "SingleNpcID": {
+                  "GroupNpcID": {
+                    "fixedValue": {
+                      "Value": 400001
+                    }
+                  }
+                },
+                "SingleUniqueName": {
+                  "Value": "InteractTarget_OrigamiBird01"
+                },
+                "NpcIDInOwnerGroup": {
+                  "fixedValue": {
+                    "Value": 400001
+                  }
+                }
+              },
+              "ForceStart": true,
+              "StoryAvatarID": "NPC_Special_OrigamiBird_00",
+              "NormalizedTransitionDuration": 0.05,
+              "StoryMotionID": 900090265,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+              "KeepDisplay": true,
+              "SimpleTalkList": [
+                {
+                  "TextSpeed": 20,
+                  "TalkSentenceID": 414034196,
+                  "ProtectTime": 0.3
+                }
+              ],
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.SetTraceOrigamiFlag",
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "ALL_TALK_END"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_414034170"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ConsumeOrigamiItem",
+          "ColonyID": {
+            "fixedValue": {
+              "Value": 6
+            }
+          },
+          "Desc": {
+            "Hash": 278713946
+          },
+          "OnSubmitConfirm": [
+            {
+              "$type": "RPG.GameCore.TriggerSound",
+              "SoundName": {
+                "Value": "Ev_vo_origamibirds_appear"
+              },
+              "EmitterType": "TargetEvaluator",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByOwnerGroupAndID",
+                "SingleNpcKey": {
+                  "Custom": true,
+                  "Key": "TargetNPC"
+                },
+                "SingleNpcID": {
+                  "GroupNpcID": {
+                    "fixedValue": {
+                      "Value": 400001
+                    }
+                  }
+                },
+                "SingleUniqueName": {
+                  "Value": "InteractTarget_OrigamiBird01"
+                },
+                "NpcIDInOwnerGroup": {
+                  "fixedValue": {
+                    "Value": 400001
+                  }
+                }
+              },
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+              "KeepDisplay": true,
+              "SimpleTalkList": [
+                {
+                  "TextSpeed": 20,
+                  "TalkSentenceID": 414030980,
+                  "ProtectTime": 0.3
+                }
+              ],
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.PlayFullScreenTransfer",
+              "Type": "Black",
+              "PrevDuration": 0.1,
+              "KeepDuration": 0.1,
+              "PostDuration": 0.1,
+              "KeepDisplay": true,
+              "TextInfo": {
+                "TextList": [
+                  {
+                    "TalkSentenceID": 414030981
+                  }
+                ]
+              },
+              "Action": [
+                {
+                  "$type": "RPG.GameCore.ScrTrfActTaskList",
+                  "TaskList": [
+                    {
+                      "$type": "RPG.GameCore.TriggerSound",
+                      "SoundName": {
+                        "Value": "Ev_sfx_origamibird_eatcoin"
+                      },
+                      "EmitterType": "DefaultEmitter",
+                      "TaskEnabled": true
+                    }
+                  ]
+                }
+              ],
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+              "TargetAlias": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByOwnerGroupAndID",
+                "SingleNpcKey": {
+                  "Custom": true,
+                  "Key": "TargetNPC"
+                },
+                "SingleNpcID": {
+                  "GroupNpcID": {
+                    "fixedValue": {
+                      "Value": 400001
+                    }
+                  }
+                },
+                "SingleUniqueName": {
+                  "Value": "InteractTarget_OrigamiBird01"
+                },
+                "NpcIDInOwnerGroup": {
+                  "fixedValue": {
+                    "Value": 400001
+                  }
+                }
+              },
+              "ForceStart": true,
+              "StoryAvatarID": "NPC_Special_OrigamiBird_00",
+              "NormalizedTransitionDuration": 0.05,
+              "StoryMotionID": 900090014,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.WaitSecond",
+              "WaitTime": {
+                "fixedValue": {
+                  "Value": 0
+                }
+              },
+              "MaxAdvencePerTick": -1,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+              "KeepDisplay": true,
+              "SimpleTalkList": [
+                {
+                  "TextSpeed": 20,
+                  "TalkSentenceID": 414030982,
+                  "ProtectTime": 0.3
+                }
+              ],
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.PlayOrigamiTraceTalk",
+              "ColonyID": {
+                "fixedValue": {
+                  "Value": 6
+                }
+              },
+              "TalkList": [
+                {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": 131
+                    }
+                  },
+                  "TalkInfo": {
+                    "KeepDisplay": true,
+                    "SimpleTalkList": [
+                      {
+                        "TextSpeed": 20,
+                        "TalkSentenceID": 414034173,
+                        "ProtectTime": 0.8
+                      }
+                    ],
+                    "TaskEnabled": true
+                  }
+                },
+                {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": 132
+                    }
+                  },
+                  "TalkInfo": {
+                    "KeepDisplay": true,
+                    "SimpleTalkList": [
+                      {
+                        "TextSpeed": 20,
+                        "TalkSentenceID": 414034174,
+                        "ProtectTime": 0.8
+                      }
+                    ],
+                    "TaskEnabled": true
+                  }
+                },
+                {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": 133
+                    }
+                  },
+                  "TalkInfo": {
+                    "KeepDisplay": true,
+                    "SimpleTalkList": [
+                      {
+                        "TextSpeed": 20,
+                        "TalkSentenceID": 414034175,
+                        "ProtectTime": 0.8
+                      }
+                    ],
+                    "TaskEnabled": true
+                  }
+                },
+                {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": 144
+                    }
+                  },
+                  "TalkInfo": {
+                    "KeepDisplay": true,
+                    "SimpleTalkList": [
+                      {
+                        "TextSpeed": 20,
+                        "TalkSentenceID": 414034176,
+                        "ProtectTime": 0.8
+                      }
+                    ],
+                    "TaskEnabled": true
+                  }
+                },
+                {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": 134
+                    }
+                  },
+                  "TalkInfo": {
+                    "KeepDisplay": true,
+                    "SimpleTalkList": [
+                      {
+                        "TextSpeed": 20,
+                        "TalkSentenceID": 414034177,
+                        "ProtectTime": 0.8
+                      }
+                    ],
+                    "TaskEnabled": true
+                  }
+                },
+                {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": 135
+                    }
+                  },
+                  "TalkInfo": {
+                    "KeepDisplay": true,
+                    "SimpleTalkList": [
+                      {
+                        "TextSpeed": 20,
+                        "TalkSentenceID": 414034178,
+                        "ProtectTime": 0.8
+                      }
+                    ],
+                    "TaskEnabled": true
+                  }
+                },
+                {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": 136
+                    }
+                  },
+                  "TalkInfo": {
+                    "KeepDisplay": true,
+                    "SimpleTalkList": [
+                      {
+                        "TextSpeed": 20,
+                        "TalkSentenceID": 414034179,
+                        "ProtectTime": 0.8
+                      }
+                    ],
+                    "TaskEnabled": true
+                  }
+                },
+                {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": 137
+                    }
+                  },
+                  "TalkInfo": {
+                    "KeepDisplay": true,
+                    "SimpleTalkList": [
+                      {
+                        "TextSpeed": 20,
+                        "TalkSentenceID": 414034180,
+                        "ProtectTime": 0.8
+                      }
+                    ],
+                    "TaskEnabled": true
+                  }
+                },
+                {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": 138
+                    }
+                  },
+                  "TalkInfo": {
+                    "KeepDisplay": true,
+                    "SimpleTalkList": [
+                      {
+                        "TextSpeed": 20,
+                        "TalkSentenceID": 414034181,
+                        "ProtectTime": 0.8
+                      }
+                    ],
+                    "TaskEnabled": true
+                  }
+                },
+                {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": 145
+                    }
+                  },
+                  "TalkInfo": {
+                    "KeepDisplay": true,
+                    "SimpleTalkList": [
+                      {
+                        "TextSpeed": 20,
+                        "TalkSentenceID": 414034182,
+                        "ProtectTime": 0.8
+                      }
+                    ],
+                    "TaskEnabled": true
+                  }
+                },
+                {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": 146
+                    }
+                  },
+                  "TalkInfo": {
+                    "KeepDisplay": true,
+                    "SimpleTalkList": [
+                      {
+                        "TextSpeed": 20,
+                        "TalkSentenceID": 414034183,
+                        "ProtectTime": 0.8
+                      }
+                    ],
+                    "TaskEnabled": true
+                  }
+                },
+                {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": 139
+                    }
+                  },
+                  "TalkInfo": {
+                    "KeepDisplay": true,
+                    "SimpleTalkList": [
+                      {
+                        "TextSpeed": 20,
+                        "TalkSentenceID": 414034184,
+                        "ProtectTime": 0.8
+                      }
+                    ],
+                    "TaskEnabled": true
+                  }
+                },
+                {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": 140
+                    }
+                  },
+                  "TalkInfo": {
+                    "KeepDisplay": true,
+                    "SimpleTalkList": [
+                      {
+                        "TextSpeed": 20,
+                        "TalkSentenceID": 414034185,
+                        "ProtectTime": 0.8
+                      }
+                    ],
+                    "TaskEnabled": true
+                  }
+                },
+                {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": 147
+                    }
+                  },
+                  "TalkInfo": {
+                    "KeepDisplay": true,
+                    "SimpleTalkList": [
+                      {
+                        "TextSpeed": 20,
+                        "TalkSentenceID": 414034186,
+                        "ProtectTime": 0.8
+                      }
+                    ],
+                    "TaskEnabled": true
+                  }
+                },
+                {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": 141
+                    }
+                  },
+                  "TalkInfo": {
+                    "KeepDisplay": true,
+                    "SimpleTalkList": [
+                      {
+                        "TextSpeed": 20,
+                        "TalkSentenceID": 414034187,
+                        "ProtectTime": 0.8
+                      }
+                    ],
+                    "TaskEnabled": true
+                  }
+                },
+                {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": 142
+                    }
+                  },
+                  "TalkInfo": {
+                    "KeepDisplay": true,
+                    "SimpleTalkList": [
+                      {
+                        "TextSpeed": 20,
+                        "TalkSentenceID": 414034188,
+                        "ProtectTime": 0.8
+                      }
+                    ],
+                    "TaskEnabled": true
+                  }
+                },
+                {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": 143
+                    }
+                  },
+                  "TalkInfo": {
+                    "KeepDisplay": true,
+                    "SimpleTalkList": [
+                      {
+                        "TextSpeed": 20,
+                        "TalkSentenceID": 414034189,
+                        "ProtectTime": 0.8
+                      }
+                    ],
+                    "TaskEnabled": true
+                  }
+                },
+                {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": 148
+                    }
+                  },
+                  "TalkInfo": {
+                    "KeepDisplay": true,
+                    "SimpleTalkList": [
+                      {
+                        "TextSpeed": 20,
+                        "TalkSentenceID": 414034190,
+                        "ProtectTime": 0.8
+                      }
+                    ],
+                    "TaskEnabled": true
+                  }
+                },
+                {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": 149
+                    }
+                  },
+                  "TalkInfo": {
+                    "KeepDisplay": true,
+                    "SimpleTalkList": [
+                      {
+                        "TextSpeed": 20,
+                        "TalkSentenceID": 414034191,
+                        "ProtectTime": 0.8
+                      }
+                    ],
+                    "TaskEnabled": true
+                  }
+                },
+                {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": 150
+                    }
+                  },
+                  "TalkInfo": {
+                    "KeepDisplay": true,
+                    "SimpleTalkList": [
+                      {
+                        "TextSpeed": 20,
+                        "TalkSentenceID": 414034192,
+                        "ProtectTime": 0.8
+                      }
+                    ],
+                    "TaskEnabled": true
+                  }
+                }
+              ],
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.SetTraceOrigamiFlag",
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.EndPerformance",
+              "TaskEnabled": true
+            }
+          ],
+          "OnSubmitCancel": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "TalkSentence_414034194"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "SimpleTalk": {
+            "TextSpeed": 20,
+            "ProtectTime": 0.8
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_414034194"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 414034194,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "ALL_TALK_END"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_414034198"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareQuestProgress",
+            "QuestID": {
+              "fixedValue": {
+                "Value": 2200112
+              }
+            },
+            "Progress": {
+              "fixedValue": {
+                "Value": 20
+              }
+            },
+            "EquationType": "Equal",
+            "TaskEnabled": true
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.TriggerSound",
+              "SoundName": {
+                "Value": "Ev_vo_origamibirds_appear"
+              },
+              "EmitterType": "TargetEvaluator",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByOwnerGroupAndID",
+                "SingleNpcKey": {
+                  "Custom": true,
+                  "Key": "TargetNPC"
+                },
+                "SingleNpcID": {
+                  "GroupNpcID": {
+                    "fixedValue": {
+                      "Value": 400001
+                    }
+                  }
+                },
+                "SingleUniqueName": {
+                  "Value": "InteractTarget_OrigamiBird01"
+                },
+                "NpcIDInOwnerGroup": {
+                  "fixedValue": {
+                    "Value": 400001
+                  }
+                }
+              },
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+              "TargetAlias": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByOwnerGroupAndID",
+                "SingleNpcKey": {
+                  "Custom": true,
+                  "Key": "TargetNPC"
+                },
+                "SingleNpcID": {
+                  "GroupNpcID": {
+                    "fixedValue": {
+                      "Value": 400001
+                    }
+                  }
+                },
+                "SingleUniqueName": {
+                  "Value": "InteractTarget_OrigamiBird01"
+                },
+                "NpcIDInOwnerGroup": {
+                  "fixedValue": {
+                    "Value": 400001
+                  }
+                }
+              },
+              "ForceStart": true,
+              "StoryAvatarID": "NPC_Special_OrigamiBird_00",
+              "NormalizedTransitionDuration": 0.05,
+              "StoryMotionID": 900090291,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+              "KeepDisplay": true,
+              "SimpleTalkList": [
+                {
+                  "TextSpeed": 20,
+                  "TalkSentenceID": 414034199,
+                  "ProtectTime": 0.3
+                }
+              ],
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "ALL_TALK_END"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.TriggerSound",
+              "SoundName": {
+                "Value": "Ev_vo_origamibirds_appear"
+              },
+              "EmitterType": "TargetEvaluator",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByOwnerGroupAndID",
+                "SingleNpcKey": {
+                  "Custom": true,
+                  "Key": "TargetNPC"
+                },
+                "SingleNpcID": {
+                  "GroupNpcID": {
+                    "fixedValue": {
+                      "Value": 400001
+                    }
+                  }
+                },
+                "SingleUniqueName": {
+                  "Value": "InteractTarget_OrigamiBird01"
+                },
+                "NpcIDInOwnerGroup": {
+                  "fixedValue": {
+                    "Value": 400001
+                  }
+                }
+              },
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+              "TargetAlias": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByOwnerGroupAndID",
+                "SingleNpcKey": {
+                  "Custom": true,
+                  "Key": "TargetNPC"
+                },
+                "SingleNpcID": {
+                  "GroupNpcID": {
+                    "fixedValue": {
+                      "Value": 400001
+                    }
+                  }
+                },
+                "SingleUniqueName": {
+                  "Value": "InteractTarget_OrigamiBird01"
+                },
+                "NpcIDInOwnerGroup": {
+                  "fixedValue": {
+                    "Value": 400001
+                  }
+                }
+              },
+              "ForceStart": true,
+              "StoryAvatarID": "NPC_Special_OrigamiBird_00",
+              "NormalizedTransitionDuration": 0.05,
+              "StoryMotionID": 900090291,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+              "KeepDisplay": true,
+              "SimpleTalkList": [
+                {
+                  "TextSpeed": 20,
+                  "TalkSentenceID": 414034198,
+                  "ProtectTime": 0.3
+                }
+              ],
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "ALL_TALK_END"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "ALL_TALK_END"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ]
+}

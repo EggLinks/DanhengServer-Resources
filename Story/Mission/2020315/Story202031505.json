@@ -1,0 +1,97 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "C",
+          "AreaPrefabPath": "Story/Mission/2020315/Story202031505.prefab",
+          "CreateCharacterList": [
+            {
+              "CharacterUniqueName": "Jingliu_00_C00",
+              "AvatarID": "NPC_Avatar_Maid_Jingliu_00",
+              "AreaName": "Story202031505.prefab",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "Yanqing_00_C00",
+              "AvatarID": "NPC_Avatar_Boy_Yanqing_00",
+              "AreaName": "Story202031505.prefab",
+              "TaskEnabled": true
+            }
+          ],
+          "HideMunicipalCrowd": true,
+          "HideMunicipalPedestrian": true,
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Mission/2020315/Story20203150501.playable",
+          "Type": "Story",
+          "Parameters": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "TalkSentenceID": 202150511,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_202150514"
+            },
+            {
+              "TalkSentenceID": 202150512,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_202150514"
+            },
+            {
+              "TalkSentenceID": 202150513,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_202150514"
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_202150514"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Mission/2020315/Story20203150502.playable",
+          "Type": "Story",
+          "Parameters": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ]
+}

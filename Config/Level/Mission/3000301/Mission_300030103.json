@@ -1,0 +1,131 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateNPC",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 88
+            }
+          },
+          "GroupNpcID": {
+            "fixedValue": {
+              "Value": 400004
+            }
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateNPC",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 88
+            }
+          },
+          "GroupNpcID": {
+            "fixedValue": {
+              "Value": 400005
+            }
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateNPC",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 88
+            }
+          },
+          "GroupNpcID": {
+            "fixedValue": {
+              "Value": 400006
+            }
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PhotoGraphAimTarget",
+          "AimTargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvNPC",
+            "MultiGroupFetch": [
+              {
+                "GroupID": 88,
+                "GroupNpcID": 400004
+              }
+            ]
+          },
+          "IsAim": true,
+          "AimIdentifyType": "Manual",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PhotoGraphWaitIdentifyFinish",
+          "WaitTargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvNPC",
+            "MultiGroupFetch": [
+              {
+                "GroupID": 88,
+                "GroupNpcID": 400004
+              }
+            ]
+          },
+          "WaitAll": true,
+          "OnPreviewFinish": [
+            {
+              "$type": "RPG.GameCore.PhotoGraphAimTarget",
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNPC",
+                "MultiGroupFetch": [
+                  {
+                    "GroupID": 88,
+                    "GroupNpcID": 400004
+                  }
+                ]
+              },
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "PhotoGraph30030103_End"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "PhotoGraph30030103_End"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_300030103",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

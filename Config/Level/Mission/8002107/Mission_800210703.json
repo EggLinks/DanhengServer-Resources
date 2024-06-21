@@ -1,0 +1,179 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPhotoGraphResult",
+          "WaitPhotoResult": [
+            "Target_800210703",
+            "Target_800210703_Mar_7th"
+          ],
+          "CompleteMatch": true,
+          "OnSuccess": [
+            {
+              "$type": "RPG.GameCore.WaitSecond",
+              "WaitTime": {
+                "fixedValue": {
+                  "Value": 2
+                }
+              },
+              "MaxAdvencePerTick": -1
+            },
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByHeroGender",
+                "Gender": "GENDER_MAN",
+                "TaskEnabled": true
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.GuessTheSilhouetteResult",
+                  "SilhouetteID": 16,
+                  "IsExecuting": true,
+                  "TaskEnabled": true
+                },
+                {
+                  "$type": "RPG.GameCore.SetMissionCustomValue",
+                  "SubmissionID": 800210703,
+                  "MissionCustomValue": {
+                    "Index": 1,
+                    "ValidValueParamList": [
+                      0,
+                      1,
+                      2
+                    ]
+                  },
+                  "CustomValue": 2,
+                  "TaskEnabled": true
+                },
+                {
+                  "$type": "RPG.GameCore.TriggerPerformance",
+                  "ValueSource": {},
+                  "PerformanceType": "D",
+                  "PerformanceID": 800210702,
+                  "TaskEnabled": true
+                },
+                {
+                  "$type": "RPG.GameCore.FinishPerformanceMission",
+                  "Key": "Mission_800210703",
+                  "MainMissionID": 8002107,
+                  "TaskEnabled": true
+                }
+              ],
+              "FailedTaskList": [
+                {
+                  "$type": "RPG.GameCore.GuessTheSilhouetteResult",
+                  "SilhouetteID": 17,
+                  "IsExecuting": true,
+                  "TaskEnabled": true
+                },
+                {
+                  "$type": "RPG.GameCore.SetMissionCustomValue",
+                  "SubmissionID": 800210703,
+                  "MissionCustomValue": {
+                    "Index": 1,
+                    "ValidValueParamList": [
+                      0,
+                      1,
+                      2
+                    ]
+                  },
+                  "CustomValue": 1,
+                  "TaskEnabled": true
+                },
+                {
+                  "$type": "RPG.GameCore.TriggerPerformance",
+                  "ValueSource": {},
+                  "PerformanceType": "D",
+                  "PerformanceID": 800210702,
+                  "TaskEnabled": true
+                },
+                {
+                  "$type": "RPG.GameCore.FinishPerformanceMission",
+                  "Key": "Mission_800210703",
+                  "MainMissionID": 8002107,
+                  "TaskEnabled": true
+                }
+              ],
+              "TaskEnabled": true
+            }
+          ],
+          "IsLoop": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPhotoGraphResult",
+          "WaitPhotoResult": [
+            "Target_800210703"
+          ],
+          "CompleteMatch": true,
+          "OnSuccess": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "Mission_800210703_Fail"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "OnFail": [],
+          "IsLoop": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPhotoGraphResult",
+          "WaitPhotoResult": [
+            "Target_800210703_Mar_7th"
+          ],
+          "CompleteMatch": true,
+          "OnSuccess": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "Mission_800210703_Fail"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "OnFail": [],
+          "IsLoop": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Mission_800210703_Fail"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayMissionTalk",
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 800210304,
+              "ProtectTime": 2
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

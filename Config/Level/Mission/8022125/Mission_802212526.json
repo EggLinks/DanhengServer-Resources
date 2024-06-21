@@ -1,0 +1,186 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPhotoGraphResult",
+          "WaitPhotoResult": [
+            "Actor_2_2_1",
+            "Actor_2_2_2",
+            "Actor_2_2_3",
+            "Actor_2_2_4"
+          ],
+          "CompleteMatch": true,
+          "OnSuccess": [
+            {
+              "$type": "RPG.GameCore.SetMissionCustomValue",
+              "SubmissionID": 802212526,
+              "MissionCustomValue": {
+                "Index": 2,
+                "ValidValueParamList": [
+                  0,
+                  1
+                ]
+              },
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.UpdateTreasureChallengeProgress",
+              "RaidTargetID": 443050039,
+              "IsIncrease": true,
+              "DeltaValue": 1,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.UpdateTreasureChallengeProgress",
+              "RaidTargetID": 443050040,
+              "IsIncrease": true,
+              "DeltaValue": 1,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.FinishPerformanceMission",
+              "Key": "Mission_802212526",
+              "MainMissionID": 8022125,
+              "TaskEnabled": true
+            }
+          ],
+          "OnFail": [
+            {
+              "$type": "RPG.GameCore.PlayFullScreenTransfer",
+              "Type": "Black",
+              "PrevDuration": 0.5,
+              "KeepDuration": 0.1,
+              "Action": [
+                {
+                  "$type": "RPG.GameCore.ScrTrfActTaskList",
+                  "TaskList": [
+                    {
+                      "$type": "RPG.GameCore.SwitchCharacterAnchorV2",
+                      "SwitchCharacterAnchorConfig": {
+                        "IsLocalPlayer": true,
+                        "CharacterUniqueName": "LocalPlayer",
+                        "AreaName": {
+                          "Value": "LevelArea_P44305_F44305002_G53"
+                        },
+                        "AnchorName": {
+                          "Value": "Anchor2"
+                        },
+                        "ResetAnimation": true,
+                        "ResetCamera": true,
+                        "TaskEnabled": true
+                      },
+                      "TaskEnabled": true
+                    }
+                  ]
+                }
+              ],
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.TriggerPerformance",
+              "ValueSource": {},
+              "PerformanceType": "D",
+              "PerformanceID": 802212527,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.PerformanceEndSeq",
+              "Cases": [
+                {
+                  "OnSuccess": [
+                    {
+                      "$type": "RPG.GameCore.PlayFullScreenTransfer",
+                      "Type": "Black",
+                      "KeepDuration": 0.1,
+                      "PostDuration": -1,
+                      "Action": [
+                        {
+                          "$type": "RPG.GameCore.ScrTrfActTaskList",
+                          "TaskList": [
+                            {
+                              "$type": "RPG.GameCore.SwitchCharacterAnchorV2",
+                              "SwitchCharacterAnchorConfig": {
+                                "IsLocalPlayer": true,
+                                "CharacterUniqueName": "LocalPlayer",
+                                "AreaName": {
+                                  "Value": "LevelArea_P44305_F44305002_G36"
+                                },
+                                "AnchorName": {
+                                  "Value": "Anchor2"
+                                },
+                                "ResetAnimation": true,
+                                "ResetCamera": true,
+                                "TaskEnabled": true
+                              },
+                              "TaskEnabled": true
+                            }
+                          ]
+                        }
+                      ],
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.SetMissionCustomValue",
+                      "SubmissionID": 802212526,
+                      "MissionCustomValue": {
+                        "Index": 2,
+                        "ValidValueParamList": [
+                          0,
+                          1
+                        ]
+                      },
+                      "CustomValue": 1,
+                      "TaskEnabled": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.TriggerCustomString",
+                      "CustomString": {
+                        "Value": "802212526_End"
+                      },
+                      "TaskEnabled": true
+                    }
+                  ]
+                },
+                {
+                  "Case": 1,
+                  "OnSuccess": [
+                    {
+                      "$type": "RPG.GameCore.ResetPhotoGraphTargets",
+                      "BindName": {
+                        "Value": "Camera_2_2_2"
+                      },
+                      "TaskEnabled": true
+                    }
+                  ]
+                }
+              ],
+              "TaskEnabled": true
+            }
+          ],
+          "IsLoop": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "802212526_End"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_802212526",
+          "MainMissionID": 8022125,
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

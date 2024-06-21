@@ -1,0 +1,105 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PhotoGraphAimTarget",
+          "AimTargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvProp",
+            "MultiGroupFetch": [
+              {
+                "GroupID": {
+                  "fixedValue": {
+                    "Value": 75
+                  }
+                },
+                "ID": {
+                  "fixedValue": {
+                    "Value": 300011
+                  }
+                }
+              }
+            ]
+          },
+          "IsAim": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PhotoGraphWaitIdentifyFinish",
+          "WaitTargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvProp",
+            "MultiGroupFetch": [
+              {
+                "GroupID": {
+                  "fixedValue": {
+                    "Value": 75
+                  }
+                },
+                "ID": {
+                  "fixedValue": {
+                    "Value": 300011
+                  }
+                }
+              }
+            ]
+          },
+          "OnPreviewFinish": [
+            {
+              "$type": "RPG.GameCore.PhotoGraphAimTarget",
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvProp",
+                "MultiGroupFetch": [
+                  {
+                    "GroupID": {
+                      "fixedValue": {
+                        "Value": 75
+                      }
+                    },
+                    "ID": {
+                      "fixedValue": {
+                        "Value": 300011
+                      }
+                    }
+                  }
+                ]
+              },
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.SwitchPhotoGraphMode",
+              "ExitWhenPreViewDialogFinish": true,
+              "InitFov": -1,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "200011627_Finish"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "200011627_Finish"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_200011627",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

@@ -1,0 +1,142 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateProp",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 36
+            }
+          },
+          "GroupPropID": {
+            "fixedValue": {
+              "Value": 300001
+            }
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 36
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300001
+                }
+              }
+            }
+          },
+          "TargetGroupID": {},
+          "TargetID": {},
+          "TargetTypes": [],
+          "DestroyAfterTriggered": true,
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "Mission_202030710_PropTrigger"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "SkipFakeAvatar": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Mission_202030710_PropTrigger"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayNPCBubbleTalk",
+          "BubbleTalkInfoList": [
+            {
+              "AutoSkipTime": 1.5,
+              "GroupID": 36,
+              "GroupNpcID": 400002,
+              "TalkSentenceID": 202073224
+            },
+            {
+              "AutoSkipTime": 1.5,
+              "GroupID": 36,
+              "GroupNpcID": 400003,
+              "TalkSentenceID": 202073225
+            },
+            {
+              "AutoSkipTime": 1.5,
+              "GroupID": 36,
+              "GroupNpcID": 400001,
+              "TalkSentenceID": 202073226
+            },
+            {
+              "AutoSkipTime": 1.5,
+              "GroupID": 36,
+              "GroupNpcID": 400002,
+              "TalkSentenceID": 202073227
+            },
+            {
+              "AutoSkipTime": 1.5,
+              "GroupID": 36,
+              "GroupNpcID": 400003,
+              "TalkSentenceID": 202073228
+            },
+            {
+              "AutoSkipTime": 1.5,
+              "GroupID": 36,
+              "GroupNpcID": 400002,
+              "TalkSentenceID": 202073229
+            },
+            {
+              "AutoSkipTime": 1.5,
+              "GroupID": 36,
+              "GroupNpcID": 400003,
+              "TalkSentenceID": 202073230
+            }
+          ],
+          "BubbleTalkType": "Normal",
+          "LoopInterval": 1,
+          "InstantFinish": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.DestroyProp",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          },
+          "ID": {
+            "fixedValue": {
+              "Value": 300001
+            }
+          },
+          "GroupID": {
+            "fixedValue": {
+              "Value": 36
+            }
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_202030710",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

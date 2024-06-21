@@ -1,0 +1,81 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [],
+          "MainMissionIDList": [],
+          "PerformanceIDList": [],
+          "PerformanceIDDsList": [],
+          "CustomValueMainMissionIDList": [
+            1032703
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareMissionCustomValue",
+            "MainMissionID": 1032703,
+            "MissionCustomValue": {
+              "Index": 2,
+              "ValidValueParamList": [
+                0,
+                1,
+                2
+              ]
+            },
+            "EquationType": "Equal",
+            "TargetValue": 1,
+            "TaskEnabled": true
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.SetMissionCustomValue",
+              "SubmissionID": 802240201,
+              "MissionCustomValue": {
+                "ValidValueParamList": [
+                  5,
+                  6
+                ]
+              },
+              "CustomValue": 6,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.FinishPerformanceMission",
+              "Key": "Mission_802240201",
+              "MainMissionID": 8022402,
+              "TaskEnabled": true
+            }
+          ],
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.SetMissionCustomValue",
+              "SubmissionID": 802240201,
+              "MissionCustomValue": {
+                "ValidValueParamList": [
+                  5,
+                  6
+                ]
+              },
+              "CustomValue": 5,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.FinishPerformanceMission",
+              "Key": "Mission_802240201",
+              "MainMissionID": 8022402,
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

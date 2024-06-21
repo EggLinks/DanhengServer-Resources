@@ -1,0 +1,71 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [],
+          "MainMissionIDList": [],
+          "PerformanceIDList": [],
+          "CustomValueMainMissionIDList": [
+            2020601
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerPerformance",
+          "ValueSource": {},
+          "PerformanceType": "D",
+          "PerformanceID": 202060114,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareMissionCustomValue",
+            "MainMissionID": 2020601,
+            "MissionCustomValue": {
+              "isLocal": true,
+              "ValidValueParamList": [
+                0,
+                1
+              ]
+            },
+            "EquationType": "Equal",
+            "TargetValue": 1,
+            "TaskEnabled": true
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "OpenRaid_202060114"
+              },
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.SetMissionCustomValue",
+              "SubmissionID": 202060114,
+              "MissionCustomValue": {
+                "isLocal": true,
+                "ValidValueParamList": [
+                  0,
+                  1
+                ]
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_202060114",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

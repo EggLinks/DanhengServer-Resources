@@ -1,0 +1,76 @@
+{
+  "GroupConfigName": "Default",
+  "ConfigEntityPath": "Config/ConfigEntity/SummonUnit/SummonUnit_Common_TeamField_Entity.json",
+  "TickLodTemplateName": "DefaultStaticEntity",
+  "ResidentEffects": [],
+  "ShoesType": "boot",
+  "AttachPoint": "Origin",
+  "Duration": {
+    "fixedValue": {
+      "Value": -1
+    }
+  },
+  "OnCreate": [],
+  "OnDestroy": [],
+  "TriggerConfig": {
+    "CustomTriggers": [
+      {
+        "TriggerName": "AcheronNpcMonsterTrigger",
+        "DefaultEnable": true,
+        "Radius": {
+          "fixedValue": {
+            "Value": 20
+          }
+        },
+        "RayStartOffsetY": 1,
+        "ForceSyncTargetToSever": true,
+        "TargetTypes": [
+          "NPCMonster"
+        ],
+        "ColliderRelativePath": "Trigger",
+        "OnTriggerEnter": [
+          {
+            "$type": "RPG.GameCore.PredicateTaskList",
+            "Predicate": {
+              "$type": "RPG.GameCore.ByAllowInstantKill",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "TaskActionTarget"
+              },
+              "TaskEnabled": true
+            },
+            "SuccessTaskList": [
+              {
+                "$type": "RPG.GameCore.AddMazeBuff",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "TaskActionTarget"
+                },
+                "ID": 130802,
+                "TaskEnabled": true
+              }
+            ],
+            "TaskEnabled": true
+          }
+        ],
+        "OnTriggerExit": [
+          {
+            "$type": "RPG.GameCore.RefreshMazeBuffTime",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetAlias",
+              "Alias": "TaskActionTarget"
+            },
+            "ID": 130802,
+            "LifeTime": {
+              "fixedValue": {
+                "Value": 1
+              }
+            },
+            "TaskEnabled": true
+          }
+        ],
+        "SkipFakeAvatar": true
+      }
+    ]
+  }
+}

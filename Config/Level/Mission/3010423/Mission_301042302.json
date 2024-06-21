@@ -1,0 +1,109 @@
+{
+  "OnInitSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateLevelAreas",
+          "AssetPath": {
+            "Value": "Level/Mission/3010423/3010423_Anchor.prefab"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 86
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300002
+                }
+              }
+            }
+          },
+          "TargetEntityType": "LocalPlayer",
+          "TargetGroupID": {},
+          "TargetID": {},
+          "TargetTypes": [],
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.DestroyProp",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300001
+                }
+              },
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 86
+                }
+              },
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.AdventureCameraLookAt",
+              "LookAtTargetAreaName": {
+                "Value": "3010423_Anchor"
+              },
+              "LookAtTargetAnchorName": {
+                "Value": "LookatPoint_1"
+              },
+              "LookAtTransitionDuration": 3,
+              "LookAtTransitionCurvePath": "Camera/BlendCurve/Blend_N1CameraTest.asset",
+              "LockCameraInput": true,
+              "LookAtDuration": 3,
+              "MaxAngle": 60,
+              "FollowLookAtTarget": true,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.PlayMissionTalk",
+              "SimpleTalkList": [
+                {
+                  "TextSpeed": 20,
+                  "TalkSentenceID": 301043203,
+                  "ProtectTime": 3
+                }
+              ],
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.WaitMissionTalkFinish",
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.RemoveLevelAreas",
+              "AreaName": {
+                "Value": "3010423_Anchor"
+              },
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.FinishPerformanceMission",
+              "Key": "Mission_301042302",
+              "TaskEnabled": true
+            }
+          ],
+          "SkipFakeAvatar": true,
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

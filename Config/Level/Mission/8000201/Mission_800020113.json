@@ -1,0 +1,202 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateProp",
+          "GroupID": {},
+          "GroupPropID": {},
+          "CreateList": [
+            {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 2
+                }
+              },
+              "GroupInstanceID": {
+                "fixedValue": {
+                  "Value": 300001
+                }
+              }
+            },
+            {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 2
+                }
+              },
+              "GroupInstanceID": {
+                "fixedValue": {
+                  "Value": 300002
+                }
+              }
+            },
+            {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 2
+                }
+              },
+              "GroupInstanceID": {
+                "fixedValue": {
+                  "Value": 300003
+                }
+              }
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.ShowEnvBuffDialog",
+          "RaidID": 4000211,
+          "IsAutoGetParam": true,
+          "OnCancel": [
+            {
+              "$type": "RPG.GameCore.TriggerPerformance",
+              "ValueSource": {},
+              "PerformanceType": "E",
+              "PerformanceID": 800020113,
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 2
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300004
+                }
+              }
+            }
+          },
+          "TargetGroupID": {},
+          "TargetID": {},
+          "TargetTypes": [],
+          "DestroyAfterTriggered": true,
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.LockPlayerControl",
+              "LockCameraControl": true,
+              "LockInteractSelect": true,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.ShowTalkUI",
+              "Show": true,
+              "ShowDialogControlUI": true,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.PlayScreenTransfer",
+              "Type": "Black",
+              "Mode": "SwitchOut",
+              "CustomTime": 1,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.ActiveVirtualCamera",
+              "AreaName": "LevelArea_P40002_F40002101_G2",
+              "AnchorName": "Anchor1",
+              "IsActive": true,
+              "VCameraDitherMaxDistance": 1,
+              "CenterPosX": -1,
+              "CenterPosY": -1,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.PlayScreenTransfer",
+              "Type": "Black",
+              "CustomTime": 1,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.WaitSecond",
+              "WaitTime": {
+                "fixedValue": {
+                  "Value": 1
+                }
+              },
+              "MaxAdvencePerTick": -1,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.PlaySimpleTalk",
+              "KeepDisplay": true,
+              "SimpleTalkList": [
+                {
+                  "TextSpeed": 20,
+                  "TalkSentenceID": 200073401,
+                  "ProtectTime": 0.8
+                }
+              ],
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.WaitSimpleTalkFinish",
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.PlayScreenTransfer",
+              "Type": "Black",
+              "Mode": "SwitchOut",
+              "CustomTime": 1,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.ActiveVirtualCamera",
+              "AreaName": "LevelArea_P40002_F40002101_G2",
+              "AnchorName": "Anchor1",
+              "VCameraDitherMaxDistance": 1,
+              "CenterPosX": -1,
+              "CenterPosY": -1,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.ShowTalkUI",
+              "ShowDialogControlUI": true,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.PlayScreenTransfer",
+              "Type": "Black",
+              "CustomTime": 1,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.UnLockPlayerControl",
+              "UnLockCameraControl": true,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.FinishPerformanceMission",
+              "Key": "Mission_800020113",
+              "TaskEnabled": true
+            }
+          ],
+          "SkipFakeAvatar": true,
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

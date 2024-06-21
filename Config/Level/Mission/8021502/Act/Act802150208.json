@@ -1,0 +1,344 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "D",
+          "CreateCharacterList": [],
+          "CaptureNPCList": [],
+          "EntityVisiableList": [],
+          "HideMunicipalCrowd": true,
+          "HideMunicipalPedestrian": true,
+          "HideMunicipalOther": true,
+          "PropVisiableList": [],
+          "StreamingSourcesInBlackMask": [],
+          "StreamingSourcesAfterBlackMask": [],
+          "MarkStreamingItems": [],
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayScreenTransfer",
+          "Type": "Black",
+          "Mode": "SwitchOut",
+          "CustomTime": 0.1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SwitchCharacterAnchorV2",
+          "SwitchCharacterAnchorConfig": {
+            "CharacterUniqueName": "WolfBro_Boss",
+            "AreaName": {
+              "Value": "LevelArea_P20332_F20332001_G82"
+            },
+            "AnchorName": {
+              "Value": "NoBossPoint"
+            },
+            "TaskEnabled": true
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EnableNPCMonsterAI",
+          "GroupMonsterIDs": [],
+          "UniqueNames": [],
+          "AbortSkillWhenDisable": true,
+          "ResetStateOnDisable": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetEntityVisible",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvLocalPlayer",
+            "IncludeStoryPlayer": true
+          },
+          "MuteColliderWhenInvisible": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.AdvCharacterDisableHitBox",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvLocalPlayer",
+            "IncludeStoryPlayer": true
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CaptureNPCToCharacter",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 82
+            }
+          },
+          "GroupNpcID": {
+            "fixedValue": {
+              "Value": 200001
+            }
+          },
+          "CharacterUniqueName": {
+            "Value": "WolfBoss_Fake"
+          },
+          "ReleaseIfPerformanceEnd": true,
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvMonsterEx",
+            "FetchType": "SingleByMonsterID",
+            "SingleMonsterID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 82
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 200001
+                }
+              }
+            }
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetEntityVisible",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvMonsterEx",
+            "FetchType": "SingleByMonsterID",
+            "SingleMonsterID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 82
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 200001
+                }
+              }
+            }
+          },
+          "Visible": true,
+          "MuteColliderWhenInvisible": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SwitchCharacterAnchorV2",
+          "SwitchCharacterAnchorConfig": {
+            "CharacterUniqueName": "WolfBoss_Fake",
+            "AreaName": {
+              "Value": "LevelArea_P20332_F20332001_G82"
+            },
+            "AnchorName": {
+              "Value": "BossPoint"
+            },
+            "TaskEnabled": true
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CharacterTriggerAnimState",
+          "CharacterUniqueName": {
+            "Value": "WolfBoss_Fake"
+          },
+          "ForceStart": true,
+          "AnimStateName": "Die",
+          "NormalizedTransitionDuration": 0.05,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ActiveVirtualCamera",
+          "AreaName": "LevelArea_P20332_F20332001_G82",
+          "AnchorName": "ActCamera03",
+          "IsActive": true,
+          "BlendConfig": {
+            "ExportToJson": true,
+            "BlendType": "Cut",
+            "FOVSmoothDampTime": -1,
+            "FrameBlendWeightStart": 1,
+            "FrameBlendDuration": 1
+          },
+          "VCameraDitherMaxDistance": 1,
+          "CenterPosX": -1,
+          "CenterPosY": -1,
+          "DynamicParams": {},
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayScreenTransfer",
+          "Type": "Black",
+          "CustomTime": 0.5,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 802152502,
+              "ProtectTime": 0.8
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 802152503,
+              "ProtectTime": 0.8
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 802152504,
+              "ProtectTime": 0.8
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 802152505,
+              "ProtectTime": 0.8
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ActiveVirtualCamera",
+          "AreaName": "LevelArea_P20332_F20332001_G82",
+          "AnchorName": "ActCamera03",
+          "BlendConfig": {
+            "ExportToJson": true,
+            "BlendType": "Cut",
+            "FOVSmoothDampTime": -1,
+            "FrameBlendWeightStart": 1,
+            "FrameBlendDuration": 1
+          },
+          "VCameraDitherMaxDistance": 1,
+          "CenterPosX": -1,
+          "CenterPosY": -1,
+          "DynamicParams": {},
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayFullScreenTransfer",
+          "Type": "Black",
+          "PrevDuration": 0.5,
+          "KeepDuration": 0.5,
+          "PostDuration": 0.5,
+          "Action": [
+            {
+              "$type": "RPG.GameCore.ScrTrfActTaskList",
+              "TaskList": [
+                {
+                  "$type": "RPG.GameCore.TriggerCustomString",
+                  "CustomString": {
+                    "Value": "WolfBro_ExitPlayer"
+                  },
+                  "TaskEnabled": true
+                },
+                {
+                  "$type": "RPG.GameCore.SetEntityVisible",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetFetchAdvLocalPlayer",
+                    "IncludeStoryPlayer": true
+                  },
+                  "Visible": true,
+                  "MuteColliderWhenInvisible": true,
+                  "TaskEnabled": true
+                },
+                {
+                  "$type": "RPG.GameCore.AdvCharacterDisableHitBox",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetFetchAdvLocalPlayer",
+                    "IncludeStoryPlayer": true
+                  },
+                  "Enable": true,
+                  "TaskEnabled": true
+                },
+                {
+                  "$type": "RPG.GameCore.SetEntityVisible",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetFetchAdvMonsterEx",
+                    "FetchType": "SingleByMonsterID",
+                    "SingleMonsterID": {
+                      "GroupID": {
+                        "fixedValue": {
+                          "Value": 82
+                        }
+                      },
+                      "ID": {
+                        "fixedValue": {
+                          "Value": 200001
+                        }
+                      }
+                    }
+                  },
+                  "MuteColliderWhenInvisible": true,
+                  "TaskEnabled": true
+                }
+              ]
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.AddFinishMissionData_PlayMessage",
+          "SubmissionID": 802150204,
+          "MessageSectionID": 1308500,
+          "ShowNotice": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EnableNPCMonsterAI",
+          "Enable": true,
+          "GroupMonsterIDs": [],
+          "UniqueNames": [],
+          "AbortSkillWhenDisable": true,
+          "ResetStateOnDisable": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "EnterWolfBro"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "fixedValue": {
+              "Value": 1
+            }
+          },
+          "MaxAdvencePerTick": -1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EnableNPCMonsterAI",
+          "GroupMonsterIDs": [],
+          "UniqueNames": [],
+          "AbortSkillWhenDisable": true,
+          "ResetStateOnDisable": true,
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ]
+}

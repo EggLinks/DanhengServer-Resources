@@ -1,0 +1,72 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [],
+          "MainMissionIDList": [],
+          "PerformanceIDList": [],
+          "PerformanceIDDsList": [],
+          "CustomValueMainMissionIDList": [
+            8015153
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareMissionCustomValue",
+            "MainMissionID": 8015153,
+            "MissionCustomValue": {
+              "ValidValueParamList": [
+                1,
+                2
+              ]
+            },
+            "EquationType": "Equal",
+            "TargetValue": 2,
+            "TaskEnabled": true
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.WaitUIControllerClose",
+              "UIControllerName": "ToastMissionGapDialog",
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.WaitUIControllerClose",
+              "UIControllerName": "HeliobusActionDayResultPerformanceDialog",
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.WaitUIControllerClose",
+              "UIControllerName": "HeliobusActionDayResultPage",
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.WaitUIControllerClose",
+              "UIControllerName": "MissionTrainVisitorDialog",
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.TriggerPerformance",
+              "ValueSource": {},
+              "PerformanceType": "E",
+              "PerformanceID": 801515324,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.SaveMessage",
+              "MessageSectionID": 1219600,
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

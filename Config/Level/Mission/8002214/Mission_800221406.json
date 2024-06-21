@@ -1,0 +1,96 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "EnterArea_800221403"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayMissionTalk",
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 102050408,
+              "ProtectTime": 2
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "EnterArea_800221403"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.BlockInputController",
+          "Enable": true,
+          "ActionNameList": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.AdventureCameraLookAtSimple",
+          "LookAtTarget": {
+            "$type": "RPG.GameCore.TargetFetchAdvProp",
+            "MultiGroupFetch": [
+              {
+                "GroupID": {
+                  "fixedValue": {
+                    "Value": 13
+                  }
+                },
+                "ID": {
+                  "fixedValue": {
+                    "Value": 300006
+                  }
+                }
+              }
+            ]
+          },
+          "LookAtTransitionDuration": 1,
+          "LookAtTransitionCurvePath": "Camera/BlendCurve/BlendCut_Motion.asset",
+          "LockCameraInput": true,
+          "LookAtDuration": 3,
+          "LookAtRecoverDuration": 1,
+          "LookAtRecoverCurvePath": "Camera/BlendCurve/BlendCut_Motion.asset",
+          "EnableOverrideLookAtOffset": true,
+          "OverrideLookAtOffset": {
+            "y": 6,
+            "z": 6,
+            "normalized": {
+              "y": 0.7071068,
+              "z": 0.7071068,
+              "magnitude": 1,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 8.485281,
+            "sqrMagnitude": 72
+          },
+          "FollowLookAtTarget": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.BlockInputController",
+          "ActionNameList": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_800221406",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

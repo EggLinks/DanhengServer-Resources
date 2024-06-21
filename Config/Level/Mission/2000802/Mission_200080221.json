@@ -1,0 +1,83 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.ShowFuncBtn",
+          "Show": true,
+          "HideWhenGraphFinish": true,
+          "PuzzleFunc": "Identify",
+          "ShowBtnFucHint": true,
+          "CustomString": {
+            "Value": "OpenPhotoMode"
+          },
+          "ShowBtnEffect": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "OpenPhotoMode"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SwitchPhotoGraphMode",
+          "PhotoGraphMode": "Identify",
+          "ExitWhenPreViewDialogFinish": true,
+          "SkipPhotoPreviewDialog": true,
+          "IdentifyRadiusOverride": {
+            "fixedValue": {
+              "Value": 5
+            }
+          },
+          "InitFov": -1,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PlayMissionTalk",
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 200080918,
+              "ProtectTime": 2
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PlayNPCBubbleTalk",
+          "BubbleTalkInfoList": [
+            {
+              "AutoSkipTime": 3,
+              "GroupID": 4,
+              "GroupNpcID": 400006,
+              "TalkSentenceID": 200085101
+            }
+          ],
+          "BubbleTalkType": "Normal",
+          "IsLoop": true,
+          "LoopInterval": 10,
+          "InstantFinish": true,
+          "UniqueID": 2211,
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

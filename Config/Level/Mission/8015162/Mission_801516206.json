@@ -1,0 +1,206 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [],
+          "MainMissionIDList": [],
+          "PerformanceIDList": [],
+          "PerformanceIDDsList": [],
+          "CustomValueMainMissionIDList": [
+            8015162
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "OnClose_QiongGuan_Submission"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetMissionWayPoint",
+          "SubMissionID": 801516206,
+          "OverideMissionWayPointType": true,
+          "MissionWayPointType": "NPC",
+          "OverideWayPointEntityID": true,
+          "WayPointEntityID": 400001,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetMissionCustomValue",
+          "SubmissionID": 801516206,
+          "MissionCustomValue": {
+            "isLocal": true,
+            "ValidValueParamList": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              0
+            ]
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "DestroyNpc8015162"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [],
+          "MainMissionIDList": [],
+          "PerformanceIDList": [],
+          "PerformanceIDDsList": [],
+          "CustomValueMainMissionIDList": [
+            8015162
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareMissionCustomValue",
+            "MainMissionID": 8015162,
+            "MissionCustomValue": {
+              "isLocal": true,
+              "ValidValueParamList": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                0
+              ]
+            },
+            "EquationType": "Equal",
+            "TargetValue": 2,
+            "TaskEnabled": true
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "Start_801516206"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.SetMissionWayPoint",
+              "SubMissionID": 801516206,
+              "MissionWayPointType": "Prop",
+              "WayPointGroupID": 210,
+              "OverideWayPointEntityID": true,
+              "WayPointEntityID": 400001,
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "OnStart_QiongGuan_Submission"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "Start_801516206"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.NpcPossession",
+          "GroupID": {},
+          "GroupNpcID": {},
+          "PossessionInfo": {
+            "Name": "Possession_RobCraneBox_A_01",
+            "LocalScale": {
+              "x": 1,
+              "y": 1,
+              "z": 1,
+              "normalized": {
+                "x": 0.577350259,
+                "y": 0.577350259,
+                "z": 0.577350259,
+                "normalized": {
+                  "x": 0.5773503,
+                  "y": 0.5773503,
+                  "z": 0.5773503,
+                  "magnitude": 1.00000012,
+                  "sqrMagnitude": 1.00000024
+                },
+                "magnitude": 0.99999994,
+                "sqrMagnitude": 0.99999994
+              },
+              "magnitude": 1.73205078,
+              "sqrMagnitude": 3
+            }
+          },
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvLocalPlayer",
+            "IncludeStoryPlayer": true
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Battle_801516206"
+          },
+          "GoNextImmediately": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerBattle",
+          "EventID": {
+            "fixedValue": {
+              "Value": 20223239
+            }
+          },
+          "GroupID": {
+            "fixedValue": {
+              "Value": 5
+            }
+          },
+          "BattleAreaID": {
+            "fixedValue": {
+              "Value": 1
+            }
+          },
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

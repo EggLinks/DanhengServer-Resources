@@ -1,0 +1,121 @@
+{
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "C",
+          "AreaPrefabPath": "Story/Mission/1021702/Story102170213.prefab",
+          "CreateCharacterList": [
+            {
+              "CharacterUniqueName": "Welt_00_C00",
+              "AvatarID": "NPC_Avatar_Male_Welt_00",
+              "AreaName": "Story102170213.prefab",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "PlayerGirl_00_C00",
+              "AvatarID": "NPC_Avatar_Miss_PlayerGirl_00",
+              "AreaName": "Story102170213.prefab",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "PlayerBoy_00_C00",
+              "AvatarID": "NPC_Avatar_Lad_PlayerBoy_00",
+              "AreaName": "Story102170213.prefab",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "Mar_7th_00_C00",
+              "AvatarID": "NPC_Avatar_Maid_Mar_7th_00",
+              "AreaName": "Story102170213.prefab",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "W2_Male_36_C00",
+              "AvatarID": "NPC_W2_Male_36",
+              "AreaName": "Story102170213.prefab",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "W2_Fox_01",
+              "AvatarID": "Prop_W2_Fox_01",
+              "AreaName": "Story102170213.prefab",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "W2_Carton_02",
+              "AvatarID": "Prop_W2_Carton_02",
+              "AreaName": "Story102170213.prefab",
+              "TaskEnabled": true
+            }
+          ],
+          "EntityVisiableList": [],
+          "HideMunicipalCrowd": true,
+          "HideMunicipalPedestrian": true,
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "MarkStreamingItems": [],
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Mission/1021702/Story10217021301.playable",
+          "Type": "Story",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "TalkSentenceID": 102170344,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_102170346"
+            },
+            {
+              "TalkSentenceID": 102170345,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_102170346"
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_102170346"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Mission/1021702/Story10217021302.playable",
+          "Type": "Story",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ]
+}

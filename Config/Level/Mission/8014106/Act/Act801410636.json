@@ -1,0 +1,116 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "E",
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayFullScreenTransfer",
+          "Type": "Black",
+          "PrevDuration": 0.5,
+          "KeepDuration": 0.5,
+          "PostDuration": 0.5,
+          "Action": [
+            {
+              "$type": "RPG.GameCore.ScrTrfActTaskList",
+              "TaskList": [
+                {
+                  "$type": "RPG.GameCore.AdvNpcFaceToPlayer",
+                  "FromDialog": true,
+                  "TryFaceToFace": true,
+                  "NpcLookAtPlayer": true,
+                  "PlayerLookAtNpc": true,
+                  "StopLookAtOnGraphEnd": true,
+                  "WaitFinishMode": "WaitFaceAngle",
+                  "ForceToStandBy": true,
+                  "TaskEnabled": true
+                },
+                {
+                  "$type": "RPG.GameCore.AdvEntityFaceTo",
+                  "SourceType": {
+                    "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                    "FetchType": "SingleNpcByNpcID",
+                    "SingleNpcID": {
+                      "GroupID": {
+                        "fixedValue": {
+                          "Value": 13
+                        }
+                      },
+                      "GroupNpcID": {
+                        "fixedValue": {
+                          "Value": 400045
+                        }
+                      }
+                    }
+                  },
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetFetchAdvLocalPlayer",
+                    "IncludeStoryPlayer": true
+                  },
+                  "EnableSteer": true,
+                  "EnableLookAt": true,
+                  "LookAtPoint": "Head",
+                  "WaitFinishMode": "WaitAnimFinish",
+                  "ForceToStandBy": true,
+                  "TaskEnabled": true
+                }
+              ]
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 814122301,
+              "ProtectTime": 0.8
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 814122302,
+              "ProtectTime": 0.8
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 814122303,
+              "ProtectTime": 0.8
+            },
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 814122304,
+              "ProtectTime": 0.8
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ]
+}

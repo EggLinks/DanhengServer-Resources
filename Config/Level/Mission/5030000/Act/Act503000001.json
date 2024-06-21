@@ -1,0 +1,386 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "E",
+          "CreateCharacterList": [],
+          "EntityVisiableList": [],
+          "HideMunicipalCrowd": true,
+          "HideMunicipalPedestrian": true,
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "PropVisiableList": [],
+          "MarkStreamingItems": [],
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.VerifyInteractingEntity",
+          "IsDialogueTarget": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.AdvNpcFaceToPlayer",
+          "FromDialog": true,
+          "TryFaceToFace": true,
+          "NpcLookAtPlayer": true,
+          "PlayerLookAtNpc": true,
+          "StopLookAtOnGraphEnd": true,
+          "TurnBackOnGraphEnd": true,
+          "FinishImmadiate": true,
+          "WaitFinishMode": "WaitFaceAngle",
+          "ForceToStandBy": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.AdvCreateGroupEntity",
+          "InstanceIDList": [
+            400001
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ShowTalkUI",
+          "ShowDialogControlUI": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_503000001"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_503000001"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerEffect",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAnchor",
+            "GroupID": 244,
+            "GroupInstanceID": 1
+          },
+          "Flags": [],
+          "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_XP_Minion04_00/Eff_Monster_XP_Minion04_00_Common_Maze_SpecialAppear.prefab",
+          "Scale": {
+            "x": -1,
+            "y": -1,
+            "z": -1,
+            "normalized": {
+              "x": -0.577350259,
+              "y": -0.577350259,
+              "z": -0.577350259,
+              "normalized": {
+                "x": -0.5773503,
+                "y": -0.5773503,
+                "z": -0.5773503,
+                "magnitude": 1.00000012,
+                "sqrMagnitude": 1.00000024
+              },
+              "magnitude": 0.99999994,
+              "sqrMagnitude": 0.99999994
+            },
+            "magnitude": 1.73205078,
+            "sqrMagnitude": 3
+          },
+          "ParamEntityUsage": "LookAt",
+          "TowardMaxPitchAngle": 90,
+          "SubObjectModifyDataList": [],
+          "MaxMutexCount": 1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.RandomConfig",
+          "OddsList": [
+            {
+              "fixedValue": {
+                "Value": 1
+              }
+            },
+            {
+              "fixedValue": {
+                "Value": 1
+              }
+            }
+          ],
+          "TaskList": [
+            {
+              "$type": "RPG.GameCore.PlayVoice",
+              "VoiceIDs": [
+                503000001
+              ],
+              "IntervalTime": 0.5,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.PlayVoice",
+              "VoiceIDs": [
+                503000002
+              ],
+              "IntervalTime": 0.5,
+              "TaskEnabled": true
+            }
+          ],
+          "RandomCount": {
+            "fixedValue": {
+              "Value": 1
+            }
+          },
+          "AutoResetRandomMask": true,
+          "RandomMaskTarget": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "_LastRandomIndex": -1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.StartDialogueEntityInteract",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+            "FetchType": "SingleNpcByNpcID",
+            "SingleNpcID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 244
+                }
+              },
+              "GroupNpcID": {
+                "fixedValue": {
+                  "Value": 400001
+                }
+              }
+            }
+          },
+          "LevelGraphPath": "Config/Level/Props/InteractMode/TriggerEvent_TriggerType_08.json",
+          "UseOverrideData": true,
+          "ValueSource": {
+            "Values": [
+              {
+                "$type": "RPG.GameCore.SharedString",
+                "Value": "Level/Common_Adventure/UseInteractClockBoy.prefab",
+                "Key": "DialogueEntityInteract_AreaPath"
+              },
+              {
+                "$type": "RPG.GameCore.SharedString",
+                "Value": "UseInteractClockBoy,UseInteractClockBoy_Camera",
+                "Key": "DialogueEntityInteract_CameraKey"
+              },
+              {
+                "$type": "RPG.GameCore.SharedString",
+                "Value": "UseInteractClockBoy",
+                "Key": "DialogueEntityInteract_AreaName"
+              },
+              {
+                "$type": "RPG.GameCore.SharedFloat",
+                "Key": "ResetEntityTransform"
+              }
+            ],
+            "SharedValues": [
+              {
+                "$type": "RPG.GameCore.SharedString",
+                "Value": "Level/Common_Adventure/UseInteractClockBoy.prefab",
+                "Key": "DialogueEntityInteract_AreaPath"
+              },
+              {
+                "$type": "RPG.GameCore.SharedString",
+                "Value": "UseInteractClockBoy,UseInteractClockBoy_Camera",
+                "Key": "DialogueEntityInteract_CameraKey"
+              },
+              {
+                "$type": "RPG.GameCore.SharedString",
+                "Value": "UseInteractClockBoy",
+                "Key": "DialogueEntityInteract_AreaName"
+              },
+              {
+                "$type": "RPG.GameCore.SharedFloat",
+                "Key": "ResetEntityTransform"
+              }
+            ]
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ShowUI",
+          "Name": "Ui.Shop.WorldShop.OfferingWorldShopPage",
+          "WaitForExit": true,
+          "Param": {
+            "Value": "1"
+          },
+          "OnUIExitImmediately": [
+            {
+              "$type": "RPG.GameCore.EndDialogueEntityInteract",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByNpcID",
+                "SingleNpcID": {
+                  "GroupID": {
+                    "fixedValue": {
+                      "Value": 244
+                    }
+                  },
+                  "GroupNpcID": {
+                    "fixedValue": {
+                      "Value": 400001
+                    }
+                  }
+                }
+              },
+              "LevelGraphPath": "Config/Level/Props/InteractMode/TriggerEvent_ExitTriggerType_08.json",
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+              "CharacterUniqueName": "244-400001",
+              "ForceStart": true,
+              "StoryAvatarID": "NPC_Special_ClockBoy_00",
+              "NormalizedTransitionDuration": 0.05,
+              "StoryMotionID": 900160264,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.TriggerEffect",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAnchor",
+                "GroupID": 244,
+                "GroupInstanceID": 1
+              },
+              "Flags": [],
+              "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_XP_Minion04_00/Eff_Monster_XP_Minion04_00_Common_Maze_SpecialAppear.prefab",
+              "Scale": {
+                "x": -1,
+                "y": -1,
+                "z": -1,
+                "normalized": {
+                  "x": -0.577350259,
+                  "y": -0.577350259,
+                  "z": -0.577350259,
+                  "normalized": {
+                    "x": -0.5773503,
+                    "y": -0.5773503,
+                    "z": -0.5773503,
+                    "magnitude": 1.00000012,
+                    "sqrMagnitude": 1.00000024
+                  },
+                  "magnitude": 0.99999994,
+                  "sqrMagnitude": 0.99999994
+                },
+                "magnitude": 1.73205078,
+                "sqrMagnitude": 3
+              },
+              "ParamEntityUsage": "LookAt",
+              "TowardMaxPitchAngle": 90,
+              "SubObjectModifyDataList": [],
+              "MaxMutexCount": 1,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.AdvDestroyGroupEntity",
+              "InstanceIDList": [
+                400001
+              ],
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.EndPerformance",
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "ADV_OfferingClockie_Submit_LevelUp"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+          "CharacterUniqueName": "244-400001",
+          "ForceStart": true,
+          "StoryAvatarID": "NPC_Special_ClockBoy_00",
+          "NormalizedTransitionDuration": 0.05,
+          "StoryMotionID": 900160280,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayVoice",
+          "VoiceIDs": [
+            503000003
+          ],
+          "IntervalTime": 0.5,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "ADV_OfferingClockie_Submit_Normal"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayVoice",
+          "VoiceIDs": [
+            503000004
+          ],
+          "IntervalTime": 0.5,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "ADV_OfferingClockie_Got_Reward"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+          "CharacterUniqueName": "244-400001",
+          "ForceStart": true,
+          "StoryAvatarID": "NPC_Special_ClockBoy_00",
+          "NormalizedTransitionDuration": 0.05,
+          "StoryMotionID": 900160014,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ]
+}

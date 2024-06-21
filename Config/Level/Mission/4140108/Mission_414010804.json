@@ -1,0 +1,63 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [],
+          "MainMissionIDList": [],
+          "PerformanceIDList": [],
+          "CustomValueMainMissionIDList": [
+            4140108
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitMissionCustomValueChange",
+          "MainMissionID": 4140108,
+          "MissionCustomValue": {
+            "isLocal": true,
+            "ValidValueParamList": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "OnChange": [
+            {
+              "$type": "RPG.GameCore.FinishPerformanceMission",
+              "Key": "Mission_414010804",
+              "TaskEnabled": true
+            }
+          ],
+          "Condition": {
+            "$type": "RPG.GameCore.ByCompareMissionCustomValue",
+            "MainMissionID": 4140108,
+            "MissionCustomValue": {
+              "isLocal": true,
+              "ValidValueParamList": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            "EquationType": "Equal",
+            "TargetValue": 4,
+            "TaskEnabled": true
+          },
+          "IsLoop": true,
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

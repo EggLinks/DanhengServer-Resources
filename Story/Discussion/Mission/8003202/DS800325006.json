@@ -1,0 +1,312 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "D",
+          "AreaPrefabPath": "Story/Discussion/Mission/8003202/DS800325006.prefab",
+          "CreateCharacterList": [
+            {
+              "CharacterUniqueName": "PlayerBoy_00_C00",
+              "AvatarID": "NPC_Avatar_Lad_PlayerBoy_00",
+              "AreaName": "DS800325006.prefab",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "PlayerGirl_00_C00",
+              "AvatarID": "NPC_Avatar_Miss_PlayerGirl_00",
+              "AreaName": "DS800325006.prefab",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "Yukong_00_C00",
+              "AvatarID": "NPC_Avatar_Lady_Yukong_00",
+              "AreaName": "DS800325006.prefab",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "AurumatonCaptain_00_C00",
+              "AvatarID": "NPC_Special_AurumatonCaptain_00",
+              "AreaName": "DS800325006.prefab",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "W2_Lady_41_C00",
+              "AvatarID": "NPC_W2_Lady_41",
+              "AreaName": "DS800325006.prefab",
+              "TaskEnabled": true
+            },
+            {
+              "CharacterUniqueName": "Table_C00",
+              "AvatarID": "Prop_W2_DiHengSi_Table_01",
+              "AreaName": "DS800325006.prefab",
+              "TaskEnabled": true
+            }
+          ],
+          "CaptureNPCList": [],
+          "HideNPC": true,
+          "EntityVisiableList": [],
+          "HideMunicipalCrowd": true,
+          "HideMunicipalPedestrian": true,
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "PropVisiableList": [],
+          "StreamingSourcesInBlackMask": [],
+          "StreamingSourcesAfterBlackMask": [],
+          "MarkStreamingItems": [],
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.DebateInitialize",
+          "TestimonyTimelinePath": "Story/Discussion/Mission/8003202/DS80032500601.playable",
+          "FailChangce": 5,
+          "TestimonySettingList": [
+            {
+              "TimelineClipName": "0",
+              "CanAsk": true,
+              "AskCustomString": "Ask0",
+              "CanSubmitItem": true,
+              "ItemIDList": [
+                140252,
+                140253,
+                140254
+              ],
+              "SpecialItemList": [],
+              "ItemDefaultCustomString": "Fail"
+            },
+            {
+              "Index": 1,
+              "TimelineClipName": "1",
+              "CanAsk": true,
+              "AskCustomString": "Ask1",
+              "CanSubmitItem": true,
+              "ItemIDList": [
+                140252,
+                140253,
+                140254
+              ],
+              "SpecialItemList": [
+                {
+                  "ItemID": 140254,
+                  "TriggerCustomString": "Correct"
+                }
+              ],
+              "ItemDefaultCustomString": "Fail"
+            },
+            {
+              "Index": 2,
+              "TimelineClipName": "2",
+              "CanAsk": true,
+              "AskCustomString": "Ask2",
+              "CanSubmitItem": true,
+              "ItemIDList": [
+                140252,
+                140253,
+                140254
+              ],
+              "SpecialItemList": [],
+              "ItemDefaultCustomString": "Fail"
+            },
+            {
+              "Index": 3,
+              "TestimonyType": "LastStatement",
+              "TimelineClipName": "3",
+              "LastToBeginTalkSentenceID": 800325736
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Ask0"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/8003202/DS80032500602.playable",
+          "Type": "Discussion",
+          "Parameters": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.DebateReturnTestimony",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Ask1"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/8003202/DS80032500603.playable",
+          "Type": "Discussion",
+          "Parameters": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.DebateReturnTestimony",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Correct"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/8003202/DS80032500604.playable",
+          "Type": "Discussion",
+          "Parameters": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "TalkSentenceID": 800325519,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_800325521"
+            },
+            {
+              "TalkSentenceID": 800325520,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_800325521"
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_800325521"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/8003202/DS80032500605.playable",
+          "Type": "Discussion",
+          "Parameters": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "Succ"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Ask2"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/8003202/DS80032500606.playable",
+          "Type": "Discussion",
+          "Parameters": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.DebateReturnTestimony",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Fail"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/8003202/DS80032500607.playable",
+          "Type": "Discussion",
+          "Parameters": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.DebateReturnTestimony",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Succ"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.DebateShowToast",
+          "ToastType": "Success",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ]
+}

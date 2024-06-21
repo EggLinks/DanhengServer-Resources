@@ -1,0 +1,187 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Open_Raid"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CreateLevelAreas",
+          "AssetPath": {
+            "Value": "Level/Common_Adventure/UseInteractNPC.prefab"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.LockPlayerControl",
+          "LockCameraControl": true,
+          "LockInteractSelect": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.CaptureNPCToCharacter",
+          "GroupID": {
+            "fixedValue": {
+              "Value": 88
+            }
+          },
+          "GroupNpcID": {
+            "fixedValue": {
+              "Value": 400001
+            }
+          },
+          "CharacterUniqueName": {
+            "Value": "CurrentInteractDialogueEntity"
+          },
+          "ReleaseIfPerformanceEnd": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitFrame",
+          "WaitFrameCount": 1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ActiveVirtualCamera",
+          "AreaName": "UseInteractNPC",
+          "AnchorName": "UseInteractNPC_Camera",
+          "IsActive": true,
+          "FollowTargetUniqueName": "CurrentInteractDialogueEntity",
+          "LookAtTargetUniqueName": "CurrentInteractDialogueEntity",
+          "BlendConfig": {
+            "ExportToJson": true,
+            "BlendType": "Custom",
+            "CustomCurveName": "BlendCut09",
+            "BlendTime": 0.8,
+            "FOVSmoothDampTime": -1,
+            "FrameBlendWeightStart": 1,
+            "FrameBlendDuration": 1
+          },
+          "VCameraDitherNPCOn": true,
+          "VCameraDitherMaxDistance": 3,
+          "CenterPosX": -1,
+          "CenterPosY": -1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetLocalPlayerDitherAlpha",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.OpenTreasureChallenge",
+          "RaidID": 43207,
+          "OnCancel": [
+            {
+              "$type": "RPG.GameCore.SetLocalPlayerDitherAlpha",
+              "DitherAlpha": 1,
+              "Duration": 0.2,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.ActiveVirtualCamera",
+              "AreaName": "UseInteractNPC",
+              "AnchorName": "UseInteractNPC_Camera",
+              "FollowTargetAnchorName": "RootPointPropInteract",
+              "LookAtTargetAnchorName": "RootPointPropInteract",
+              "BlendConfig": {
+                "ExportToJson": true,
+                "BlendType": "Cut",
+                "CustomCurveName": "BlendCut10",
+                "BlendTime": 1,
+                "FOVSmoothDampTime": -1,
+                "FrameBlendWeightStart": 1,
+                "FrameBlendDuration": 1
+              },
+              "VCameraDitherMaxDistance": 1,
+              "CenterPosX": -1,
+              "CenterPosY": -1,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.RemoveLevelAreas",
+              "AreaName": {
+                "Value": "UseInteractNPC"
+              },
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.ReleaseCharacter",
+              "CharacterUniqueName": "CurrentInteractDialogueEntity",
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.UnLockPlayerControl",
+              "UnLockCameraControl": true,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "ALL_TALK_END"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetLocalPlayerDitherAlpha",
+          "DitherAlpha": 1,
+          "Duration": 0.2,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ActiveVirtualCamera",
+          "AreaName": "UseInteractNPC",
+          "AnchorName": "UseInteractNPC_Camera",
+          "FollowTargetAnchorName": "RootPointPropInteract",
+          "LookAtTargetAnchorName": "RootPointPropInteract",
+          "BlendConfig": {
+            "ExportToJson": true,
+            "BlendType": "Cut",
+            "CustomCurveName": "BlendCut10",
+            "BlendTime": 1,
+            "FOVSmoothDampTime": -1,
+            "FrameBlendWeightStart": 1,
+            "FrameBlendDuration": 1
+          },
+          "VCameraDitherMaxDistance": 1,
+          "CenterPosX": -1,
+          "CenterPosY": -1,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.RemoveLevelAreas",
+          "AreaName": {
+            "Value": "UseInteractNPC"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ReleaseCharacter",
+          "CharacterUniqueName": "CurrentInteractDialogueEntity",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.UnLockPlayerControl",
+          "UnLockCameraControl": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "ALL_TALK_END"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

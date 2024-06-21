@@ -1,0 +1,57 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "OpenMRaid_2020501"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.LockPlayerControl",
+          "LockCameraControl": true,
+          "LockInteractSelect": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ActiveVirtualCamera",
+          "AreaName": "LevelArea_P20221_F20221001_G163",
+          "AnchorName": "Anchor2",
+          "IsActive": true,
+          "VCameraDitherMaxDistance": 1,
+          "CenterPosX": -1,
+          "CenterPosY": -1,
+          "DynamicParams": {},
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.OpenTreasureChallenge",
+          "RaidID": 43201,
+          "OnCancel": [
+            {
+              "$type": "RPG.GameCore.ActiveVirtualCamera",
+              "AreaName": "LevelArea_P20221_F20221001_G163",
+              "AnchorName": "Anchor2",
+              "VCameraDitherMaxDistance": 1,
+              "CenterPosX": -1,
+              "CenterPosY": -1,
+              "DynamicParams": {},
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.UnLockPlayerControl",
+              "UnLockCameraControl": true,
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

@@ -1,0 +1,96 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [],
+          "MainMissionIDList": [],
+          "PerformanceIDList": [],
+          "PerformanceIDDsList": [],
+          "CustomValueMainMissionIDList": [
+            1031501
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "103150108SelectItme3"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Talk_103150106"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareMissionCustomValue",
+            "MainMissionID": 1031501,
+            "MissionCustomValue": {
+              "Index": 3,
+              "isLocal": true,
+              "ValidValueParamList": [
+                0,
+                1
+              ]
+            },
+            "EquationType": "Equal",
+            "TargetValue": 1,
+            "TaskEnabled": true
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.PlayFullScreenTransfer",
+              "Type": "Black",
+              "PrevDuration": 0.5,
+              "KeepDuration": 0.5,
+              "PostDuration": -1,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.ConsumeMissionItem",
+              "SubMissionID": 103150133,
+              "IsAutoConsume": true,
+              "IsShowConsumeFinishTips": true,
+              "SimpleTalk": {
+                "TextSpeed": 20,
+                "ProtectTime": 0.8
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.PlayFullScreenTransfer",
+              "Type": "Black",
+              "PrevDuration": 0.5,
+              "KeepDuration": 0.5,
+              "PostDuration": 0.5,
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.ConsumeMissionItem",
+              "SubMissionID": 103150133,
+              "IsAutoConsume": true,
+              "IsShowConsumeFinishTips": true,
+              "SimpleTalk": {
+                "TextSpeed": 20,
+                "ProtectTime": 0.8
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

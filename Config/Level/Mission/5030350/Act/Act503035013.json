@@ -1,0 +1,482 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [
+            404031301,
+            404031302,
+            404031303,
+            404031304,
+            404031305
+          ],
+          "MainMissionIDList": [],
+          "PerformanceIDList": [],
+          "PerformanceIDDsList": [],
+          "CustomValueMainMissionIDList": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "E",
+          "CreateCharacterList": [],
+          "CaptureNPCList": [],
+          "EntityVisiableList": [],
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "PropVisiableList": [],
+          "StreamingSourcesInBlackMask": [],
+          "StreamingSourcesAfterBlackMask": [],
+          "MarkStreamingItems": [],
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.AdvNpcFaceToPlayer",
+          "FromDialog": true,
+          "TryFaceToFace": true,
+          "NpcLookAtPlayer": true,
+          "PlayerLookAtNpc": true,
+          "StopLookAtOnGraphEnd": true,
+          "TurnBackOnGraphEnd": true,
+          "WaitFinishMode": "WaitFaceAngle",
+          "ForceToStandBy": true,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByAnd",
+            "PredicateList": [
+              {
+                "$type": "RPG.GameCore.ByCompareSubMissionState",
+                "SubMissionID": 404031301,
+                "SubMissionState": "Started",
+                "TaskEnabled": true
+              },
+              {
+                "$type": "RPG.GameCore.ByCompareSubMissionState",
+                "SubMissionID": 404031302,
+                "SubMissionState": "Started",
+                "TaskEnabled": true
+              },
+              {
+                "$type": "RPG.GameCore.ByCompareSubMissionState",
+                "SubMissionID": 404031303,
+                "SubMissionState": "Started",
+                "TaskEnabled": true
+              },
+              {
+                "$type": "RPG.GameCore.ByCompareSubMissionState",
+                "SubMissionID": 404031304,
+                "SubMissionState": "Started",
+                "TaskEnabled": true
+              },
+              {
+                "$type": "RPG.GameCore.ByCompareSubMissionState",
+                "SubMissionID": 404031305,
+                "SubMissionState": "Started",
+                "TaskEnabled": true
+              }
+            ],
+            "TaskEnabled": true
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+              "KeepDisplay": true,
+              "SimpleTalkList": [
+                {
+                  "TextSpeed": 20,
+                  "TalkSentenceID": 503035000,
+                  "ProtectTime": 0.3
+                }
+              ],
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.EndPerformance",
+              "TaskEnabled": true
+            }
+          ],
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+              "KeepDisplay": true,
+              "SimpleTalkList": [
+                {
+                  "TextSpeed": 20,
+                  "TalkSentenceID": 503035000,
+                  "ProtectTime": 0.3
+                }
+              ],
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.PlayOptionTalk",
+              "OptionList": [
+                {
+                  "OptionTextmapID": {
+                    "Hash": -1812081910
+                  },
+                  "OptionIconType": "ChatContinueIcon",
+                  "TriggerCustomString": "PropInteractTitle_325",
+                  "VisibleFilter": {
+                    "$type": "RPG.GameCore.ByCompareSubMissionState",
+                    "SubMissionID": 404031301,
+                    "SubMissionState": "Finish",
+                    "TaskEnabled": true
+                  }
+                },
+                {
+                  "OptionTextmapID": {
+                    "Hash": -1812081909
+                  },
+                  "OptionIconType": "ChatContinueIcon",
+                  "TriggerCustomString": "PropInteractTitle_326",
+                  "VisibleFilter": {
+                    "$type": "RPG.GameCore.ByCompareSubMissionState",
+                    "SubMissionID": 404031302,
+                    "SubMissionState": "Finish",
+                    "TaskEnabled": true
+                  }
+                },
+                {
+                  "OptionTextmapID": {
+                    "Hash": -1812081908
+                  },
+                  "OptionIconType": "ChatContinueIcon",
+                  "TriggerCustomString": "PropInteractTitle_327",
+                  "VisibleFilter": {
+                    "$type": "RPG.GameCore.ByCompareSubMissionState",
+                    "SubMissionID": 404031303,
+                    "SubMissionState": "Finish",
+                    "TaskEnabled": true
+                  }
+                },
+                {
+                  "OptionTextmapID": {
+                    "Hash": -1812081907
+                  },
+                  "OptionIconType": "ChatContinueIcon",
+                  "TriggerCustomString": "PropInteractTitle_328",
+                  "VisibleFilter": {
+                    "$type": "RPG.GameCore.ByCompareSubMissionState",
+                    "SubMissionID": 404031304,
+                    "SubMissionState": "Finish",
+                    "TaskEnabled": true
+                  }
+                },
+                {
+                  "OptionTextmapID": {
+                    "Hash": -1812081906
+                  },
+                  "OptionIconType": "ChatContinueIcon",
+                  "TriggerCustomString": "PropInteractTitle_329",
+                  "VisibleFilter": {
+                    "$type": "RPG.GameCore.ByCompareSubMissionState",
+                    "SubMissionID": 404031305,
+                    "SubMissionState": "Finish",
+                    "TaskEnabled": true
+                  }
+                }
+              ],
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.ClientFinishMission",
+              "SubmissionID": 404034303,
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "PropInteractTitle_325"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ClientFinishMission",
+          "SubmissionID": 404034303,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayFullScreenTransfer",
+          "Type": "Black",
+          "PrevDuration": 0.5,
+          "KeepDuration": 0.5,
+          "PostDuration": -0.5,
+          "Action": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetFloorCustomFloat",
+          "Name": "FCV_ParkCar",
+          "Value": {
+            "fixedValue": {
+              "Value": 1
+            }
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerGroupEvent",
+          "EventName": {
+            "Value": "TriggerClose_Big"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayFullScreenTransfer",
+          "Type": "Black",
+          "PrevDuration": -0.5,
+          "KeepDuration": 0.5,
+          "PostDuration": 0.5,
+          "Action": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "PropInteractTitle_326"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ClientFinishMission",
+          "SubmissionID": 404034303,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayFullScreenTransfer",
+          "Type": "Black",
+          "PrevDuration": 0.5,
+          "KeepDuration": 0.5,
+          "PostDuration": -0.5,
+          "Action": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetFloorCustomFloat",
+          "Name": "FCV_ParkCar",
+          "Value": {
+            "fixedValue": {
+              "Value": 3
+            }
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerGroupEvent",
+          "EventName": {
+            "Value": "TriggerClose_Big"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayFullScreenTransfer",
+          "Type": "Black",
+          "PrevDuration": -0.5,
+          "KeepDuration": 0.5,
+          "PostDuration": 0.5,
+          "Action": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "PropInteractTitle_327"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ClientFinishMission",
+          "SubmissionID": 404034303,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayFullScreenTransfer",
+          "Type": "Black",
+          "PrevDuration": 0.5,
+          "KeepDuration": 0.5,
+          "PostDuration": -0.5,
+          "Action": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetFloorCustomFloat",
+          "Name": "FCV_ParkCar",
+          "Value": {
+            "fixedValue": {
+              "Value": 2
+            }
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerGroupEvent",
+          "EventName": {
+            "Value": "TriggerClose_Big"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayFullScreenTransfer",
+          "Type": "Black",
+          "PrevDuration": -0.5,
+          "KeepDuration": 0.5,
+          "PostDuration": 0.5,
+          "Action": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "PropInteractTitle_328"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ClientFinishMission",
+          "SubmissionID": 404034303,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayFullScreenTransfer",
+          "Type": "Black",
+          "PrevDuration": 0.5,
+          "KeepDuration": 0.5,
+          "PostDuration": -0.5,
+          "Action": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetFloorCustomFloat",
+          "Name": "FCV_ParkCar",
+          "Value": {
+            "fixedValue": {
+              "Value": 4
+            }
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerGroupEvent",
+          "EventName": {
+            "Value": "TriggerClose_Big"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayFullScreenTransfer",
+          "Type": "Black",
+          "PrevDuration": -0.5,
+          "KeepDuration": 0.5,
+          "PostDuration": 0.5,
+          "Action": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "PropInteractTitle_329"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayFullScreenTransfer",
+          "Type": "Black",
+          "PrevDuration": 0.5,
+          "KeepDuration": 0.5,
+          "PostDuration": -0.5,
+          "Action": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetFloorCustomFloat",
+          "Name": "FCV_ParkCar",
+          "Value": {
+            "fixedValue": {
+              "Value": 5
+            }
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerGroupEvent",
+          "EventName": {
+            "Value": "TriggerClose_Big"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayFullScreenTransfer",
+          "Type": "Black",
+          "PrevDuration": -0.5,
+          "KeepDuration": 0.5,
+          "PostDuration": 0.5,
+          "Action": [],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ]
+}

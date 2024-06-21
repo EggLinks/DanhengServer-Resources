@@ -1,0 +1,57 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.NpcToPlayerDistanceTrigger",
+          "GroupID": 83,
+          "GroupNpcID": 400001,
+          "NearDistance": 6,
+          "NearTask": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "Talk_800210203"
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "FarDistance": -1,
+          "AwakeWaitTime": -1,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Talk_800210203"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ClearNpcDistanceTrigger",
+          "GroupID": 83,
+          "GroupNpcID": 400001,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerPerformance",
+          "ValueSource": {},
+          "PerformanceType": "D",
+          "PerformanceID": 800210203,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_800210203",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

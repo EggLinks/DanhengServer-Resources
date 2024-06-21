@@ -1,0 +1,142 @@
+{
+  "GroupConfigName": "FollowField",
+  "ConfigEntityPath": "Config/ConfigEntity/SummonUnit/SummonUnit_Common_TeamField_Entity.json",
+  "TickLodTemplateName": "DefaultStaticEntity",
+  "ResidentEffects": [
+    {
+      "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Robin_00/Eff_Avatar_Robin_00_MazeSkill01_Start01.prefab",
+      "Scale": {
+        "x": -1,
+        "y": -1,
+        "z": -1,
+        "normalized": {
+          "x": -0.577350259,
+          "y": -0.577350259,
+          "z": -0.577350259,
+          "normalized": {
+            "x": -0.5773503,
+            "y": -0.5773503,
+            "z": -0.5773503,
+            "magnitude": 1.00000012,
+            "sqrMagnitude": 1.00000024
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 1.73205078,
+        "sqrMagnitude": 3
+      },
+      "ParamEntityUsage": "LookAt",
+      "TowardMaxPitchAngle": 90,
+      "MaxMutexCount": 1,
+      "TaskEnabled": true
+    }
+  ],
+  "ShoesType": "boot",
+  "AttachPoint": "Origin",
+  "Duration": {
+    "fixedValue": {
+      "Value": -1
+    }
+  },
+  "OnCreate": [
+    {
+      "$type": "RPG.GameCore.AdvMarkAsTauntProxy",
+      "TargetType": {
+        "$type": "RPG.GameCore.TargetAlias",
+        "Alias": "CasterSummoner"
+      },
+      "ProxyTargetType": {
+        "$type": "RPG.GameCore.TargetAlias",
+        "Alias": "Caster"
+      },
+      "TaskEnabled": true
+    }
+  ],
+  "OnBeReplaced": [
+    {
+      "$type": "RPG.GameCore.RemoveMazeBuff",
+      "TargetType": {
+        "$type": "RPG.GameCore.TargetAlias",
+        "Alias": "CasterSummoner"
+      },
+      "ID": 130902,
+      "TaskEnabled": true
+    }
+  ],
+  "TriggerConfig": {
+    "CustomTriggers": [
+      {
+        "TriggerName": "AttractNpcMonsterTrigger",
+        "DefaultEnable": true,
+        "Radius": {
+          "fixedValue": {
+            "Value": 6
+          }
+        },
+        "UseVerticalBound": true,
+        "NeedRaycast": true,
+        "RayStartOffsetY": 1,
+        "TargetTypes": [
+          "NPCMonster"
+        ],
+        "OnTriggerEnter": [
+          {
+            "$type": "RPG.GameCore.AddMazeBuff",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetAlias",
+              "Alias": "TaskActionTarget"
+            },
+            "ID": 130901,
+            "LifeTime": {
+              "fixedValue": {
+                "Value": 500
+              }
+            },
+            "TaskEnabled": true
+          },
+          {
+            "$type": "RPG.GameCore.AddMazeBuff",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetAlias",
+              "Alias": "TaskActionTarget"
+            },
+            "ID": 130903,
+            "LifeTime": {
+              "fixedValue": {
+                "Value": 500
+              }
+            },
+            "TaskEnabled": true
+          }
+        ],
+        "OnTriggerExit": [
+          {
+            "$type": "RPG.GameCore.RefreshMazeBuffTime",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetAlias",
+              "Alias": "TaskActionTarget"
+            },
+            "ID": 130903,
+            "LifeTime": {
+              "fixedValue": {
+                "Value": 2
+              }
+            },
+            "TaskEnabled": true
+          },
+          {
+            "$type": "RPG.GameCore.RemoveMazeBuff",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetAlias",
+              "Alias": "TaskActionTarget"
+            },
+            "ID": 130901,
+            "TaskEnabled": true
+          }
+        ],
+        "SkipFakeAvatar": true
+      }
+    ]
+  }
+}

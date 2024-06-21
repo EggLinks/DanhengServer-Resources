@@ -1,0 +1,135 @@
+{
+  "OnInitSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateLevelAreas",
+          "AssetPath": {
+            "Value": "Level/Mission/2000101/MainMission_LookatArea.prefab"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 14
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300004
+                }
+              }
+            }
+          },
+          "TargetGroupID": {},
+          "TargetID": {},
+          "TargetTypes": [],
+          "ColliderRelativePath": "Trigger",
+          "DisableAfterTriggered": true,
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.AdventureCameraLookAt",
+              "LookAtTargetAreaName": {
+                "Value": "MainMission_LookatArea"
+              },
+              "LookAtTargetAnchorName": {
+                "Value": "LookatPoint"
+              },
+              "LookAtTransitionDuration": 3,
+              "LookAtTransitionCurvePath": "Camera/BlendCurve/Blend_N1CameraTest.asset",
+              "LockCameraInput": true,
+              "UnlockCameraAfterRecover": true,
+              "LookAtDuration": 5,
+              "MaxAngle": 60,
+              "ExtraFreelook3rdConfig": {
+                "ExportToJson": true,
+                "BaseChangeParam": {
+                  "ExportToJson": true,
+                  "ZoomRatio": 1.2,
+                  "CenterPos": {
+                    "x": 0.5,
+                    "y": 0.5,
+                    "normalized": {
+                      "x": 0.707106769,
+                      "y": 0.707106769,
+                      "normalized": {
+                        "x": 0.7071068,
+                        "y": 0.7071068,
+                        "magnitude": 1,
+                        "sqrMagnitude": 1.00000012
+                      },
+                      "magnitude": 0.99999994,
+                      "sqrMagnitude": 0.99999994
+                    },
+                    "magnitude": 0.707106769,
+                    "sqrMagnitude": 0.5
+                  },
+                  "Time": 1,
+                  "ChangeCurvePath": "Camera/BlendCurve/Blend_N1CameraTest.asset",
+                  "RecoveryTime": 1,
+                  "RecoveryCurvePath": "Camera/BlendCurve/Blend_N1CameraTest.asset"
+                }
+              },
+              "TaskEnabled": true
+            }
+          ],
+          "OnTriggerExit": [],
+          "DestroyAfterGraphEnd": true,
+          "SkipFakeAvatar": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 14
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300005
+                }
+              }
+            }
+          },
+          "TargetGroupID": {},
+          "TargetID": {},
+          "TargetTypes": [],
+          "ColliderRelativePath": "Trigger",
+          "DisableAfterTriggered": true,
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.FinishPerformanceMission",
+              "Key": "Mission_100010137",
+              "TaskEnabled": true
+            }
+          ],
+          "DestroyAfterGraphEnd": true,
+          "SkipFakeAvatar": true,
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

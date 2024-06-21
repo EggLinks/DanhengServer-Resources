@@ -1,0 +1,74 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Talk_800320101"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_800320101",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 105
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300001
+                }
+              }
+            }
+          },
+          "IsSingle": true,
+          "TargetEntityType": "LocalPlayer",
+          "TargetTypes": [],
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.PlayMunicipalChat",
+              "NewMunicipalChatConfigPath": "Config/Level/MunicipalChatConfig/F10202001/MunicipalChatConfig_F10202001_0001.json",
+              "NewMunicipalChatEntityInfos": {
+                "Value": [
+                  {
+                    "$type": "RPG.GameCore.MunicipalChatEntityInfo",
+                    "UniqueName": "1",
+                    "GroupInstanceID": 400001
+                  }
+                ]
+              },
+              "MunicipalChatName": "MunicipalChatConfig_F10202001_0001",
+              "TaskEnabled": true
+            }
+          ],
+          "OnTriggerExit": [
+            {
+              "$type": "RPG.GameCore.StopMunicipalChat",
+              "MunicipalChatName": "MunicipalChatConfig_F10202001_0001",
+              "TaskEnabled": true
+            }
+          ],
+          "SkipFakeAvatar": true,
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

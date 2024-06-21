@@ -1,0 +1,49 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Talk_801517101"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetAudioEmotionState",
+          "ResetToFloorDefault": true,
+          "SubMissionID": 801517101,
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ShowTransitionLoadingUI",
+          "Name": "Ui.Heliobus.Transition.HeliobusTransitionDialog",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ShowUI",
+          "Name": "Ui.Heliobus.SNS.SNSMain.SNSDetail.HeliobusSNSDetailDialog",
+          "WaitForExit": true,
+          "Param": {
+            "Value": "701"
+          },
+          "OnUIEnter": [
+            {
+              "$type": "RPG.GameCore.ExitTransitionLoadingUI",
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_801517101",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

@@ -1,0 +1,119 @@
+{
+  "OnInitSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateLevelAreas",
+          "AssetPath": {
+            "Value": "Level/Mission/1010101/MainMission_LookatArea.prefab"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "fixedValue": {
+                  "Value": 23
+                }
+              },
+              "ID": {
+                "fixedValue": {
+                  "Value": 300006
+                }
+              }
+            }
+          },
+          "IsSingle": true,
+          "TargetEntityType": "LocalPlayer",
+          "TargetGroupID": {},
+          "TargetID": {},
+          "TargetTypes": [],
+          "ColliderRelativePath": "Trigger",
+          "DestroyAfterTriggered": true,
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.AdventureCameraLookAt",
+              "LookAtTargetAreaName": {
+                "Value": "MainMission_LookatArea"
+              },
+              "LookAtTargetAnchorName": {
+                "Value": "LookatPoint"
+              },
+              "AxisOffset": {
+                "x": 0.6,
+                "y": 0.6,
+                "normalized": {
+                  "x": 0.7071068,
+                  "y": 0.7071068,
+                  "magnitude": 1,
+                  "sqrMagnitude": 1.00000012
+                },
+                "magnitude": 0.848528147,
+                "sqrMagnitude": 0.72
+              },
+              "LookAtTransitionDuration": 3,
+              "LookAtTransitionCurvePath": "Camera/BlendCurve/Blend_N1CameraTest.asset",
+              "LockCameraInput": true,
+              "LookAtDuration": 4,
+              "MaxAngle": 60,
+              "ExtraFreelook3rdConfig": {
+                "ExportToJson": true,
+                "BaseChangeParam": {
+                  "ExportToJson": true,
+                  "ZoomRatio": 0.2,
+                  "CenterPos": {
+                    "x": 0.45,
+                    "y": 0.5,
+                    "normalized": {
+                      "x": 0.6689647,
+                      "y": 0.7432941,
+                      "normalized": {
+                        "x": 0.668964744,
+                        "y": 0.7432942,
+                        "magnitude": 1,
+                        "sqrMagnitude": 1
+                      },
+                      "magnitude": 0.99999994,
+                      "sqrMagnitude": 0.9999999
+                    },
+                    "magnitude": 0.6726812,
+                    "sqrMagnitude": 0.4525
+                  },
+                  "Time": 1,
+                  "ChangeCurvePath": "Camera/BlendCurve/Blend_N1CameraTest.asset",
+                  "RecoveryTime": 3,
+                  "RecoveryCurvePath": "Camera/BlendCurve/Blend_N1CameraTest.asset"
+                }
+              },
+              "FollowLookAtTarget": true,
+              "TaskEnabled": true
+            }
+          ],
+          "OnTriggerExit": [],
+          "SkipFakeAvatar": true,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.ChangePropState",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "ValueSource": {},
+  "Type": "Mission"
+}

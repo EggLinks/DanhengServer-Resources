@@ -1,0 +1,202 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [],
+          "MainMissionIDList": [],
+          "PerformanceIDList": [],
+          "PerformanceIDDsList": [],
+          "CustomValueMainMissionIDList": [
+            8015162
+          ],
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Talk_801516203"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_801516203",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "OnStart_SuiSubmission"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.NpcPossession",
+          "GroupID": {},
+          "GroupNpcID": {},
+          "PossessionInfo": {
+            "Name": "Possession_RobCraneBox_A_01",
+            "LocalScale": {
+              "x": 1,
+              "y": 1,
+              "z": 1,
+              "normalized": {
+                "x": 0.577350259,
+                "y": 0.577350259,
+                "z": 0.577350259,
+                "normalized": {
+                  "x": 0.5773503,
+                  "y": 0.5773503,
+                  "z": 0.5773503,
+                  "magnitude": 1.00000012,
+                  "sqrMagnitude": 1.00000024
+                },
+                "magnitude": 0.99999994,
+                "sqrMagnitude": 0.99999994
+              },
+              "magnitude": 1.73205078,
+              "sqrMagnitude": 3
+            }
+          },
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvLocalPlayer",
+            "IncludeStoryPlayer": true
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SwitchCase",
+          "WithBreak": true,
+          "TaskList": [
+            {
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCompareMissionCustomValue",
+                "MainMissionID": 8015162,
+                "MissionCustomValue": {
+                  "Index": 2,
+                  "ValidValueParamList": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ]
+                },
+                "EquationType": "Equal",
+                "TargetValue": 2,
+                "TaskEnabled": true
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.SetMissionWayPoint",
+                  "SubMissionID": 801516203,
+                  "OverideMissionWayPointType": true,
+                  "MissionWayPointType": "Prop",
+                  "OverideWayPointGroupID": true,
+                  "WayPointGroupID": 217,
+                  "OverideWayPointEntityID": true,
+                  "WayPointEntityID": 300002,
+                  "TaskEnabled": true
+                }
+              ],
+              "TaskEnabled": true
+            },
+            {
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCompareMissionCustomValue",
+                "MainMissionID": 8015162,
+                "MissionCustomValue": {
+                  "Index": 2,
+                  "ValidValueParamList": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ]
+                },
+                "EquationType": "Equal",
+                "TargetValue": 3,
+                "TaskEnabled": true
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.SetMissionWayPoint",
+                  "SubMissionID": 801516203,
+                  "OverideMissionWayPointType": true,
+                  "MissionWayPointType": "Prop",
+                  "OverideWayPointGroupID": true,
+                  "WayPointGroupID": 217,
+                  "OverideWayPointEntityID": true,
+                  "WayPointEntityID": 300003,
+                  "TaskEnabled": true
+                }
+              ],
+              "TaskEnabled": true
+            }
+          ],
+          "DefaultTask": [
+            {
+              "$type": "RPG.GameCore.SetMissionWayPoint",
+              "SubMissionID": 801516203,
+              "OverideMissionWayPointType": true,
+              "MissionWayPointType": "Prop",
+              "OverideWayPointGroupID": true,
+              "WayPointGroupID": 217,
+              "OverideWayPointEntityID": true,
+              "WayPointEntityID": 300001,
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "OnClose_SuiSubmission"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetMissionWayPoint",
+          "SubMissionID": 801516203,
+          "OverideMissionWayPointType": true,
+          "MissionWayPointType": "NPC",
+          "OverideWayPointGroupID": true,
+          "WayPointGroupID": 216,
+          "OverideWayPointEntityID": true,
+          "WayPointEntityID": 400001,
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.SetMissionWayPoint",
+          "SubMissionID": 801516203,
+          "OverideMissionWayPointType": true,
+          "MissionWayPointType": "NPC",
+          "OverideWayPointGroupID": true,
+          "WayPointGroupID": 216,
+          "OverideWayPointEntityID": true,
+          "WayPointEntityID": 400001,
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission"
+}

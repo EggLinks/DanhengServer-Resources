@@ -1,0 +1,557 @@
+{
+  "SomatoType": "MiddleAvatar",
+  "CharacterBodySize": "None",
+  "BuffPanelOffset": {
+    "y": 1.2,
+    "normalized": {
+      "y": 1,
+      "magnitude": 1,
+      "sqrMagnitude": 1
+    },
+    "magnitude": 1.2,
+    "sqrMagnitude": 1.44
+  },
+  "HitBoxWidth": 0.3,
+  "HitBoxLength": 1,
+  "HitBoxHeight": 1.35,
+  "Resilience": "C",
+  "Location": {
+    "Width": 0.8
+  },
+  "VisualRadius": 1,
+  "LookAtIKEnableRadius": 0.5,
+  "SaveModelWhenDead": true,
+  "IsSpecialVisualCharacter": "Keep",
+  "AnimEventConfigList": [
+    "Config/ConfigAnimEvents/Avatar/Designer/Avatar_Seele_00_Designer_AnimEvent.json",
+    "Config/ConfigAnimEvents/Avatar/Audio/Avatar_Seele_00_Audio_AnimEvent.json",
+    "Config/ConfigAnimEvents/Avatar/Effect/Avatar_Seele_00_Effect_AnimEvent.json",
+    "Config/ConfigAnimEvents/Avatar/Audio/Avatar_Common_ControllerVibration_AnimEvent.json"
+  ],
+  "SkillList": [
+    {
+      "Name": "Skill01",
+      "UseType": "SelectEntity",
+      "ActivateAfterRevive": true,
+      "MaxCastTimes": -1,
+      "TargetInfo": {
+        "TargetType": "EnemySelect",
+        "MaxTargetCount": 1,
+        "AllowEnemySummonUnit": true
+      },
+      "UseReadyTransitAnim": true,
+      "SkillNameHUD": true,
+      "CanOverkill": true,
+      "ReadyAnimState": "Skill01_Ready",
+      "CameraConfig": {
+        "NormalConfig": {
+          "CameraState": "SelectDarkTeamEntity",
+          "AnchorTargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "IsLocalOffset": true,
+          "AnchorOffset": {
+            "x": 0.5,
+            "y": 0.24,
+            "z": -0.56,
+            "normalized": {
+              "x": 0.634387,
+              "y": 0.304505765,
+              "z": -0.7105135,
+              "magnitude": 1,
+              "sqrMagnitude": 1
+            },
+            "magnitude": 0.7881624,
+            "sqrMagnitude": 0.621199965
+          },
+          "AimTargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "SkillTargetEntityList"
+          },
+          "AimOffset": {
+            "x": -2.8,
+            "y": 0.45,
+            "normalized": {
+              "x": -0.9873304,
+              "y": 0.1586781,
+              "magnitude": 1,
+              "sqrMagnitude": 1
+            },
+            "magnitude": 2.83593,
+            "sqrMagnitude": 8.0425
+          },
+          "FollowRadius": 3,
+          "AnchorToAimAngle": 30,
+          "Dutch": 2,
+          "ForbidDynamicOffset": true,
+          "ResetToDefault": true,
+          "UseSkillPerformIgnoreDynamicOffset": true
+        },
+        "BlendConfig": {
+          "BlendType": "Cut",
+          "FOVSmoothDampTime": -1,
+          "FrameBlendWeightStart": 1,
+          "FrameBlendDuration": 1
+        }
+      },
+      "CameraConfigAdded": {
+        "NormalConfig": {
+          "CameraState": "SelectDarkTeamEntity",
+          "AnchorTargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "IsLocalOffset": true,
+          "AnchorOffset": {
+            "x": 0.1,
+            "y": 0.12,
+            "z": -0.25,
+            "normalized": {
+              "x": 0.339226753,
+              "y": 0.4070721,
+              "z": -0.8480669,
+              "magnitude": 1,
+              "sqrMagnitude": 1
+            },
+            "magnitude": 0.294788063,
+            "sqrMagnitude": 0.0868999958
+          },
+          "AimTargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "SkillTargetEntityList"
+          },
+          "AimOffset": {
+            "x": -2.8,
+            "y": 0.45,
+            "normalized": {
+              "x": -0.9873304,
+              "y": 0.1586781,
+              "magnitude": 1,
+              "sqrMagnitude": 1
+            },
+            "magnitude": 2.83593,
+            "sqrMagnitude": 8.0425
+          },
+          "FollowRadius": 2.65,
+          "AnchorToAimAngle": 23,
+          "ForbidDynamicOffset": true,
+          "ResetToDefault": true,
+          "UseSkillPerformIgnoreDynamicOffset": true
+        },
+        "BlendConfig": {
+          "BlendType": "Custom",
+          "CustomCurveName": "BlendCut_00to1",
+          "BlendTime": 1,
+          "FOVSmoothDampTime": -1,
+          "FrameBlendWeightStart": 1,
+          "FrameBlendDuration": 1
+        }
+      },
+      "EntryAbility": "Avatar_Seele_00_Skill01_Phase01",
+      "DelayRatio": {
+        "Value": 1
+      },
+      "ComplexSkillAIPreCheck": {
+        "SkillBasicPower": {
+          "Value": 1
+        },
+        "Groups": [
+          {
+            "GroupName": "DefaultNormalSkill_PreCheck",
+            "Weight": {
+              "Value": 1
+            }
+          },
+          {
+            "GroupName": "BaseWeight",
+            "Weight": {
+              "Value": 0
+            }
+          },
+          {
+            "GroupName": "BasePp_Common_SingleAttack",
+            "Weight": {
+              "Value": 1
+            }
+          },
+          {
+            "GroupName": "BasePp_Common_WeakBreak",
+            "Weight": {
+              "Value": 0
+            }
+          }
+        ]
+      },
+      "ComplexSkillAI": {
+        "SkillBasicPower": {
+          "Value": 1
+        },
+        "Groups": [
+          {
+            "GroupName": "DefaultNormalSkill",
+            "Weight": {
+              "Value": 1
+            }
+          },
+          {
+            "GroupName": "BaseWeight",
+            "Weight": {
+              "Value": 0
+            }
+          },
+          {
+            "GroupName": "BasePp_Common_SingleAttack",
+            "Weight": {
+              "Value": 1
+            }
+          },
+          {
+            "GroupName": "BasePp_Common_WeakBreak",
+            "Weight": {
+              "Value": 0
+            }
+          }
+        ]
+      },
+      "AIUltraSkillPriority": "PROG_Default",
+      "CanBeInterrupted": true,
+      "AutoStandbyOnSkillFinish": true,
+      "IsSkillInsertable": true
+    },
+    {
+      "Name": "Skill02",
+      "SkillType": "Skill",
+      "UseType": "SelectEntity",
+      "ActivateAfterRevive": true,
+      "MaxCastTimes": -1,
+      "TargetInfo": {
+        "TargetType": "EnemySelect",
+        "MaxTargetCount": 1,
+        "AllowEnemySummonUnit": true
+      },
+      "UseReadyTransitAnim": true,
+      "SkillNameHUD": true,
+      "CanOverkill": true,
+      "ReadyAnimState": "Skill02_Ready_Loop",
+      "CameraConfig": {
+        "NormalConfig": {
+          "CameraState": "SelectDarkTeamEntity",
+          "AnchorTargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "IsLocalOffset": true,
+          "AnchorOffset": {
+            "x": 0.02,
+            "y": 0.07,
+            "z": -0.39,
+            "normalized": {
+              "x": 0.0504112728,
+              "y": 0.176439464,
+              "z": -0.9830198,
+              "magnitude": 1,
+              "sqrMagnitude": 1.00000012
+            },
+            "magnitude": 0.396736652,
+            "sqrMagnitude": 0.157399982
+          },
+          "AimTargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "SkillTargetEntityList"
+          },
+          "AimOffset": {
+            "x": -2.8,
+            "y": 0.45,
+            "normalized": {
+              "x": -0.9873304,
+              "y": 0.1586781,
+              "magnitude": 1,
+              "sqrMagnitude": 1
+            },
+            "magnitude": 2.83593,
+            "sqrMagnitude": 8.0425
+          },
+          "FollowRadius": 2.65,
+          "AnchorToAimAngle": 25,
+          "ForbidDynamicOffset": true,
+          "ResetToDefault": true,
+          "UseSkillPerformIgnoreDynamicOffset": true
+        },
+        "BlendConfig": {
+          "BlendType": "Custom",
+          "CustomCurveName": "BlendCut_05to1",
+          "BlendTime": 1,
+          "FOVSmoothDampTime": -1,
+          "FrameBlendWeightStart": 1,
+          "FrameBlendDuration": 1
+        }
+      },
+      "EntryAbility": "Avatar_Seele_00_Skill02_Phase01",
+      "DelayRatio": {
+        "Value": 1
+      },
+      "ComplexSkillAIPreCheck": {
+        "SkillBasicPower": {
+          "Value": 1
+        },
+        "Groups": [
+          {
+            "GroupName": "DefaultBPSkill_PreCheck",
+            "Weight": {
+              "Value": 1
+            }
+          },
+          {
+            "GroupName": "BasePp_Common_SingleAttack",
+            "Weight": {
+              "Value": 0
+            }
+          },
+          {
+            "GroupName": "BasePp_Common_WeakBreak",
+            "Weight": {
+              "Value": 0
+            }
+          },
+          {
+            "GroupName": "Add10_Seele_BuffSelfSpeedUp",
+            "Weight": {
+              "Value": 0
+            }
+          },
+          {
+            "GroupName": "AddNP_Common_BPSkill",
+            "Weight": {
+              "Value": 0
+            }
+          }
+        ]
+      },
+      "ComplexSkillAI": {
+        "SkillBasicPower": {
+          "Value": 1
+        },
+        "Groups": [
+          {
+            "GroupName": "DefaultBPSkill",
+            "Weight": {
+              "Value": 1
+            }
+          },
+          {
+            "GroupName": "BasePp_Common_SingleAttack",
+            "Weight": {
+              "Value": 0
+            }
+          },
+          {
+            "GroupName": "BasePp_Common_WeakBreak",
+            "Weight": {
+              "Value": 0
+            }
+          },
+          {
+            "GroupName": "Add10_Seele_BuffSelfSpeedUp",
+            "Weight": {
+              "Value": 0
+            }
+          },
+          {
+            "GroupName": "AddNP_Common_BPSkill",
+            "Weight": {
+              "Value": 0
+            }
+          }
+        ]
+      },
+      "AIUltraSkillPriority": "PROG_Default",
+      "CanBeInterrupted": true,
+      "AutoStandbyOnSkillFinish": true,
+      "IsSkillInsertable": true
+    },
+    {
+      "Name": "Skill03",
+      "SkillType": "Ultra",
+      "UseType": "SelectEntity",
+      "ActivateAfterRevive": true,
+      "MaxCastTimes": -1,
+      "TargetInfo": {
+        "TargetType": "EnemySelect",
+        "MaxTargetCount": 1,
+        "AllowEnemySummonUnit": true
+      },
+      "CanOverkill": true,
+      "ReadyAnimState": "Skill03_Ready",
+      "EntryAbility": "Avatar_Seele_00_Skill03_Phase01",
+      "PrepareAbility": "Avatar_Seele_00_Skill03_EnterReady",
+      "DelayRatio": {
+        "Value": 1
+      },
+      "ComplexSkillAI": {
+        "SkillBasicPower": {
+          "Value": 60
+        },
+        "Groups": [
+          {
+            "GroupName": "DefaultUltra",
+            "Weight": {
+              "Value": 1
+            }
+          },
+          {
+            "GroupName": "Ultra_Common_ImmediateRelease",
+            "Weight": {
+              "Value": 1
+            }
+          },
+          {
+            "GroupName": "Ultra_Common_SingleAttack",
+            "Weight": {
+              "Value": 1
+            }
+          }
+        ]
+      },
+      "AIUltraSkillPriority": "DamageAfterHeal",
+      "CanBeInterrupted": true,
+      "AutoStandbyOnSkillFinish": true,
+      "IsSkillInsertable": true
+    },
+    {
+      "Name": "SkillP01",
+      "SkillType": "Passive",
+      "UseType": "Passive",
+      "ActivateAfterRevive": true,
+      "MaxCastTimes": -1,
+      "TargetInfo": {
+        "TargetType": "Caster",
+        "MaxTargetCount": 1,
+        "AllowEnemySummonUnit": true
+      },
+      "CanOverkill": true,
+      "EntryAbility": "Avatar_Seele_00_PassiveSkill_1",
+      "DelayRatio": {
+        "Value": 1
+      },
+      "AIUltraSkillPriority": "PROG_Default",
+      "CanBeInterrupted": true,
+      "AutoStandbyOnSkillFinish": true,
+      "IsSkillInsertable": true
+    },
+    {
+      "Name": "SkillMaze",
+      "SkillType": "Maze",
+      "ActivateAfterRevive": true,
+      "MaxCastTimes": -1,
+      "TargetInfo": {
+        "TargetType": "Caster",
+        "MaxTargetCount": 1,
+        "AllowEnemySummonUnit": true
+      },
+      "SkillNameHUD": true,
+      "CanOverkill": true,
+      "EntryAbility": "Avatar_Seele_00_SkillMazeInLevel",
+      "DelayRatio": {
+        "Value": 1
+      },
+      "AIUltraSkillPriority": "PROG_Default",
+      "CanBeInterrupted": true,
+      "AutoStandbyOnSkillFinish": true,
+      "IsSkillInsertable": true
+    },
+    {
+      "Name": "PassiveSkill02",
+      "SkillType": "Passive",
+      "UseType": "Passive",
+      "ActivateAfterRevive": true,
+      "MaxCastTimes": -1,
+      "TargetInfo": {
+        "TargetType": "Caster",
+        "MaxTargetCount": 1,
+        "AllowEnemySummonUnit": true
+      },
+      "SkillNameHUD": true,
+      "CanOverkill": true,
+      "EntryAbility": "Avatar_Common_PassiveSkill",
+      "DelayRatio": {
+        "Value": 1
+      },
+      "AIUltraSkillPriority": "PROG_Default",
+      "CanBeInterrupted": true,
+      "AutoStandbyOnSkillFinish": true,
+      "IsSkillInsertable": true
+    }
+  ],
+  "AbilityList": [
+    "Avatar_Common_PassiveSkill"
+  ],
+  "SkillAbilityList": [
+    {
+      "Skill": "Skill01",
+      "AbilityList": [
+        "Avatar_Seele_00_Skill01_Camera",
+        "Avatar_Seele_00_Skill01_Phase01",
+        "Avatar_Seele_00_Skill01_Phase02"
+      ]
+    },
+    {
+      "Skill": "Skill02",
+      "AbilityList": [
+        "Avatar_Seele_00_Skill02_Camera",
+        "Avatar_Seele_00_Skill02_Phase01",
+        "Avatar_Seele_00_Skill02_Phase02"
+      ]
+    },
+    {
+      "Skill": "Skill03",
+      "AbilityList": [
+        "Avatar_Seele_00_Skill03_Camera",
+        "Avatar_Seele_00_Skill03_EnterReady",
+        "Avatar_Seele_00_Skill03_Phase01",
+        "Avatar_Seele_00_Skill03_Phase02"
+      ]
+    },
+    {
+      "Skill": "SkillP01",
+      "AbilityList": [
+        "Avatar_Seele_00_Bonus_Camera",
+        "Avatar_Seele_00_PassiveSkill_1",
+        "Avatar_Seele_00_Bonus"
+      ]
+    },
+    {
+      "Skill": "SkillMaze",
+      "AbilityList": [
+        "Avatar_Seele_00_SkillMazeInLevel"
+      ]
+    }
+  ],
+  "WeaponType": "WP_Sword_Long",
+  "ArmorType": "Armor_Physical",
+  "SkillReadyTransits": [
+    {
+      "From": 1,
+      "To": 2,
+      "AnimStateName": "Skill01toSkill02",
+      "TransitionInTime": 0.05,
+      "ReverseOutroTime": 0.06
+    },
+    {
+      "From": 2,
+      "To": 1,
+      "AnimStateName": "Skill02toSkill01",
+      "TransitionInTime": 0.05,
+      "ReverseOutroTime": 0.06
+    }
+  ],
+  "InitAnimStateName": "StandBy",
+  "ModifierPerformTimeFactor": 1,
+  "DisableAnimEventLayers": [
+    "Riboon Layer"
+  ],
+  "RepeatOccurAnimWhenBeHitNormalizedTime": -1,
+  "IgnoreDynamicOffsetBySelf": true,
+  "OverrideHeightForCameraOffset": -1,
+  "MaxMonsterPhase": 1
+}
