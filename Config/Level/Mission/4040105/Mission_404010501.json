@@ -14,7 +14,8 @@
         {
           "$type": "RPG.GameCore.FinishPerformanceMission",
           "Key": "Mission_404010501",
-          "TaskEnabled": true
+          "TaskEnabled": true,
+          "IsClientOnly": true
         }
       ]
     },
@@ -25,7 +26,53 @@
           "ValueSource": {},
           "PerformanceType": "E",
           "PerformanceID": 404010501,
-          "TaskEnabled": true
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.PerformanceEndSeq",
+          "Cases": [
+            {
+              "Case": 1,
+              "OnSuccess": [
+                {
+                  "$type": "RPG.GameCore.TriggerCustomString",
+                  "CustomString": {
+                    "Value": "SubMission_404010504_End"
+                  },
+                  "TaskEnabled": true
+                },
+                {
+                  "$type": "RPG.GameCore.TriggerCustomString",
+                  "CustomString": {
+                    "Value": "SubMission_404010501_End"
+                  },
+                  "TaskEnabled": true
+                }
+              ]
+            },
+            {
+              "Case": 2,
+              "OnSuccess": [
+                {
+                  "$type": "RPG.GameCore.TriggerCustomString",
+                  "CustomString": {
+                    "Value": "Sub_404010551_End"
+                  },
+                  "TaskEnabled": true
+                },
+                {
+                  "$type": "RPG.GameCore.TriggerCustomString",
+                  "CustomString": {
+                    "Value": "SubMission_404010501_End"
+                  },
+                  "TaskEnabled": true
+                }
+              ]
+            }
+          ],
+          "TaskEnabled": true,
+          "IsClientOnly": true
         }
       ]
     }
