@@ -1,0 +1,189 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "D",
+          "AreaPrefabPath": "Story/Discussion/Mission/8025112/DS802511215.prefab",
+          "CreateCharacterList": [
+            {
+              "CharacterUniqueName": "Luka_00_C00",
+              "AvatarID": "NPC_Avatar_Lad_Luka_00",
+              "AreaName": "DS802511215.prefab",
+              "TaskEnabled": true,
+              "IsClientOnly": true
+            },
+            {
+              "CharacterUniqueName": "PlayerBoy_00_C00",
+              "AvatarID": "NPC_Avatar_Lad_PlayerBoy_00",
+              "AreaName": "DS802511215.prefab",
+              "TaskEnabled": true,
+              "IsClientOnly": true
+            },
+            {
+              "CharacterUniqueName": "PlayerGirl_00_C00",
+              "AvatarID": "NPC_Avatar_Miss_PlayerGirl_00",
+              "AreaName": "DS802511215.prefab",
+              "TaskEnabled": true,
+              "IsClientOnly": true
+            }
+          ],
+          "CaptureNPCList": [],
+          "HideNPC": true,
+          "EntityVisiableList": [
+            {
+              "GroupID": 183,
+              "GroupNPCID": 400001
+            },
+            {
+              "GroupID": 183,
+              "GroupNPCID": 400002
+            }
+          ],
+          "HideMunicipalCrowd": true,
+          "HideMunicipalPedestrian": true,
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "HideProp": true,
+          "PropVisiableList": [],
+          "HideLocalPlayer": true,
+          "FirstCameraAnchor": "Camera0101",
+          "UseNewStreamingSourceType": true,
+          "StreamingSourcesInBlackMask": [],
+          "StreamingSourcesAfterBlackMask": [],
+          "MarkStreamingItems": [],
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/8025112/DS80251121501.playable",
+          "Type": "Discussion",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "TalkSentenceID": 802510822,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_802510823"
+            },
+            {
+              "TalkSentenceID": 802510824,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_802510825"
+            }
+          ],
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_802510823"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/8025112/DS80251121502.playable",
+          "Type": "Discussion",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_802510826"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_802510825"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/8025112/DS80251121503.playable",
+          "Type": "Discussion",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_802510826"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_802510826"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SwitchCharacterAnchorV2",
+          "SwitchCharacterAnchorConfig": {
+            "IsLocalPlayer": true,
+            "CharacterUniqueName": "LocalPlayer",
+            "AreaName": {
+              "Value": "LevelArea_P20231_F20231001_G1"
+            },
+            "AnchorName": {
+              "Value": "CheckPoint02"
+            },
+            "ResetAnimation": true,
+            "ResetCamera": true,
+            "TaskEnabled": true,
+            "IsClientOnly": true
+          },
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ]
+    }
+  ],
+  "Type": "PerformanceD"
+}

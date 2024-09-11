@@ -1,0 +1,91 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "D",
+          "AreaPrefabPath": "Story/Discussion/Mission/8025100/DS802510004.prefab",
+          "CreateCharacterList": [
+            {
+              "CharacterUniqueName": "W3_Lady_68_C00",
+              "AvatarID": "NPC_W3_Lady_68",
+              "AreaName": "DS802510004.prefab",
+              "TaskEnabled": true,
+              "IsClientOnly": true
+            }
+          ],
+          "CaptureNPCList": [],
+          "HideNPC": true,
+          "EntityVisiableList": [],
+          "HideMunicipalCrowd": true,
+          "HideMunicipalPedestrian": true,
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "HideProp": true,
+          "HideLocalPlayer": true,
+          "FirstCameraAnchor": "Camera0101",
+          "UseNewStreamingSourceType": true,
+          "StreamingSourcesInBlackMask": [],
+          "StreamingSourcesAfterBlackMask": [],
+          "MarkStreamingItems": [],
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/8025100/DS80251000401.playable",
+          "Type": "Discussion",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "TalkSentenceID": 802514633,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "ALL_TALK_END"
+            }
+          ],
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "ALL_TALK_END"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ]
+    }
+  ],
+  "Type": "PerformanceD"
+}

@@ -1,0 +1,133 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "D",
+          "AreaPrefabPath": "Story/Discussion/Mission/8025112/DS802511214.prefab",
+          "CreateCharacterList": [
+            {
+              "CharacterUniqueName": "Luka_00_C00",
+              "AvatarID": "NPC_Avatar_Lad_Luka_00",
+              "AreaName": "DS802511214.prefab",
+              "TaskEnabled": true,
+              "IsClientOnly": true
+            }
+          ],
+          "CaptureNPCList": [],
+          "HideNPC": true,
+          "HideMunicipalCrowd": true,
+          "HideMunicipalPedestrian": true,
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "HideProp": true,
+          "HideLocalPlayer": true,
+          "FirstCameraAnchor": "Camera0101",
+          "UseNewStreamingSourceType": true,
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/8025112/DS80251121401.playable",
+          "Type": "Discussion",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "TalkSentenceID": 802510808,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_802510811"
+            },
+            {
+              "TalkSentenceID": 802510809,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_802510810"
+            }
+          ],
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_802510810"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/8025112/DS80251121402.playable",
+          "Type": "Discussion",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_802510811"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_802510811"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/8025112/DS80251121403.playable",
+          "Type": "Discussion",
+          "Parameters": [],
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerGroupEvent",
+          "EventName": {
+            "Value": "Destroy_G220_400004"
+          },
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ]
+    }
+  ],
+  "Type": "PerformanceD"
+}

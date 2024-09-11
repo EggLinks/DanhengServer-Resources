@@ -1,0 +1,133 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "D",
+          "AreaPrefabPath": "Story/Discussion/Mission/2022305/DS202230503.prefab",
+          "CreateCharacterList": [
+            {
+              "CharacterUniqueName": "W2_LycanKing_00_C00",
+              "AvatarID": "NPC_Monster_W2_LycanKing_00",
+              "AreaName": "DS202230503.prefab",
+              "TaskEnabled": true,
+              "IsClientOnly": true
+            },
+            {
+              "CharacterUniqueName": "Feixiao_00_C00",
+              "AvatarID": "NPC_Avatar_Lady_Feixiao_00",
+              "AreaName": "DS202230503.prefab",
+              "TaskEnabled": true,
+              "IsClientOnly": true
+            },
+            {
+              "CharacterUniqueName": "Yanqing_00_C00",
+              "AvatarID": "NPC_Avatar_Boy_Yanqing_00",
+              "AreaName": "DS202230503.prefab",
+              "TaskEnabled": true,
+              "IsClientOnly": true
+            }
+          ],
+          "CaptureNPCList": [],
+          "HideNPC": true,
+          "EntityVisiableList": [],
+          "HideMunicipalCrowd": true,
+          "HideMunicipalPedestrian": true,
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "HideProp": true,
+          "HideLocalPlayer": true,
+          "FirstCameraAnchor": "Camera0101",
+          "UseNewStreamingSourceType": true,
+          "StreamingSourcesInBlackMask": [],
+          "StreamingSourcesAfterBlackMask": [],
+          "MarkStreamingItems": [],
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/2022305/DS20223050301.playable",
+          "Type": "Discussion",
+          "Parameters": [],
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "TalkSentenceID": 222350306,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "OpenRaid"
+            },
+            {
+              "TalkSentenceID": 222350307,
+              "OptionIconType": "ChatOutIcon",
+              "TriggerCustomString": "ALL_TALK_END"
+            }
+          ],
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "OpenRaid"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetPerformanceResult",
+          "Value": 1,
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "ALL_TALK_END"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ]
+    }
+  ],
+  "Type": "PerformanceD"
+}

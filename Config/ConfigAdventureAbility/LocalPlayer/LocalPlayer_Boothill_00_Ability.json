@@ -138,6 +138,7 @@
                 "OverrideShakeConfigV2": {
                   "ShakeScale": 1,
                   "ShakeTime": 0.06,
+                  "LoopTime": 1,
                   "ShakeDir": {
                     "z": -0.8,
                     "normalized": {
@@ -561,6 +562,7 @@
               "ShakeRange": 0.2,
               "PositionAmplitude": 1,
               "ShakeTime": 0.1,
+              "LoopTime": 1,
               "ShakeDistance": 20,
               "ShakeDir": {
                 "z": 0.5,
@@ -652,31 +654,19 @@
       },
       "OnStart": [
         {
-          "$type": "RPG.GameCore.PredicateTaskList",
-          "Predicate": {
-            "$type": "RPG.GameCore.ByCompareCarryMazebuff",
-            "TargetType": {
-              "$type": "RPG.GameCore.TargetAlias",
-              "Alias": "Caster"
-            },
-            "BuffID": 131503,
-            "Inverse": true,
-            "TaskEnabled": true,
-            "IsClientOnly": true
+          "$type": "RPG.GameCore.AddAdventureModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
           },
-          "SuccessTaskList": [
-            {
-              "$type": "RPG.GameCore.AddMazeBuff",
-              "TargetType": {
-                "$type": "RPG.GameCore.TargetAlias",
-                "Alias": "Caster"
-              },
-              "ID": 131503,
-              "TaskEnabled": true,
-              "IsClientOnly": true
+          "ModifierName": "ADV_StageAbility_Maze_Boothill_AfterBattle",
+          "Count": {
+            "fixedValue": {
+              "Value": -1.0000000002328306
             }
-          ],
-          "TaskEnabled": true
+          },
+          "TaskEnabled": true,
+          "IsClientOnly": true
         }
       ]
     }

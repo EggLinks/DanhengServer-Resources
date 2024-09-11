@@ -1,0 +1,141 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "D",
+          "AreaPrefabPath": "Story/Discussion/Mission/8025132/DS802513202.prefab",
+          "CreateCharacterList": [
+            {
+              "CharacterUniqueName": "W3_Lady_68_C00",
+              "AvatarID": "NPC_W3_Lady_68",
+              "AreaName": "DS802513202.prefab",
+              "TaskEnabled": true,
+              "IsClientOnly": true
+            },
+            {
+              "CharacterUniqueName": "Luka_00_C00",
+              "AvatarID": "NPC_Avatar_Lad_Luka_00",
+              "AreaName": "DS802513202.prefab",
+              "TaskEnabled": true,
+              "IsClientOnly": true
+            },
+            {
+              "CharacterUniqueName": "PlayerBoy_00_C00",
+              "AvatarID": "NPC_Avatar_Lad_PlayerBoy_00",
+              "AreaName": "DS802513202.prefab",
+              "TaskEnabled": true,
+              "IsClientOnly": true
+            },
+            {
+              "CharacterUniqueName": "PlayerGirl_00_C00",
+              "AvatarID": "NPC_Avatar_Miss_PlayerGirl_00",
+              "AreaName": "DS802513202.prefab",
+              "TaskEnabled": true,
+              "IsClientOnly": true
+            }
+          ],
+          "CaptureNPCList": [],
+          "HideNPC": true,
+          "EntityVisiableList": [],
+          "HideMunicipalCrowd": true,
+          "HideMunicipalPedestrian": true,
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "HideProp": true,
+          "HideLocalPlayer": true,
+          "FirstCameraAnchor": "Luka_Room_Close_up",
+          "UseNewStreamingSourceType": true,
+          "StreamingSourcesInBlackMask": [],
+          "StreamingSourcesAfterBlackMask": [],
+          "MarkStreamingItems": [],
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Discussion/Mission/8025132/DS80251320201.playable",
+          "Type": "Discussion",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "TalkSentenceID": 802514884,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "Confirm_Battle"
+            },
+            {
+              "TalkSentenceID": 802514885,
+              "OptionIconType": "ChatOutIcon",
+              "TriggerCustomString": "ALL_TALK_END"
+            }
+          ],
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "ALL_TALK_END"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Confirm_Battle"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetPerformanceResult",
+          "Value": 1,
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "ALL_TALK_END"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "PerformanceD"
+}
