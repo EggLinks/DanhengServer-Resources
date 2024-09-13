@@ -1,0 +1,119 @@
+{
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.ShowRogueTalkUI",
+          "Show": true,
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.ShowRogueTalkBg",
+          "TalkBgID": 421801,
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitRogueSimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 403816325,
+              "TextSpeed": 20
+            },
+            {
+              "TalkSentenceID": 403816326,
+              "TextSpeed": 20
+            },
+            {
+              "TalkSentenceID": 403816327,
+              "TextSpeed": 20
+            },
+            {
+              "TalkSentenceID": 403816328,
+              "TextSpeed": 20
+            }
+          ],
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayRogueOptionTalk",
+          "OptionList": [
+            {
+              "RogueOptionID": 421801,
+              "OptionTextmapID": {
+                "Hash": 60004418
+              },
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "triggerOpt_403816324"
+            },
+            {
+              "RogueOptionID": 421802,
+              "OptionTextmapID": {
+                "Hash": 60004415
+              },
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "triggerOpt_403816324"
+            },
+            {
+              "RogueOptionID": 421803,
+              "OptionTextmapID": {
+                "Hash": 60004416
+              },
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "triggerOpt_403816324"
+            }
+          ],
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "triggerOpt_403816324"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitRogueSimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 403816330,
+              "TextSpeed": 20
+            }
+          ],
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "ALL_TALK_END"
+          },
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "ALL_TALK_END"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ]
+    }
+  ]
+}
