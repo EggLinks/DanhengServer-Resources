@@ -148,6 +148,16 @@
           },
           "SuccessTaskList": [
             {
+              "$type": "RPG.GameCore.SetDynamicValue",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "Value": {},
+              "DynamicKey": "CDF_IsEnterBattle",
+              "TaskEnabled": true
+            },
+            {
               "$type": "RPG.GameCore.AddAdventureModifier",
               "TargetType": {
                 "$type": "RPG.GameCore.TargetAlias",
@@ -266,7 +276,10 @@
                 "GroundCheckDown": 2.5,
                 "NavMeshCheckRadius": 2,
                 "PathFindMaxLengthLimit": 10,
-                "AvoidanceRadius": 0.5
+                "AvoidanceRadius": 0.5,
+                "StepGroundCheckDist": 0.5,
+                "StepGroundCheckHeight": 1,
+                "StepGroundCheckDown": 10
               },
               "ForbidSkillMsg": true,
               "OnCreate": [
@@ -582,6 +595,20 @@
                   "ID": 122002,
                   "TaskEnabled": true,
                   "IsClientOnly": true
+                },
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "Value": {
+                    "fixedValue": {
+                      "Value": 1.0000000002328306
+                    }
+                  },
+                  "DynamicKey": "CDF_IsEnterBattle",
+                  "TaskEnabled": true
                 }
               ],
               "OnHit": [
@@ -610,9 +637,26 @@
               "IsClientOnly": true
             },
             {
-              "$type": "RPG.GameCore.EnableLocalPlayerMoveIgnoreMonster",
-              "TaskEnabled": true,
-              "IsClientOnly": true
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCompareDynamicValue",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "Caster"
+                },
+                "DynamicKey": "CDF_IsEnterBattle",
+                "CompareType": "LessEqual",
+                "CompareValue": {},
+                "TaskEnabled": true
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.EnableLocalPlayerMoveIgnoreMonster",
+                  "TaskEnabled": true,
+                  "IsClientOnly": true
+                }
+              ],
+              "TaskEnabled": true
             },
             {
               "$type": "RPG.GameCore.RemoveMazeBuff",

@@ -1,7 +1,20 @@
 {
+  "OnInitSequece": [],
   "OnStartSequece": [
     {
       "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [],
+          "MainMissionIDList": [
+            8025101
+          ],
+          "PerformanceIDList": [],
+          "PerformanceIDDsList": [],
+          "CustomValueMainMissionIDList": [],
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
         {
           "$type": "RPG.GameCore.LevelPerformanceInitialize",
           "PerformanceType": "E",
@@ -139,7 +152,14 @@
             {
               "TalkSentenceID": 502210209,
               "OptionIconType": "ChatContinueIcon",
-              "TriggerCustomString": "TalkSentence_502210210"
+              "TriggerCustomString": "TalkSentence_502210210",
+              "VisibleFilter": {
+                "$type": "RPG.GameCore.ByCompareMainMissionState",
+                "MainMissionID": 8025101,
+                "MainMissionState": "Finish",
+                "TaskEnabled": true,
+                "IsClientOnly": true
+              }
             },
             {
               "TalkSentenceID": 502210211,
