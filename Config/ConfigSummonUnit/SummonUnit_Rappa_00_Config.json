@@ -81,6 +81,7 @@
         "TargetTypes": [
           "NPCMonster"
         ],
+        "OnlyCheckFilterOnEnter": true,
         "OnTriggerEnter": [
           {
             "$type": "RPG.GameCore.AdventureTriggerTargetAbility",
@@ -123,6 +124,7 @@
           "TaskEnabled": true,
           "IsClientOnly": true
         },
+        "OnlyCheckFilterOnEnter": true,
         "OnTriggerEnter": [
           {
             "$type": "RPG.GameCore.TriggerHitTarget",
@@ -135,8 +137,9 @@
               "HitEffect": "Effects/Eff_Prefab/Eff_Avatar/Eff_Rappa_00/Eff_Avatar_Rappa_00_MazeSkill01_Hit01.prefab",
               "HitEffectHeight": 1
             },
-            "IsClientOnly": true,
-            "TaskEnabled": true
+            "OnlyHitClientTarget": true,
+            "TaskEnabled": true,
+            "IsClientOnly": true
           }
         ],
         "OnTriggerExit": [],
@@ -157,17 +160,15 @@
           "Prop"
         ],
         "TargetFilter": {
-          "$type": "RPG.GameCore.ByComparePropType",
+          "$type": "RPG.GameCore.ByIsPropLockable",
           "TargetType": {
             "$type": "RPG.GameCore.TargetAlias",
             "Alias": "ParamEntity"
           },
-          "Types": [
-            "PROP_DESTRUCT"
-          ],
           "TaskEnabled": true,
           "IsClientOnly": true
         },
+        "OnlyCheckFilterOnEnter": true,
         "OnTriggerEnter": [
           {
             "$type": "RPG.GameCore.TriggerHitProp",
