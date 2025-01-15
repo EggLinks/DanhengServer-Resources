@@ -1,0 +1,100 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "E",
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "UseNewStreamingSourceType": true,
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.AdvNpcFaceToPlayer",
+          "FromDialog": true,
+          "GroupID": 150,
+          "GroupNpcID": 400001,
+          "TryFaceToFace": true,
+          "NpcLookAtPlayer": true,
+          "PlayerLookAtNpc": true,
+          "StopLookAtOnGraphEnd": true,
+          "TurnBackOnGraphEnd": true,
+          "WaitFinishMode": "WaitFaceAngle",
+          "ForceToStandBy": true,
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 140135745
+            }
+          ],
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "TalkSentenceID": 140135746,
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TALKS_140135746"
+            }
+          ],
+          "HideSelected": true,
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TALKS_140135746"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 140135747
+            }
+          ],
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ]
+    }
+  ]
+}

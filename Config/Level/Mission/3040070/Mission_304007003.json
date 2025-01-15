@@ -1,0 +1,109 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_504048011"
+          },
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareItemNumber",
+            "ItemID": {
+              "fixedValue": {
+                "Value": 190369.00004432374
+              }
+            },
+            "Number": {
+              "fixedValue": {
+                "Value": 1.0000000002328306
+              }
+            },
+            "CompareType": "Equal",
+            "TaskEnabled": true,
+            "IsClientOnly": true
+          },
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.ClientFinishMission",
+              "SubmissionID": 304007003,
+              "TaskEnabled": true,
+              "IsClientOnly": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [],
+          "MainMissionIDList": [],
+          "PerformanceIDList": [
+            504048001
+          ],
+          "PerformanceIDDsList": [
+            {
+              "Value": "E"
+            }
+          ],
+          "CustomValueMainMissionIDList": [],
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByComparePerformance",
+            "PerformanceID_DS": {
+              "Value": "E"
+            },
+            "PerformanceID": 504048001,
+            "TaskEnabled": true,
+            "IsClientOnly": true
+          },
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCompareItemNumber",
+                "ItemID": {
+                  "fixedValue": {
+                    "Value": 190369.00004432374
+                  }
+                },
+                "Number": {
+                  "fixedValue": {
+                    "Value": 1.0000000002328306
+                  }
+                },
+                "CompareType": "Equal",
+                "TaskEnabled": true,
+                "IsClientOnly": true
+              },
+              "FailedTaskList": [
+                {
+                  "$type": "RPG.GameCore.ClientFinishMission",
+                  "SubmissionID": 304007003,
+                  "TaskEnabled": true,
+                  "IsClientOnly": true
+                }
+              ],
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Mission",
+  "EntityEventList": []
+}

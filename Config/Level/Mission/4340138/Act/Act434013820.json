@@ -1,0 +1,85 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "E",
+          "HideMunicipalOther": true,
+          "HideMonster": true,
+          "UseNewStreamingSourceType": true,
+          "ResetEnvironment": true,
+          "ResetMonster": true,
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.AdvEntityFaceTo",
+          "SourceType": {
+            "$type": "RPG.GameCore.TargetFetchAdvLocalPlayer",
+            "IncludeStoryPlayer": true
+          },
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAnchor",
+            "GroupID": 93,
+            "GroupInstanceID": 8
+          },
+          "EnableSteer": true,
+          "EnableLookAt": true,
+          "LookAtPoint": "Head",
+          "FinishImmediately": true,
+          "WaitFinishMode": "WaitAnimFinish",
+          "TurnBackOnGraphEnd": true,
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.SetFloorCustomFloat",
+          "Name": {
+            "Value": "FCV_GoldenLiquidDev_08"
+          },
+          "Value": {
+            "fixedValue": {
+              "Value": 1.0000000002328306
+            }
+          },
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "KeepDisplay": true,
+          "SimpleTalkList": [
+            {
+              "TextSpeed": 20,
+              "TalkSentenceID": 434043810,
+              "ProtectTime": 0.3
+            }
+          ],
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ]
+    }
+  ]
+}

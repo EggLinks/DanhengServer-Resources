@@ -1,0 +1,233 @@
+{
+  "GroupConfigName": "FollowField",
+  "ConfigEntityPath": "Config/ConfigEntity/SummonUnit/SummonUnit_Common_TeamField_Entity.json",
+  "TickLodTemplateName": "DefaultStaticEntity",
+  "ShoesType": "boot",
+  "Duration": {
+    "fixedValue": {
+      "Value": -1.0000000002328306
+    }
+  },
+  "OnCreate": [
+    {
+      "$type": "RPG.GameCore.DebugLog",
+      "Level": "Warn",
+      "Message": "=============OnCreate=====================",
+      "TaskEnabled": true
+    }
+  ],
+  "TriggerConfig": {
+    "CustomTriggers": [
+      {
+        "TriggerName": "HitNpcMonsterTrigger",
+        "DefaultEnable": true,
+        "Radius": {
+          "fixedValue": {
+            "Value": 4.000000000931323
+          }
+        },
+        "UseVerticalBound": true,
+        "UpperBound": 3.5,
+        "LowerBound": -1,
+        "UseSummonerAsCheckSource": true,
+        "NeedRaycast": true,
+        "RayStartOffsetY": 1,
+        "TargetTypes": [
+          "NPCMonster"
+        ],
+        "OnlyCheckFilterOnEnter": true,
+        "ColliderRelativePath": "Trigger",
+        "OnTriggerEnter": [
+          {
+            "$type": "RPG.GameCore.DebugLog",
+            "Level": "Warn",
+            "Message": "=========OnTriggerEnter===================",
+            "TaskEnabled": true
+          },
+          {
+            "$type": "RPG.GameCore.AddAdventureModifier",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetAlias",
+              "Alias": "TaskActionTarget"
+            },
+            "ModifierName": "ADV_StageAbility_Maze_Aglaea_Hit",
+            "Count": {
+              "fixedValue": {
+                "Value": 1.0000000002328306
+              }
+            },
+            "TaskEnabled": true,
+            "IsClientOnly": true
+          },
+          {
+            "$type": "RPG.GameCore.AddMazeBuff",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetAlias",
+              "Alias": "TaskActionTarget"
+            },
+            "ID": 140202,
+            "LifeTime": {
+              "fixedValue": {
+                "Value": 500.0000001164153
+              }
+            },
+            "TaskEnabled": true,
+            "IsClientOnly": true
+          }
+        ],
+        "OnTriggerExit": [
+          {
+            "$type": "RPG.GameCore.DebugLog",
+            "Level": "Warn",
+            "Message": "=========OnTriggerExit===================",
+            "TaskEnabled": true
+          },
+          {
+            "$type": "RPG.GameCore.RemoveAdventureModifier",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetAlias",
+              "Alias": "TaskActionTarget"
+            },
+            "ModifierName": "ADV_StageAbility_Maze_Aglaea_Hit",
+            "TaskEnabled": true,
+            "IsClientOnly": true
+          }
+        ],
+        "SkipFakeAvatar": true
+      },
+      {
+        "TriggerName": "HitPropTrigger",
+        "DefaultEnable": true,
+        "Radius": {
+          "fixedValue": {
+            "Value": 4.000000000931323
+          }
+        },
+        "UseVerticalBound": true,
+        "UseSummonerAsCheckSource": true,
+        "NeedRaycast": true,
+        "RayStartOffsetY": 1,
+        "TargetTypes": [
+          "Prop"
+        ],
+        "TargetFilter": {
+          "$type": "RPG.GameCore.ByIsPropLockable",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "ParamEntity"
+          },
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        "OnlyCheckFilterOnEnter": true,
+        "DontExitAfterEnter": true,
+        "OnTriggerEnter": [
+          {
+            "$type": "RPG.GameCore.TriggerHitProp",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetAlias",
+              "Alias": "TaskActionTarget"
+            },
+            "ClientMode": "PreShow",
+            "TaskEnabled": true,
+            "IsClientOnly": true
+          },
+          {
+            "$type": "RPG.GameCore.TriggerEffect",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetAlias",
+              "Alias": "TaskActionTarget"
+            },
+            "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Aglaea_00/Eff_Avatar_Aglaea_00_MazeSkill01_Hit01.prefab",
+            "AttachPoint": "SelectRoot",
+            "Scale": {
+              "x": -1,
+              "y": -1,
+              "z": -1,
+              "normalized": {
+                "x": -0.577350259,
+                "y": -0.577350259,
+                "z": -0.577350259,
+                "normalized": {
+                  "x": -0.5773503,
+                  "y": -0.5773503,
+                  "z": -0.5773503,
+                  "magnitude": 1.00000012,
+                  "sqrMagnitude": 1.00000024
+                },
+                "magnitude": 0.99999994,
+                "sqrMagnitude": 0.99999994
+              },
+              "magnitude": 1.73205078,
+              "sqrMagnitude": 3
+            },
+            "IsNeedFadeIn": true,
+            "ParamEntityUsage": "LookAt",
+            "TowardMaxPitchAngle": 90,
+            "MaxMutexCount": 1,
+            "TaskEnabled": true,
+            "IsClientOnly": true
+          }
+        ],
+        "OnTriggerExit": [],
+        "OnTriggerEnterRollback": [
+          {
+            "$type": "RPG.GameCore.PropDestructReset",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetAlias",
+              "Alias": "TaskActionTarget"
+            },
+            "TaskEnabled": true,
+            "IsClientOnly": true
+          }
+        ],
+        "SkipFakeAvatar": true
+      },
+      {
+        "TriggerName": "HitNPCTrigger",
+        "DefaultEnable": true,
+        "Radius": {
+          "fixedValue": {
+            "Value": 4.000000000931323
+          }
+        },
+        "UseVerticalBound": true,
+        "UseSummonerAsCheckSource": true,
+        "NeedRaycast": true,
+        "RayStartOffsetY": 1,
+        "TargetTypes": [
+          "NPC"
+        ],
+        "TargetFilter": {
+          "$type": "RPG.GameCore.ByTargetHitBoxActive",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "ParamEntity"
+          },
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        "OnlyCheckFilterOnEnter": true,
+        "OnTriggerEnter": [
+          {
+            "$type": "RPG.GameCore.TriggerHitTarget",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetAlias",
+              "Alias": "TaskActionTarget"
+            },
+            "HitConfig": {
+              "HitAnimation": "Hit",
+              "HitEffect": "Effects/Eff_Prefab/Eff_Avatar/Eff_Aglaea_00/Eff_Avatar_Aglaea_00_MazeSkill01_Hit01.prefab",
+              "HitEffectHeight": 1
+            },
+            "OnlyHitClientTarget": true,
+            "TaskEnabled": true,
+            "IsClientOnly": true
+          }
+        ],
+        "OnTriggerExit": [],
+        "SkipFakeAvatar": true
+      }
+    ]
+  }
+}
