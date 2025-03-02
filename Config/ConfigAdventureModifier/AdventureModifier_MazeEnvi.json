@@ -1,0 +1,242 @@
+{
+  "ModifierMap": {
+    "ADV_LevelAbilityModifier_2013201": {
+      "LifeTime": -1.0,
+      "Level": 1,
+      "LevelMax": 1,
+      "IsCountDownAfterBattle": true,
+      "ApplyBehaviorFlagBindEffects": true,
+      "TickInterval": 1.0,
+      "Count": -1,
+      "Stacking": "Unique"
+    },
+    "ADV_LevelAbilityModifier_2013202": {
+      "LifeTime": -1.0,
+      "Level": 1,
+      "LevelMax": 1,
+      "IsCountDownAfterBattle": true,
+      "ApplyBehaviorFlagBindEffects": true,
+      "TickInterval": 1.0,
+      "OnCreate": [
+        {
+          "$type": "RPG.GameCore.Retarget",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AllEnemy"
+          },
+          "Predicate": {
+            "$type": "RPG.GameCore.AdventureByNPCMonsterPurposeType",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetAlias",
+              "Alias": "ParamEntity"
+            },
+            "TaskEnabled": true,
+            "IsClientOnly": true
+          },
+          "ByRandom": true,
+          "MaxNumber": {
+            "fixedValue": {
+              "RawValue": -4294967296
+            }
+          },
+          "TaskList": [
+            {
+              "$type": "RPG.GameCore.AddClientMazeBuff",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ParamEntity"
+              },
+              "ID": 2013201,
+              "TaskEnabled": true,
+              "IsClientOnly": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ],
+      "OnNpcMonsterCreate": [
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.AdventureByNPCMonsterPurposeType",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetAlias",
+              "Alias": "ParamEntity"
+            },
+            "TaskEnabled": true,
+            "IsClientOnly": true
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.AddClientMazeBuff",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ParamEntity"
+              },
+              "ID": 2013201,
+              "TaskEnabled": true,
+              "IsClientOnly": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ],
+      "Count": -1,
+      "Stacking": "Unique"
+    },
+    "ADV_LevelAbilityModifier_MazeEnviProp_2023301": {
+      "LifeTime": -1.0,
+      "Level": 1,
+      "LevelMax": 1,
+      "IsCountDownAfterBattle": true,
+      "ApplyBehaviorFlagBindEffects": true,
+      "TickInterval": 1.0,
+      "OnCreate": [
+        {
+          "$type": "RPG.GameCore.AdventureModifyTeamPlayerHP",
+          "AddRatio": {
+            "fixedValue": {
+              "RawValue": 4294967296
+            }
+          },
+          "ModifyFunction": "Add",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ],
+      "OnAfterBattle": [
+        {
+          "$type": "RPG.GameCore.AdventureModifyTeamPlayerHP",
+          "AddRatio": {
+            "fixedValue": {
+              "RawValue": 4294967296
+            }
+          },
+          "ModifyFunction": "Add",
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ],
+      "Count": -1,
+      "Stacking": "Unique"
+    },
+    "ADV_LevelAbilityModifier_MazeEnviProp_2010011": {
+      "LifeTime": -1.0,
+      "Level": 1,
+      "LevelMax": 1,
+      "IsCountDownAfterBattle": true,
+      "ApplyBehaviorFlagBindEffects": true,
+      "TickInterval": 1.0,
+      "OnAfterBattle": [
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByIsLastBattleWin",
+            "TaskEnabled": true
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.SetAdventureDynamicValue",
+              "TaskEnabled": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ],
+      "Count": -1,
+      "Stacking": "Unique"
+    },
+    "ADV_LevelAbilityModifier_MazeEnviProp_2020011": {
+      "LifeTime": -1.0,
+      "Level": 1,
+      "LevelMax": 1,
+      "IsCountDownAfterBattle": true,
+      "ApplyBehaviorFlagBindEffects": true,
+      "TickInterval": 1.0,
+      "OnAdd": [
+        {
+          "$type": "RPG.GameCore.ToastPage",
+          "Type": "MazeEnvBuffToast",
+          "MessageOne": {
+            "Hash": -2068117407,
+            "Hash64": 2689372482890048927
+          },
+          "MessageTwo": {
+            "Hash": 1354018532,
+            "Hash64": 13013349132478528449
+          },
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ],
+      "Count": -1,
+      "Stacking": "Unique"
+    },
+    "ADV_LevelAbilityModifier_MazeEnviProp_2020012": {
+      "LifeTime": -1.0,
+      "Level": 1,
+      "LevelMax": 1,
+      "IsCountDownAfterBattle": true,
+      "ApplyBehaviorFlagBindEffects": true,
+      "TickInterval": 1.0,
+      "OnCreate": [
+        {
+          "$type": "RPG.GameCore.ModifierAttachEffect",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "ModifierOwnerEntity"
+          },
+          "EffectPath": "Effects/Eff_Prefab/Eff_Scene/Interactive Object/Eff_Chap02_MAZ_ContaminateTree_MonsterBuff01.prefab",
+          "AttachPoint": "EffectScale",
+          "MinMutexTime": -1.0,
+          "MutexType": "Entity",
+          "MaxMutexCount": 1,
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        }
+      ],
+      "Count": 1,
+      "Stacking": "Unique"
+    },
+    "ADV_LevelAbilityModifier_MazeEnviProp_2020013": {
+      "LifeTime": -1.0,
+      "Level": 1,
+      "LevelMax": 1,
+      "IsCountDownAfterBattle": true,
+      "ApplyBehaviorFlagBindEffects": true,
+      "TickInterval": 1.0,
+      "Count": -1,
+      "Stacking": "Unique"
+    },
+    "ADV_StageAbility_MazeModifier_BattleEvent60010": {
+      "LifeTime": -1.0,
+      "Level": 1,
+      "LevelMax": 1,
+      "IsCountDownAfterBattle": true,
+      "ApplyBehaviorFlagBindEffects": true,
+      "TickInterval": 1.0,
+      "Count": -1,
+      "Stacking": "Unique"
+    },
+    "ADV_StageAbility_MazeModifier_Stage20312050": {
+      "LifeTime": -1.0,
+      "Level": 1,
+      "LevelMax": 1,
+      "IsCountDownAfterBattle": true,
+      "ApplyBehaviorFlagBindEffects": true,
+      "TickInterval": 1.0,
+      "OnAfterBattle": [
+        {
+          "$type": "RPG.GameCore.SetDynamicValueByStatisticCustomValue",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetDynamicValueByStatisticCustomValue",
+          "TaskEnabled": true
+        }
+      ],
+      "Count": -1,
+      "Stacking": "Unique"
+    }
+  }
+}

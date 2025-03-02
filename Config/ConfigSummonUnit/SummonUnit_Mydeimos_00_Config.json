@@ -1,0 +1,120 @@
+{
+  "GroupConfigName": "StaticUnit",
+  "ConfigEntityPath": "Config/ConfigEntity/SummonUnit/SummonUnit_Common_TeamField_Entity.json",
+  "TickLodTemplateName": "DefaultStaticEntity",
+  "ShoesType": "boot",
+  "Duration": {
+    "fixedValue": {
+      "RawValue": -4294967296
+    }
+  },
+  "TriggerConfig": {
+    "CustomTriggers": [
+      {
+        "TriggerName": "GatheringRange",
+        "Radius": {
+          "fixedValue": {
+            "RawValue": 42949672960
+          }
+        },
+        "UseVerticalBound": true,
+        "NeedNavmeshCheck": true,
+        "RayStartOffsetY": 1.0,
+        "TargetTypes": [
+          "NPCMonster"
+        ],
+        "OnlyCheckFilterOnEnter": true,
+        "DontExitAfterEnter": true,
+        "OnTriggerEnter": [
+          {
+            "$type": "RPG.GameCore.TriggerHitTarget",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetAlias",
+              "Alias": "TaskActionTarget"
+            },
+            "HitConfig": {
+              "HitAnimation": "Hit_H",
+              "HitEffect": "Effects/Eff_Prefab/Eff_Avatar/Eff_Mydeimos_00/Eff_Avatar_Mydeimos_00_MazeSkill_Hit.prefab",
+              "HitEffectHeight": 1.2
+            },
+            "TaskEnabled": true,
+            "IsClientOnly": true
+          }
+        ],
+        "SkipFakeAvatar": true
+      },
+      {
+        "TriggerName": "HitPropTrigger",
+        "Radius": {
+          "fixedValue": {
+            "RawValue": 42949672960
+          }
+        },
+        "UseVerticalBound": true,
+        "NeedRaycast": true,
+        "RayStartOffsetY": 1.0,
+        "TargetTypes": [
+          "Prop"
+        ],
+        "TargetFilter": {
+          "$type": "RPG.GameCore.ByIsPropLockable",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "ParamEntity"
+          },
+          "TaskEnabled": true,
+          "IsClientOnly": true
+        },
+        "OnlyCheckFilterOnEnter": true,
+        "DontExitAfterEnter": true,
+        "OnTriggerEnter": [
+          {
+            "$type": "RPG.GameCore.TriggerHitProp",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetAlias",
+              "Alias": "TaskActionTarget"
+            },
+            "ClientMode": "PreShow",
+            "HitConfig": {
+              "HitAnimation": "Hit",
+              "HitEffect": "Effects/Eff_Prefab/Eff_Avatar/Eff_Mydeimos_00/Eff_Avatar_Mydeimos_00_MazeSkill_Hit.prefab",
+              "HitEffectHeight": 1.0
+            },
+            "TaskEnabled": true,
+            "IsClientOnly": true
+          }
+        ],
+        "OnTriggerExit": [],
+        "OnTriggerEnterRollback": [
+          {
+            "$type": "RPG.GameCore.PropDestructReset",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetAlias",
+              "Alias": "TaskActionTarget"
+            },
+            "TaskEnabled": true,
+            "IsClientOnly": true
+          }
+        ],
+        "SkipFakeAvatar": true
+      }
+    ]
+  },
+  "GatherConfig": {
+    "RegionOffset": -4.0,
+    "RegionRadius": 4.0,
+    "ConstraintRadius": 8.0,
+    "UpdateOnce": true,
+    "CentripetalSpeedCurve": "Camera/BlendCurve/BlendCut_1220_MazeCentripetalSpeed.asset",
+    "CentripetalFactorX": 12.0,
+    "CentripetalFactorY": 100.0,
+    "TangentSpeedCurve": "Camera/BlendCurve/BlendCut_1220_MazeTangentSpeed.asset",
+    "TangentSpeedFactorX": 40.0,
+    "MinRadius": 1.0,
+    "MaxRadius": 2.0,
+    "RingCount": 2,
+    "IsClockwise": true,
+    "CollideIgnorePlayer": true,
+    "ForAttack": true
+  }
+}

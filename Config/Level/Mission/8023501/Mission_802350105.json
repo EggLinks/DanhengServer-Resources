@@ -4,11 +4,41 @@
     {
       "TaskList": [
         {
-          "$type": "RPG.GameCore.SetTrackingMission",
-          "MainMissionID": 8023501,
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [],
+          "MainMissionIDList": [
+            8031301
+          ],
+          "PerformanceIDList": [],
+          "PerformanceIDDsList": [],
+          "CustomValueMainMissionIDList": [],
           "TaskEnabled": true,
           "IsClientOnly": true
         },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareMainMissionState",
+            "MainMissionID": 8031301,
+            "MainMissionState": "Started",
+            "Inverse": true,
+            "TaskEnabled": true,
+            "IsClientOnly": true
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.SetTrackingMission",
+              "MainMissionID": 8023501,
+              "TaskEnabled": true,
+              "IsClientOnly": true
+            }
+          ],
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
         {
           "$type": "RPG.GameCore.WaitCustomString",
           "CustomString": {

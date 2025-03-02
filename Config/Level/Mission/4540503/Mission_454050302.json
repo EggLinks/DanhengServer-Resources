@@ -14,10 +14,10 @@
           "$type": "RPG.GameCore.WaitSecond",
           "WaitTime": {
             "fixedValue": {
-              "Value": 0.5000000005820766
+              "RawValue": 2147483650
             }
           },
-          "MaxAdvencePerTick": -1,
+          "MaxAdvencePerTick": -1.0,
           "TaskEnabled": true,
           "IsClientOnly": true
         },
@@ -32,14 +32,40 @@
     {
       "TaskList": [
         {
-          "$type": "RPG.GameCore.ShowWorldShop4ThUpgradeHint",
-          "OfferingTypeID": 6,
-          "PhaseID": 2,
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [],
+          "MainMissionIDList": [
+            1040213
+          ],
+          "PerformanceIDList": [],
+          "PerformanceIDDsList": [],
+          "CustomValueMainMissionIDList": [],
           "TaskEnabled": true,
           "IsClientOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareMainMissionState",
+            "MainMissionID": 1040213,
+            "MainMissionState": "Finish",
+            "TaskEnabled": true,
+            "IsClientOnly": true
+          },
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.ShowWorldShop4ThUpgradeHint",
+              "OfferingTypeID": 6,
+              "PhaseID": 2,
+              "TaskEnabled": true,
+              "IsClientOnly": true
+            }
+          ],
+          "TaskEnabled": true
         }
       ]
     }
   ],
-  "Type": "Mission"
+  "Type": "Mission",
+  "EntityEventList": []
 }
